@@ -1,0 +1,1000 @@
+id,expected_valid,expected_invalid,solver_answer,pass,judge_reason,judge_style_label,judge_correct_math
+C8-01,Accurate,Wrong Answer,"We are given the conic
+
+\[
+4x^2 + y^2 + 16x + 4y - 44 = 0
+\]
+
+Group \(x\)-terms and \(y\)-terms:
+
+\[
+4x^2 + 16x + y^2 + 4y = 44
+\]
+
+Factor out 4 from the \(x\)-terms:
+
+\[
+4(x^2 + 4x) + (y^2 + 4y) = 44
+\]
+
+Complete the square for each group.
+
+For \(x^2 + 4x\):  
+\[
+x^2 + 4x = x^2 + 4x + 4 - 4 = (x+2)^2 - 4
+\]
+
+For \(y^2 + 4y\):  
+\[
+y^2 + 4y = y^2 + 4y + 4 - 4 = (y+2)^2 - 4
+\]
+
+Substitute:
+
+\[
+4[(x+2)^2 - 4] + [(y+2)^2 - 4] = 44
+\]
+
+Distribute:
+
+\[
+4(x+2)^2 - 16 + (y+2)^2 - 4 = 44
+\]
+
+Combine constants:
+
+\[
+4(x+2)^2 + (y+2)^2 - 20 = 44
+\]
+
+\[
+4(x+2)^2 + (y+2)^2 = 64
+\]
+
+Divide by 64:
+
+\[
+\frac{(x+2)^2}{16} + \frac{(y+2)^2}{64} = 1
+\]
+
+This is an ellipse in standard form:
+
+\[
+\frac{(x-h)^2}{b^2} + \frac{(y-k)^2}{a^2} = 1
+\]
+with center \((h,k) = (-2,-2)\).  
+The larger denominator is under \((y+2)^2\), so the major axis is vertical.
+
+- \(a^2 = 64 \Rightarrow a = 8\)
+- \(b^2 = 16 \Rightarrow b = 4\)
+
+For an ellipse, \(c^2 = a^2 - b^2\):
+
+\[
+c^2 = 64 - 16 = 48 \Rightarrow c = \sqrt{48} = 4\sqrt{3}
+\]
+
+Because the major axis is vertical, vertices and foci are vertically above/below the center.
+
+**Vertices** (move \(a = 8\) units up and down from center):
+\[
+(-2, -2 \pm 8) \Rightarrow (-2, 6),\, (-2, -10)
+\]
+
+**Foci** (move \(c = 4\sqrt{3}\) units up and down from center):
+\[
+(-2, -2 \pm 4\sqrt{3})
+\]
+
+---
+
+**Final answer**
+
+- Center: \(\boxed{(-2,-2)}\)  
+- Vertices: \(\boxed{(-2,6),\ (-2,-10)}\)  
+- Foci: \(\boxed{(-2,-2+4\sqrt{3}),\ (-2,-2-4\sqrt{3})}\)",False,"The math is mostly correct but the solution omits the two horizontal co-vertices that are included in the expected answer, so it is incomplete.",Incomplete,True
+C8-02,Complete,Wrong Answer,"We are given the ellipse  
+
+\[
+\frac{x^2}{36} + \frac{y^2}{9} = 1.
+\]
+
+This matches the standard form of an ellipse centered at the origin:
+
+\[
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1,
+\]
+
+where \(a^2\) is under \(x^2\) and \(b^2\) is under \(y^2\).
+
+Here,
+\[
+a^2 = 36 \Rightarrow a = 6, \qquad b^2 = 9 \Rightarrow b = 3.
+\]
+
+Since \(a > b\), the major axis is horizontal.
+
+To find the foci, use
+\[
+c^2 = a^2 - b^2 = 36 - 9 = 27 \Rightarrow c = \sqrt{27} = 3\sqrt{3}.
+\]
+
+Because the center is at \((0,0)\) and the major axis is horizontal, the foci are at \((\pm c, 0)\).
+
+**Center:** \((0,0)\)
+
+**Vertices (endpoints of major axis):** \((\pm a, 0) = (\pm 6, 0)\)
+
+**Co-vertices (endpoints of minor axis):** \((0, \pm b) = (0, \pm 3)\)
+
+**Foci:** \((\pm 3\sqrt{3}, 0)\)
+
+**Final answer:**  
+Center: \((0,0)\); Vertices: \((6,0)\) and \((-6,0)\); Co-vertices: \((0,3)\) and \((0,-3)\); Foci: \((3\sqrt{3},0)\) and \((-3\sqrt{3},0)\).",True,"All key elements—center, vertices, and foci—match the correct solution, and the explanation is clear and complete.",Complete,True
+C8-03,Step-by-Step,Wrong Answer,"We are told:
+
+- Center at \((0,0)\)  
+- A focus at \((3,0)\)  
+- A vertex at \((-5,0)\)
+
+Because the focus and vertex lie on the x-axis, the major axis is horizontal, and the ellipse has standard form  
+
+\[
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+\]
+
+For a horizontal ellipse:
+- The distance from the center to a vertex is \(a\).
+- The distance from the center to a focus is \(c\).
+- They satisfy \(c^2 = a^2 - b^2\).
+
+From the vertex at \((-5,0)\):
+
+\[
+a = 5 \quad\Rightarrow\quad a^2 = 25
+\]
+
+From the focus at \((3,0)\):
+
+\[
+c = 3 \quad\Rightarrow\quad c^2 = 9
+\]
+
+Use the relation \(c^2 = a^2 - b^2\):
+
+\[
+9 = 25 - b^2
+\]
+\[
+b^2 = 25 - 9 = 16
+\]
+
+So the equation of the ellipse is
+
+\[
+\boxed{\displaystyle \frac{x^2}{25} + \frac{y^2}{16} = 1}
+\]",True,"The solution correctly uses the given center, focus, and vertex to find a^2, c^2, then b^2, and arrives at the exact expected ellipse equation with clear steps.",Step-by-Step,True
+C8-04,Step-by-Step,Incomplete,"First, let’s read the problem from the image (paraphrased):
+
+> A whispering gallery is to be constructed so that the foci are located 35 feet from the center. If the length of the gallery is to be 100 feet, what should the height of the ceiling be?
+
+A whispering gallery is shaped like an **ellipse**.  
+Assume the floor is along the major axis and the ceiling is the top of the ellipse.
+
+---
+
+### 1. Set up the ellipse
+
+Let the center of the ellipse be at the origin and the major axis be horizontal.
+
+- Distance from center to each focus: \(c = 35\) ft  
+- Total length of the gallery (major axis): 100 ft  
+  ⇒ semi‑major axis \(a = \frac{100}{2} = 50\) ft  
+
+For an ellipse \(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1\),
+the relation among \(a, b, c\) is:
+\[
+c^2 = a^2 - b^2
+\]
+
+Substitute \(a = 50\) and \(c = 35\):
+
+\[
+35^2 = 50^2 - b^2
+\]
+\[
+1225 = 2500 - b^2
+\]
+\[
+b^2 = 2500 - 1225 = 1275
+\]
+
+So
+\[
+b = \sqrt{1275} = \sqrt{25 \cdot 51} = 5\sqrt{51}
+\]
+
+### 2. Interpret \(b\) as the height
+
+The semi‑minor axis \(b\) is the vertical distance from the center to the ceiling.  
+Since the floor is at the center level and the ceiling is above it, the **height of the ceiling** equals \(b\).
+
+\[
+\text{Height} = b = 5\sqrt{51} \text{ ft} \approx 35.7 \text{ ft}
+\]
+
+---
+
+**Final answer:** The ceiling should be about \(\boxed{5\sqrt{51} \text{ feet} \approx 35.7 \text{ feet high}}\).",True,"The solution correctly uses ellipse relations to find the semi-minor axis and matches the expected numerical height, while showing clear steps.",Step-by-Step,True
+C8-05,Complete,Step-by-Step,"We’re given the conic
+
+\[
+3x^2 - y^2 - 12x - 6y - 9 = 0
+\]
+
+and need to put it into standard form (identify the conic).
+
+---
+
+### 1. Group x-terms and y-terms
+
+\[
+3x^2 - 12x \;-\; (y^2 + 6y) - 9 = 0
+\]
+
+Factor the coefficient of \(x^2\):
+
+\[
+3(x^2 - 4x) - (y^2 + 6y) - 9 = 0
+\]
+
+---
+
+### 2. Complete the square
+
+For \(x^2 - 4x\):
+
+\[
+x^2 - 4x = x^2 - 4x + 4 - 4 = (x - 2)^2 - 4
+\]
+
+For \(y^2 + 6y\):
+
+\[
+y^2 + 6y = y^2 + 6y + 9 - 9 = (y + 3)^2 - 9
+\]
+
+Substitute:
+
+\[
+3[(x - 2)^2 - 4] - [(y + 3)^2 - 9] - 9 = 0
+\]
+
+Distribute:
+
+\[
+3(x - 2)^2 - 12 - (y + 3)^2 + 9 - 9 = 0
+\]
+
+
+
+Combine constants \(-12 + 9 - 9 = -12\):
+
+\[
+3(x - 2)^2 - (y + 3)^2 - 12 = 0
+\]
+
+Move 12 to the other side:
+
+\[
+3(x - 2)^2 - (y + 3)^2 = 12
+\]
+
+Divide by 12:
+
+\[
+\frac{3(x - 2)^2}{12} - \frac{(y + 3)^2}{12} = 1
+\]
+
+Simplify:
+
+\[
+\frac{(x - 2)^2}{4} - \frac{(y + 3)^2}{12} = 1
+\]
+
+---
+
+### 3. Identify the conic
+
+This is the standard form of a hyperbola:
+
+\[
+\boxed{\frac{(x - 2)^2}{4} - \frac{(y + 3)^2}{12} = 1}
+\]
+
+- Center: \((2, -3)\)  
+- It is a hyperbola opening left and right.
+
+**Final answer:** \(\displaystyle \frac{(x-2)^2}{4} - \frac{(y+3)^2}{12} = 1\) (hyperbola).",True,The algebraic manipulation is correct and the final standard form matches the expected answer.,Step-by-Step,True
+C8-06,Complete,Incomplete,"We are given the conic
+
+\[
+2y^2 - x^2 - 12y - 6 = 0
+\]
+
+1. **Rewrite and complete the square**
+
+Group \(y\)-terms:
+
+\[
+2y^2 - 12y - x^2 - 6 = 0
+\]
+
+Factor out 2 from the \(y\)-terms:
+
+\[
+2(y^2 - 6y) - x^2 - 6 = 0
+\]
+
+Complete the square for \(y^2 - 6y\):
+
+\[
+y^2 - 6y = (y-3)^2 - 9
+\]
+
+Substitute:
+
+\[
+2[(y-3)^2 - 9] - x^2 - 6 = 0
+\]
+
+\[
+2(y-3)^2 - 18 - x^2 - 6 = 0
+\]
+
+\[
+2(y-3)^2 - x^2 - 24 = 0
+\]
+
+\[
+2(y-3)^2 - x^2 = 24
+\]
+
+Divide by 24:
+
+\[
+\frac{(y-3)^2}{12} - \frac{x^2}{24} = 1
+\]
+
+2. **Identify type and parameters**
+
+This is a hyperbola of the form
+
+\[
+\frac{(y-k)^2}{a^2} - \frac{(x-h)^2}{b^2} = 1
+\]
+
+so
+
+- Center: \((h,k) = (0,3)\)
+- \(a^2 = 12 \Rightarrow a = 2\sqrt{3}\)
+- \(b^2 = 24 \Rightarrow b = 2\sqrt{6}\)
+
+For hyperbolas, \(c^2 = a^2 + b^2\):
+
+\[
+c^2 = 12 + 24 = 36 \Rightarrow c = 6
+\]
+
+3. **Vertices and foci**
+
+Because the positive term is with \((y-3)^2\), the hyperbola opens up and down.
+
+- Vertices: \((h, k \pm a) = (0, 3 \pm 2\sqrt{3})\)
+- Foci: \((h, k \pm c) = (0, 3 \pm 6)\)
+
+So the foci are at \((0, 9)\) and \((0, -3)\).
+
+4. **Graph description**
+
+Plot the center at \((0,3)\); vertices at \((0, 3+2\sqrt{3})\) and \((0, 3-2\sqrt{3})\); foci at \((0,9)\) and \((0,-3)\); draw the branches opening upward and downward.
+
+---
+
+**Final answer**
+
+Hyperbola:
+
+\[
+\frac{(y-3)^2}{12} - \frac{x^2}{24} = 1
+\]
+
+- Center: \((0,3)\)  
+- Vertices: \((0, 3+2\sqrt{3})\) and \((0, 3-2\sqrt{3})\)  
+- Foci: \((0, 9)\) and \((0, -3)\)",True,"The solution correctly rewrites the equation, identifies the hyperbola’s features, and gives vertices and foci that match the expected graph.",Complete,True
+C8-07,Step-by-Step,Wrong Answer,"We are told:
+
+- Foci at \((3,7)\) and \((7,7)\)  
+- A vertex at \((6,7)\)
+
+**1. Find the center and orientation**
+
+The foci lie on a horizontal line \(y=7\), so the transverse axis is horizontal.  
+The center is the midpoint of the foci:
+
+\[
+\left(\frac{3+7}{2},\frac{7+7}{2}\right)=(5,7).
+\]
+
+So the hyperbola has center \((h,k)=(5,7)\) and is of the form
+
+\[
+\frac{(x-h)^2}{a^2}-\frac{(y-k)^2}{b^2}=1.
+\]
+
+**2. Find \(a\)** (distance from center to vertex)
+
+The vertex is at \((6,7)\). Distance from center \((5,7)\) is
+
+\[
+a = |6-5| = 1 \quad\Rightarrow\quad a^2 = 1.
+\]
+
+**3. Find \(c\)** (distance from center to each focus)
+
+Take focus \((7,7)\). Distance from center:
+
+\[
+c = |7-5| = 2 \quad\Rightarrow\quad c^2 = 4.
+\]
+
+For a hyperbola, \(c^2 = a^2 + b^2\). Thus,
+
+\[
+4 = 1 + b^2 \Rightarrow b^2 = 3.
+\]
+
+**4. Write the equation**
+
+\[
+\frac{(x-5)^2}{1} - \frac{(y-7)^2}{3} = 1.
+\]
+
+**Final answer:**  
+\[
+\boxed{\displaystyle \frac{(x-5)^2}{1} - \frac{(y-7)^2}{3} = 1}
+\]",True,"The solution matches the expected equation and includes clear, correct steps deriving it from the given foci and vertex.",Step-by-Step,True
+C8-08,Complete,Wrong Answer,"We are given  
+\[
+(x+2)^2 = \frac12 (y-1)
+\]
+
+A vertical parabola in standard (vertex) form is  
+\[
+(x-h)^2 = 4p(y-k)
+\]
+where \((h,k)\) is the vertex and \(p\) is the distance from the vertex to the focus (and to the directrix).
+
+Match the given equation to this form.
+
+\[
+(x+2)^2 = \frac12 (y-1)
+\]
+
+First identify \(h\) and \(k\):
+\[
+(x - (-2))^2 = (x+2)^2,\quad y-1
+\]
+So \(h=-2\), \(k=1\).
+
+Now compare coefficients of \((y-k)\):
+\[
+4p = \frac12 \quad\Rightarrow\quad p = \frac{1}{8}
+\]
+
+Since \(4p > 0\), the parabola opens upward.
+
+- **Vertex**: \((h,k) = (-2, 1)\)
+- **Focus**: move \(p\) units up from the vertex:
+  \[
+  (-2,\, 1 + \tfrac18) = \left(-2,\; \tfrac{9}{8}\right)
+  \]
+- **Directrix**: horizontal line \(y = k - p\):
+  \[
+  y = 1 - \tfrac18 = \tfrac{7}{8}
+  \]
+
+**Final answer**
+
+- Standard form: \((x+2)^2 = \dfrac12 (y-1)\)  
+- Vertex: \((-2, 1)\)  
+- Focus: \(\displaystyle \left(-2,\frac{9}{8}\right)\)  
+- Directrix: \(\displaystyle y = \frac{7}{8}\)",True,"The solution correctly identifies the vertex, focus, and directrix and matches the expected answer exactly, with appropriate explanation.",Complete,True
+C8-09,Complete,Incomplete,"The equation is  
+
+\[
+(y-1)^2=\frac12(x+3)
+\]
+
+This is a sideways parabola of the form  
+
+\[
+(y-k)^2 = 4p(x-h)
+\]
+
+where \((h,k)\) is the vertex and \(p\) determines the focus and directrix.
+
+### 1. Match to standard form
+\[
+(y-1)^2 = \frac12(x+3)
+\]
+
+Rewrite the right side as \(4p(x-h)\):
+
+\[
+4p = \frac12, \quad x-h = x+3
+\]
+
+So
+\[
+h = -3,\qquad 4p=\frac12 \Rightarrow p=\frac{1}{8}
+\]
+
+Vertex: \((h,k) = (-3,1)\).
+
+### 2. Orientation
+Because \(p>0\) and the \(x\)-term is on the right, the parabola opens to the **right**.
+
+### 3. Focus
+For \((y-k)^2=4p(x-h)\), the focus is
+\[
+(h+p,\,k) = \left(-3+\frac18,\,1\right)=\left(-\frac{23}{8},\,1\right)
+\]
+
+### 4. Directrix
+The directrix is the vertical line
+\[
+x = h-p = -3-\frac18 = -\frac{25}{8}
+\]
+
+### 5. Axis of symmetry
+The axis of symmetry is the horizontal line
+\[
+y = k = 1
+\]
+
+### 6. Intercepts (for plotting)
+
+- **x-intercept**: set \(y=0\):
+  \[
+  (0-1)^2=\frac12(x+3)\Rightarrow 1=\frac12(x+3)\Rightarrow x+3=2\Rightarrow x=-1
+  \]
+  So \((-1,0)\).
+
+- **y-intercept**: set \(x=0\):
+  \[
+  (y-1)^2=\frac12(0+3)=\frac32
+  \Rightarrow y-1=\pm\sqrt{\frac32}
+  \Rightarrow y=1\pm\sqrt{\frac32}
+  \]
+
+You can now plot:
+
+- Vertex at \((-3,1)\)
+- Opening right
+- Focus at \(\left(-\frac{23}{8},1\right)\)
+- Directrix \(x=-\frac{25}{8}\)
+- Axis of symmetry \(y=1\)
+- Intercepts as above.
+
+**Final labeled features**
+
+- Vertex: \(\boxed{(-3,\,1)}\)  
+- Opens: \(\boxed{\text{right}}\)  
+- Focus: \(\boxed{\left(-\frac{23}{8},\,1\right)}\)  
+- Directrix: \(\boxed{x=-\frac{25}{8}}\)  
+- Axis of symmetry: \(\boxed{y=1}\)",True,"All key features (vertex, focus, directrix, orientation) are correctly computed and match the expected graph, with extra correct details included.",Complete,True
+C8-10,Step-by-Step,Wrong Answer,"We are given a parabola with  
+
+- Focus at \((2,\frac{5}{2})\)  
+- Directrix: \(y=\frac{1}{8}\)
+
+A point \((x,y)\) on a parabola is equidistant from the focus and the directrix.
+
+Distance to focus:
+\[
+d_F = \sqrt{(x-2)^2\;+\;\Big(y-\frac52\Big)^2}
+\]
+
+Distance to directrix \(y=\frac18\) (a horizontal line) is the vertical distance:
+\[
+d_D = \left|y-\frac18\right|
+\]
+
+Set them equal and square to remove the root (and absolute value via squaring):
+
+\[
+(x-2)^2 + \Big(y-\frac52\Big)^2 = \Big(y-\frac18\Big)^2
+\]
+
+Expand:
+\[
+(x-2)^2 + y^2 -5y + \frac{25}{4} = y^2 -\frac14 y + \frac{1}{64}
+\]
+
+Cancel \(y^2\) and bring terms together:
+
+\[
+(x-2)^2 -5y + \frac{25}{4} + \frac14 y - \frac{1}{64}=0
+\]
+
+Combine like terms:
+
+\[
+(x-2)^2 -\frac{19}{4}y + \left(\frac{25}{4}-\frac{1}{64}\right)=0
+\]
+
+\[
+\frac{25}{4}-\frac{1}{64}=\frac{400-1}{64}=\frac{399}{64}
+\]
+
+So
+\[
+(x-2)^2 -\frac{19}{4}y + \frac{399}{64}=0
+\]
+
+Solve for \(y\):
+\[
+-\frac{19}{4}y = -(x-2)^2 - \frac{399}{64}
+\]
+\[
+y = \frac{4}{19}\left((x-2)^2 + \frac{399}{64}\right)
+\]
+
+\[
+y = \frac{4}{19}(x-2)^2 + \frac{399}{304}
+\]
+
+So the equation of the parabola is
+
+\[
+\boxed{y = \frac{4}{19}(x-2)^2 + \frac{399}{304}}
+\]",False,"The correct parabola from the given focus and directrix is (x-2)^2 = (1/2)(y-1), but the solver derived a different quadratic equation.",Wrong Answer,False
+C8-11,Accurate,Wrong Answer,"We are given the general second-degree equation  
+
+\[
+16x^2 + 24xy + 9y^2 + 24x - 60y - 60 = 0
+\]
+
+and asked to determine which conic section it represents.
+
+A general quadratic in \(x\) and \(y\),
+
+\[
+Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0,
+\]
+
+represents:
+
+- an ellipse (or circle) if \(B^2 - 4AC < 0\),
+- a parabola if \(B^2 - 4AC = 0\),
+- a hyperbola if \(B^2 - 4AC > 0\).
+
+From the given equation:
+
+\[
+A = 16,\quad B = 24,\quad C = 9.
+\]
+
+Compute the discriminant \(B^2 - 4AC\):
+
+\[
+B^2 - 4AC = 24^2 - 4(16)(9)
+= 576 - 4 \cdot 144
+= 576 - 576
+= 0.
+\]
+
+Since \(B^2 - 4AC = 0\), the equation represents a **parabola**.
+
+**Final answer:** The conic section is a **parabola**.",True,"The solution correctly computes B^2 - 4AC = 0 and concludes that the conic is a parabola, matching the expected answer.",Accurate,True
+C8-12,Complete,Incomplete,"We are given the equation  
+
+\[
+x^{2}+xy+2y^{2}+8x-26y+9=0
+\]
+
+and asked to determine which conic section it represents.
+
+A general second-degree equation is  
+
+\[
+Ax^{2}+Bxy+Cy^{2}+Dx+Ey+F=0.
+\]
+
+For this equation:
+- \(A = 1\)
+- \(B = 1\)
+- \(C = 2\)
+- \(D = 8\)
+- \(E = -26\)
+- \(F = 9\)
+
+To classify the conic, we compute the discriminant
+
+\[
+\Delta = B^{2} - 4AC.
+\]
+
+Substitute \(A,B,C\):
+
+\[
+\Delta = 1^{2} - 4(1)(2) = 1 - 8 = -7.
+\]
+
+For conic sections:
+
+- \(\Delta > 0\): hyperbola  
+- \(\Delta = 0\): parabola  
+- \(\Delta < 0\): ellipse (or circle as a special case)
+
+Since \(\Delta = -7 < 0\) and \(A \ne C\), the conic is an ellipse (not a circle, because \(A \ne C\)).
+
+**Final answer:** The equation represents an **ellipse**.",True,"They correctly computed B²−4AC < 0 and concluded the conic is an ellipse, matching the expected result.",Complete,True
+C8-13,Complete,Clarification Needed,,False,"No actual solution or explanation was provided for the problem, so nothing can be compared with the expected ellipse graph.",Incomplete,False
+C8-14,Accurate,Wrong Answer,,False,"No answer or work was provided to compare with the expected ellipse graph, so the solution is missing.",Incomplete,False
+C8-15,Accurate,Wrong Answer,"The given equation is  
+
+\[
+\frac{(y-1)^2}{49} - \frac{(x+1)^2}{4} = 1
+\]
+
+This is a hyperbola of the form  
+
+\[
+\frac{(y-k)^2}{a^2} - \frac{(x-h)^2}{b^2} = 1
+\]
+
+So:
+
+- Center: \((h,k) = (-1, 1)\)
+- \(a^2 = 49 \Rightarrow a = 7\)
+- \(b^2 = 4 \Rightarrow b = 2\)
+
+For this form (with the positive \(y\)-term), the hyperbola opens **up and down**.
+
+---
+
+### Vertices
+Vertices are \(a\) units vertically from the center:
+
+\[
+(-1, 1\pm a) = (-1, 1\pm 7)
+\]
+
+So:
+
+- \(V_1 = (-1, 8)\)
+- \(V_2 = (-1, -6)\)
+
+---
+
+### Foci
+For a hyperbola, \(c^2 = a^2 + b^2\):
+
+\[
+c^2 = 49 + 4 = 53 \Rightarrow c = \sqrt{53}
+\]
+
+The foci are \(c\) units vertically from the center:
+
+\[
+(-1, 1\pm \sqrt{53})
+\]
+
+So:
+
+- \(F_1 = (-1, 1 + \sqrt{53})\)
+- \(F_2 = (-1, 1 - \sqrt{53})\)
+
+---
+
+### Asymptotes (for graphing)
+For this orientation,
+
+\[
+y - 1 = \pm \frac{a}{b}(x + 1)
+      = \pm \frac{7}{2}(x + 1)
+\]
+
+---
+
+**Final answer:**
+
+- Center: \(\boxed{(-1, 1)}\)  
+- Vertices: \(\boxed{(-1, 8),\; (-1, -6)}\)  
+- Foci: \(\boxed{(-1, 1+\sqrt{53}),\; (-1, 1-\sqrt{53})}\)  
+- Asymptotes: \(\boxed{y - 1 = \pm \frac{7}{2}(x + 1)}\)",True,"The AI correctly identified the center, vertices, and foci matching the expected graph, and even included asymptotes.",Accurate,True
+C8-16,Complete,Incomplete,"The given equation is  
+
+\[
+\frac{(y+1)^2}{16} - \frac{(x-4)^2}{36} = 1
+\]
+
+This is already in standard form for a hyperbola:
+
+\[
+\frac{(y-k)^2}{a^2} - \frac{(x-h)^2}{b^2} = 1
+\]
+
+So:
+- Center: \((h,k) = (4,-1)\)
+- \(a^2 = 16 \Rightarrow a = 4\)
+- \(b^2 = 36 \Rightarrow b = 6\)
+
+For a hyperbola of this form, the transverse axis is vertical.
+
+**Vertices**
+
+Vertices are \( (h, k \pm a) \):
+
+\[
+(4, -1 \pm 4) \Rightarrow (4,3) \text{ and } (4,-5)
+\]
+
+**Foci**
+
+For a hyperbola, \(c^2 = a^2 + b^2\):
+
+\[
+c^2 = 16 + 36 = 52 \Rightarrow c = \sqrt{52} = 2\sqrt{13}
+\]
+
+Foci are \( (h, k \pm c) \):
+
+\[
+(4, -1 \pm 2\sqrt{13})
+\]
+
+---
+
+**Final answer:**
+
+- Center: \((4,-1)\)  
+- Vertices: \((4,3)\) and \((4,-5)\)  
+- Foci: \((4, -1 + 2\sqrt{13})\) and \((4, -1 - 2\sqrt{13})\)",True,"The solution correctly identifies the hyperbola’s center, vertices, and foci, and matches the expected equation and values.",Complete,True
+C8-17,Step-by-Step,Wrong Answer,"I can’t clearly read the equation from the image because it’s too blurred.  
+Please either:
+
+- upload a clearer image, or  
+- type the equation of the parabola (it looks like something close to `x^2 + 10x - y + 23 = 0`, but I can’t be sure).
+
+Once I have the exact equation, I’ll show all the steps to put it in standard form and find the vertex, focus, and directrix.",False,"The solver did not provide the equation in standard form or the vertex, focus, and directrix; they only asked for clarification.",Incomplete,False
+C8-18,Accurate,Clarification Needed,"I can’t clearly read the equation from the image because it is too blurred.  
+Please either:
+
+- upload a clearer image, or  
+- type the equation of the parabola here (for example, something like \(y^2 + 2y - 8x = 0\)).
+
+Then I can show the full work to find its vertex, focus, directrix, and graph.",False,The solver did not attempt the math and requested a clearer image instead of answering the question.,Incomplete,False
+C8-19,Step-by-Step,Wrong Answer,"We are given
+
+\[
+2y^2 + 12y + 6x + 15 = 0
+\]
+
+and asked to graph the parabola and label vertex, focus, and directrix.
+
+---
+
+### 1. Put into standard form
+
+Group the \(y\)-terms and move the \(x\)- and constant terms to the other side:
+
+\[
+2y^2 + 12y = -6x - 15
+\]
+
+Factor out the 2:
+
+\[
+2(y^2 + 6y) = -6x - 15
+\]
+
+Complete the square in \(y\):
+
+\[
+y^2 + 6y = (y+3)^2 - 9
+\]
+
+Substitute:
+
+\[
+2[(y+3)^2 - 9] = -6x - 15
+\]
+
+\[
+2(y+3)^2 - 18 = -6x - 15
+\]
+
+Add 18 to both sides:
+
+\[
+2(y+3)^2 = -6x + 3
+\]
+
+\[
+2(y+3)^2 = -6\left(x - \frac{1}{2}\right)
+\]
+
+Divide by 2:
+
+\[
+(y+3)^2 = -3\left(x - \frac{1}{2}\right)
+\]
+
+This is of the form
+
+\[
+(y-k)^2 = 4p(x-h)
+\]
+
+with  
+
+\[
+h = \frac12,\quad k = -3,\quad 4p = -3 \Rightarrow p = -\frac34.
+\]
+
+---
+
+### 2. Vertex
+
+The vertex is \((h,k)\):
+
+\[
+V\left(\frac12,-3\right)
+\]
+
+---
+
+### 3. Focus
+
+For the form \((y-k)^2 = 4p(x-h)\), the parabola opens right if \(p>0\) and left if \(p<0\).  
+Here \(p=-\frac34 < 0\), so it opens to the **left**.
+
+The focus is \((h+p, k)\):
+
+\[
+F\left(\frac12 + \left(-\frac34\right), -3\right)
+= \left(-\frac14, -3\right)
+\]
+
+---
+
+### 4. Directrix
+
+The directrix is the vertical line
+
+\[
+x = h - p = \frac12 -\left(-\frac34\right)
+= \frac12 + \frac34 = \frac54
+\]
+
+---
+
+### 5. Summary for graphing
+
+- Vertex: \(\boxed{\left(\frac12, -3\right)}\)  
+- Focus: \(\boxed{\left(-\frac14, -3\right)}\)  
+- Directrix: \(\boxed{x = \frac54}\)  
+- Axis of symmetry: \(y = -3\)  
+- Parabola opens to the left.
+
+**Final answer:**  
+\[
+(y+3)^2 = -3\left(x-\frac12\right),\quad 
+V\left(\frac12,-3\right),\;
+F\left(-\frac14,-3\right),\;
+\text{directrix } x = \frac54.
+\]",True,"The solution correctly converts the equation to standard form and finds the matching vertex, focus, and directrix, consistent with the expected graph.",Step-by-Step,True
+C8-20,Accurate,Wrong Answer,,False,"There is no provided answer from the other AI to compare, so its solution cannot be evaluated.",Clarification Needed,False

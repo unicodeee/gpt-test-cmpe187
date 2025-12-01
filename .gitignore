@@ -1,0 +1,59 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+*.egg
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+
+# Virtual environment directories
+venv/
+env/
+.venv/
+.env/
+*/venv/
+*/env/
+
+Icon?
+# Jupyter
+.ipynb_checkpoints/
+
+# Cache
+.cache/
+.mypy_cache/
+.pytest_cache/
+coverage/
+
+# Build / Packaging
+build/
+dist/
+pip-wheel-metadata/
+*.egg-info/
+MANIFEST
+
+# Logs
+*.log
+
+# IDE / Editor Files
+.vscode/
+.idea/
+*.code-workspace
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Project-specific junk
+*.sqlite3
+*.db
+
+
+.env
