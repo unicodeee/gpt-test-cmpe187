@@ -1,932 +1,746 @@
 id,expected_valid,expected_invalid,solver_answer,pass,judge_reason,judge_style_label,judge_correct_math
-C6-01,Accurate,Wrong Answer,"We are told:
+C2-01,Accurate,Wrong Answer,"We are given:
 
-- Initial investment \(P = \$100{,}000\)
-- Annual interest rate \(r = 12\% = 0.12\)
-- Compounded weekly: \(n = 52\) times per year
-- Time \(t = 30\) years
-
-Use the compound interest formula:
 \[
-A = P\left(1 + \frac{r}{n}\right)^{nt}
+3(x+2) - 10 = x + 4
 \]
 
-Plug in the given values:
+1. Distribute the 3 on the left side:
+
 \[
-A = 100{,}000\left(1 + \frac{0.12}{52}\right)^{52 \cdot 30}
+3x + 6 - 10 = x + 4
 \]
 
-Compute components:
+2. Combine like terms on the left:
 
 \[
-\frac{0.12}{52} \approx 0.0023076923
-\]
-\[
-1 + \frac{0.12}{52} \approx 1.0023076923
-\]
-\[
-nt = 52 \cdot 30 = 1560
+3x - 4 = x + 4
 \]
 
-So:
+3. Subtract \(x\) from both sides:
+
 \[
-A \approx 100{,}000 \cdot (1.0023076923)^{1560}
+2x - 4 = 4
 \]
 
-Using exponentiation:
+4. Add 4 to both sides:
+
 \[
-(1.0023076923)^{1560} \approx 35.36
+2x = 8
 \]
 
+5. Divide both sides by 2:
+
 \[
-A \approx 100{,}000 \times 35.36 = 3{,}536{,}000
+x = 4
 \]
 
-**Final answer:**  
-The investment will be worth approximately **\$3,536,000** after 30 years.",False,"The correct future value is about $3,644,675.88, but the AI computed about $3,536,000, so the numerical result does not match.",Wrong Answer,False
-C6-02,Accurate,Wrong Answer,"We are given  
+**Final answer: \(\boxed{x = 4}\)**",True,The solution correctly solves the equation and matches the expected answer x = 4 with clear steps.,Step-by-Step,True
+C2-02,Complete,Clarification Needed,"The image is too blurred for me to read the actual equation; I can see it’s a rational equation with restrictions \(x \neq 3,-3\), but I cannot reliably distinguish the numerators and denominators.
+
+To solve it correctly and show all steps, I need the exact expression. Please either:
+
+- Type the problem out in text (e.g., `x/(x^2-9) + 4/(x+3) = 3/(x^2-9)` or whatever it is), **or**
+- Upload a clearer image where the symbols are legible.
+
+Once I can see the exact equation, I’ll solve it step by step and present the final answer clearly.",False,The assistant did not solve the problem and requested clarification instead of giving the expected answer of 'No solution.',Clarification Needed,False
+C2-03,Step-by-Step,Incomplete,"We are given two points on the line:  
+\((-2,1)\) and \((4,2)\).
+
+**Step 1: Find the slope \(m\).**
+
 \[
-f(x)=2^{x+1}-3
+m = \frac{y_2 - y_1}{x_2 - x_1}
+   = \frac{2 - 1}{4 - (-2)}
+   = \frac{1}{6}
 \]
 
-### 1. Start with the base function
-The basic exponential is \(g(x)=2^x\).
+**Step 2: Use the point-slope formula.**
 
-- Domain of \(2^x\): all real numbers \((-\infty,\infty)\).
-- Range of \(2^x\): \( (0,\infty) \).
-- Horizontal asymptote: \(y=0\).
-
-### 2. Transformations to get \(f(x)\)
-
-1. \(2^{x+1}\): shifting \(2^x\) left by 1 unit.  
-   This does not change the domain, range, or asymptote.
-2. \(2^{x+1}-3\): shifting the graph down by 3 units.  
-
-This affects:
-- Range: shift \( (0,\infty) \) down by 3 → \( (-3,\infty) \).
-- Asymptote: \(y=0\) shifts down by 3 → \(y=-3\).
-
-The domain remains all real numbers because exponential functions are defined for every real \(x\), and horizontal/vertical shifts do not change that.
-
-### Answers
-
-- **Domain:** \((-\infty,\infty)\)  
-- **Range:** \((-3,\infty)\)  
-- **Horizontal asymptote:** \(y=-3\)",False,"The correct range is (-3, ∞) and the horizontal asymptote is y = -3, but the expected answer shows range (3, ∞) and asymptote y = 3, so the solver’s math does not match the expected answer image.",Wrong Answer,True
-C6-03,Accurate,Wrong Answer,"We are given the logarithmic equation:
-
+Point-slope form:  
 \[
-\log_{10}(1{,}000{,}000) = 6
+y - y_1 = m(x - x_1)
 \]
 
-To convert from logarithmic form to exponential form, use the rule:
+Using point \((-2,1)\) and \(m = \frac{1}{6}\):
 
 \[
-\log_b (a) = c \quad \Longleftrightarrow \quad b^c = a
+y - 1 = \frac{1}{6}(x - (-2))
+\]
+\[
+y - 1 = \frac{1}{6}(x + 2)
+\]
+
+This is the equation in point-slope form.
+
+**Optional: Convert to slope-intercept form.**
+
+\[
+y - 1 = \frac{1}{6}x + \frac{2}{6}
+\]
+\[
+y = \frac{1}{6}x + \frac{2}{6} + 1
+   = \frac{1}{6}x + \frac{2}{6} + \frac{6}{6}
+   = \frac{1}{6}x + \frac{8}{6}
+   = \frac{1}{6}x + \frac{4}{3}
+\]
+
+**Final Answer (point-slope form):**  
+\[
+\boxed{y - 1 = \frac{1}{6}(x + 2)}
+\]",True,"The solution correctly finds the slope, writes the point-slope form, and simplifies to the expected slope-intercept form y = 1/6 x + 4/3.",Step-by-Step,True
+C2-04,Accurate,Wrong Answer,"We need to solve the quadratic equation by factoring:
+
+\[
+3x^2 + 18x + 15 = 0
+\]
+
+1. First factor out the greatest common factor (GCF), which is 3:
+
+\[
+3(x^2 + 6x + 5) = 0
+\]
+
+2. Now factor the quadratic inside the parentheses. We want two numbers that multiply to \(5\) and add to \(6\). Those numbers are \(1\) and \(5\):
+
+\[
+x^2 + 6x + 5 = (x + 1)(x + 5)
+\]
+
+3. Substitute back:
+
+\[
+3(x + 1)(x + 5) = 0
+\]
+
+4. Set each factor equal to zero:
+
+\[
+x + 1 = 0 \quad \Rightarrow \quad x = -1
+\]
+\[
+x + 5 = 0 \quad \Rightarrow \quad x = -5
+\]
+
+**Final answer:** \(\boxed{x = -1 \text{ or } x = -5}\)",True,"The solution correctly factors the quadratic and finds x = -1 and x = -5, matching the expected answer.",Step-by-Step,True
+C2-05,Complete,Wrong Answer,"We are given the quadratic equation  
+\[
+(x - 4)^2 = 36
+\]
+
+Use the square-root property: if \(A^2 = B\), then \(A = \pm\sqrt{B}\).
+
+Let \(A = x - 4\). Then
+\[
+x - 4 = \pm\sqrt{36}
+\]
+\[
+x - 4 = \pm 6
+\]
+
+This gives two equations:
+
+1. \(x - 4 = 6 \Rightarrow x = 10\)  
+2. \(x - 4 = -6 \Rightarrow x = -2\)
+
+**Final answer:** \(\boxed{x = 10 \text{ or } x = -2}\)",True,"The solution correctly applies the square-root property and finds both roots, matching the expected answers x = 10 and x = -2.",Step-by-Step,True
+C2-06,Step-by-Step,Incomplete,"We are given:
+\[
+4x^2 + 2x - 1 = 0
+\]
+and asked to solve by completing the square.
+
+1. Move the constant to the other side:
+\[
+4x^2 + 2x = 1
+\]
+
+2. Factor out the coefficient of \(x^2\) from the left:
+\[
+4\left(x^2 + \frac{1}{2}x\right) = 1
+\]
+
+3. Complete the square inside the parentheses.  
+Take half of \(\frac{1}{2}\), which is \(\frac{1}{4}\), and square it:
+\[
+\left(\frac{1}{4}\right)^2 = \frac{1}{16}
+\]
+Add and subtract \(\frac{1}{16}\) inside:
+\[
+4\left(x^2 + \frac{1}{2}x + \frac{1}{16} - \frac{1}{16}\right) = 1
+\]
+\[
+4\left(\left(x + \frac{1}{4}\right)^2 - \frac{1}{16}\right) = 1
+\]
+
+4. Distribute the 4:
+\[
+4\left(x + \frac{1}{4}\right)^2 - 4\cdot\frac{1}{16} = 1
+\]
+\[
+4\left(x + \frac{1}{4}\right)^2 - \frac{1}{4} = 1
+\]
+
+5. Move \(-\frac{1}{4}\) to the other side:
+\[
+4\left(x + \frac{1}{4}\right)^2 = 1 + \frac{1}{4} = \frac{5}{4}
+\]
+
+6. Divide both sides by 4:
+\[
+\left(x + \frac{1}{4}\right)^2 = \frac{5}{4} \cdot \frac{1}{4} = \frac{5}{16}
+\]
+
+7. Take the square root of both sides:
+\[
+x + \frac{1}{4} = \pm \sqrt{\frac{5}{16}} = \pm \frac{\sqrt{5}}{4}
+\]
+
+8. Solve for \(x\):
+\[
+x = -\frac{1}{4} \pm \frac{\sqrt{5}}{4}
+\]
+
+So the solutions are
+\[
+\boxed{x = \frac{-1 + \sqrt{5}}{4} \quad\text{and}\quad x = \frac{-1 - \sqrt{5}}{4}}
+\]",True,"The solution correctly completes the square and arrives at the expected roots, matching the form x = (-1 ± √5)/4 with clear steps.",Step-by-Step,True
+C2-07,Accurate,Wrong Answer,"We want to solve the quadratic equation  
+\[
+15x^2 - x - 2 = 0
+\]
+using the quadratic formula.
+
+For a quadratic \(ax^2 + bx + c = 0\), the quadratic formula is  
+\[
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.
 \]
 
 Here:
-- \(b = 10\)
-- \(a = 1{,}000{,}000\)
-- \(c = 6\)
+- \(a = 15\)
+- \(b = -1\)
+- \(c = -2\)
 
-So the equivalent exponential equation is:
+Substitute into the formula:
 
 \[
-10^{6} = 1{,}000{,}000
+x = \frac{-(-1) \pm \sqrt{(-1)^2 - 4(15)(-2)}}{2(15)}
+= \frac{1 \pm \sqrt{1 + 120}}{30}
+= \frac{1 \pm \sqrt{121}}{30}
+= \frac{1 \pm 11}{30}.
 \]
 
-**Final answer:** \(\boxed{10^{6} = 1{,}000{,}000}\)",True,The solution correctly converts the logarithmic equation to the matching exponential form and matches the expected answer.,Accurate,True
-C6-04,Accurate,Wrong Answer,"We use the logarithm power rule:
-
+So the two solutions are:
 \[
-\ln(a^k) = k \ln(a)
+x = \frac{1 + 11}{30} = \frac{12}{30} = \frac{2}{5},
+\]
+\[
+x = \frac{1 - 11}{30} = \frac{-10}{30} = -\frac{1}{3}.
 \]
 
-Here \(a = x\) and \(k = 2\). So,
+**Final answer:** \(\boxed{x = \frac{2}{5} \text{ or } x = -\frac{1}{3}}\).",True,The solution correctly applies the quadratic formula and obtains the exact roots matching the expected answer.,Step-by-Step,True
+C2-08,Complete,Wrong Answer,"The equation in the image is:
 
 \[
-\ln(x^2) = 2\ln(x).
+3x^5 - 6x^3 = 0
 \]
 
-**Final answer:** \(\boxed{2\ln x}\)",True,The solution correctly applied the logarithm power rule and matches the expected answer 2 ln x.,Accurate,True
-C6-05,Accurate,Wrong Answer,"We are given the equation  
+**Step 1: Factor out the greatest common factor.**
+
+Both terms have a factor of \(3x^3\):
 
 \[
-2^x = 3^{x+1}
+3x^5 - 6x^3 = 3x^3(x^2 - 2) = 0
 \]
 
-Take natural logarithms of both sides:
+**Step 2: Use the zero product property.**
 
-\[
-\ln(2^x) = \ln(3^{x+1})
-\]
+If a product is zero, then at least one factor must be zero:
 
-Use the power rule \(\ln(a^b) = b\ln a\):
-
-\[
-x\ln 2 = (x+1)\ln 3
-\]
-
-Distribute on the right:
-
-\[
-x\ln 2 = x\ln 3 + \ln 3
-\]
-
-Bring all terms involving \(x\) to one side:
-
-\[
-x\ln 2 - x\ln 3 = \ln 3
-\]
-
-Factor out \(x\):
-
-\[
-x(\ln 2 - \ln 3) = \ln 3
-\]
-
-Divide both sides by \(\ln 2 - \ln 3\):
-
-\[
-x = \frac{\ln 3}{\ln 2 - \ln 3}
-\]
-
-This is the exact solution.
-
----
-
-**Final answer:**
-
-\[
-\boxed{x = \dfrac{\ln 3}{\ln 2 - \ln 3}}
-\]",True,The solution correctly solves the equation and is algebraically equivalent to the expected form x = ln(3)/ln(2/3).,Step-by-Step,True
-C6-06,Accurate,Wrong Answer,"We are given:
-\[
-\ln(x^2) = \ln 1
-\]
-
-1. Since the natural log function is one-to-one on its domain of positive numbers,  
-   \[
-   \ln A = \ln B \quad \Rightarrow \quad A = B \quad (A>0, B>0)
-   \]
-
-2. Apply this to our equation:
-   \[
-   x^2 = 1
-   \]
-
-3. Solve for \(x\):
-   \[
-   x^2 = 1 \Rightarrow x = \pm 1
-   \]
-
-4. Check the domain: \(x^2 > 0\) when \(x \neq 0\), so both \(x = 1\) and \(x = -1\) are valid.
-
-**Final answer:** \(\boxed{x = -1 \text{ or } x = 1}\)",True,"The solution correctly solves ln(x^2) = ln 1, finds x^2 = 1, and concludes x = ±1, matching the expected answer.",Accurate,True
-C6-07,Accurate,Wrong Answer,"We use **Newton’s Law of Cooling/Heating**:
-
-\[
-T(t) = T_s + (T_0 - T_s)e^{kt}
-\]
-
-where  
-\(T_s = 70^\circ F\) (room temperature),  
-\(T_0 = 40^\circ F\) (initial temperature),  
-\(T(t)\) = temperature at time \(t\) (hours),  
-\(k\) = constant.
-
-So
-\[
-T(t) = 70 + (40 - 70)e^{kt} = 70 - 30e^{kt}.
-\]
-
-### 1. Use the data at \(t=1\) hour
-After 1 hour, \(T(1) = 45^\circ F\):
-
-\[
-45 = 70 - 30e^{k(1)} \\
--25 = -30e^k \\
-e^k = \frac{25}{30} = \frac{5}{6}.
-\]
-
-Thus
-\[
-k = \ln\left(\frac{5}{6}\right).
-\]
-
-### 2. Find time when \(T(t) = 60^\circ F\)
-
-\[
-60 = 70 - 30e^{kt} \\
--10 = -30e^{kt} \\
-e^{kt} = \frac{1}{3}.
-\]
-
-Take natural logs:
-
-\[
-kt = \ln\left(\frac{1}{3}\right),
-\quad
-t = \frac{\ln(1/3)}{k}
-= \frac{\ln(1/3)}{\ln(5/6)}.
-\]
-
-Compute:
-
-\[
-\ln(1/3) \approx -1.0986, \quad
-\ln(5/6) \approx -0.1823,
-\]
-
-\[
-t \approx \frac{-1.0986}{-0.1823} \approx 6.03 \text{ hours}.
-\]
-
-**Final answer:**  
-It will take **about 6 hours** for the temperature to rise to \(60^\circ\)F.",True,"The solution correctly applies Newton’s Law of Cooling and computes a time of about 6.03 hours, matching the expected answer.",Accurate,True
-C6-08,Complete,Wrong Answer,"We are given the graduate’s credit card balance each month after graduation:
-
-\[
-\begin{array}{c|cccccccc}
-\text{Month }(t) & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\\hline
-\text{Debt } D(t) & 620.00 & 761.88 & 899.80 & 1039.93 & 1270.63 & 1589.04 & 1851.31 & 2154.92
-\end{array}
-\]
-
-We model the data with an exponential function
-\[
-D(t) = a\,b^{t}
-\]
-where \(t\) is the number of months after graduation.
-
----
-
-### (a) Exponential regression model
-
-To do exponential regression, we linearize the equation by taking natural logs:
-
-\[
-\ln D(t) = \ln a + t \ln b
-\]
-
-So in the form \(y = m t + c\),
-\[
-y = \ln D(t),\quad m = \ln b,\quad c = \ln a
-\]
-
-Using the data and performing least-squares regression for
-\((t, \ln D)\) gives approximately
-
-\[
-\ln D(t) \approx 6.4374 + 0.1327 t
-\]
-
-Thus
-\[
-a = e^{6.4374} \approx 622.4, \qquad
-b = e^{0.1327} \approx 1.142
-\]
-
-So an exponential model for the debt is
-
-\[
-\boxed{D(t) \approx 622.4 \cdot (1.142)^{t}}
-\]
-
-(Values may vary slightly depending on calculator rounding.)
-
----
-
-### (b) Debt one year after graduating
-
-One year is 12 months, so substitute \(t = 12\) into the model:
-
-\[
-D(12) \approx 622.4 \cdot (1.142)^{12}
-\]
-
-Compute the factor:
-\[
-(1.142)^{12} \approx 4.30
-\]
-
-Then
-\[
-D(12) \approx 622.4 \times 4.30 \approx 2676.3
-\]
-
-So the graduate’s credit card debt after one year is about
-
-\[
-\boxed{\$2{,}680 \text{ (approximately)}}
-\]",False,"The regression model and the 12‑month prediction do not match the expected model y = 522.88585984(1.19645256)^x or the resulting debt of $4,499.38.",Wrong Answer,False
-C6-09,Complete,Wrong Answer,"We are given the function  
-
-\[
-y = 156(0.825)^t
-\]
-
-A general exponential function has the form  
-
-\[
-y = a b^t
-\]
-
-- If \(b > 1\), the function shows **exponential growth**.  
-- If \(0 < b < 1\), the function shows **exponential decay**.  
-
-Here, the base is \(b = 0.825\).  
-Since \(0 < 0.825 < 1\), the value of \(y\) decreases as \(t\) increases.
-
-So, the function represents **exponential decay**.
-
-**Final answer:** Exponential decay.",True,The solution correctly identifies the function as exponential decay and explains it matches the expected reasoning.,Complete,True
-C6-10,Accurate,Wrong answer,"The problem states:
-
-A retirement account is opened with an initial deposit of \$8,500 and earns 8.12% interest compounded monthly. What will the account be worth in 20 years?
-
-We use the compound interest formula:
-
-\[
-A = P\left(1 + \frac{r}{n}\right)^{nt}
-\]
-
-where  
-- \(P = 8500\) (initial deposit),  
-- \(r = 0.0812\) (annual interest rate as a decimal),  
-- \(n = 12\) (compounded monthly),  
-- \(t = 20\) years.
-
-Substitute:
-
-\[
-A = 8500\left(1 + \frac{0.0812}{12}\right)^{12 \cdot 20}
-\]
-
-\[
-\frac{0.0812}{12} \approx 0.0067667
-\]
-
-\[
-A \approx 8500(1.0067667)^{240}
-\]
-
-Compute the exponent:
-
-\[
-(1.0067667)^{240} \approx 5.00 \quad (\text{approx})
-\]
-
-\[
-A \approx 8500 \times 5.00 = 42{,}500
-\]
-
-**Final Answer:**  
-The account will be worth approximately **\$42,500** after 20 years.",False,"The computed amount ($42,500) does not match the correct value ($42,888.18), though the method is otherwise appropriate.",Wrong Answer,False
-C6-11,Complete,Wrong answer,"We are given the exponential function  
-
-\[
-f(x)=3.5(2)^x
-\]
-
-### 1. y-intercept  
-The y-intercept occurs when \(x=0\).
-
-\[
-f(0) = 3.5(2)^0 = 3.5(1)=3.5
-\]
-
-So the graph crosses the y-axis at \((0,3.5)\).
-
-### 2. Domain  
-For an exponential function \(a\cdot b^x\) with \(b>0\), \(x\) can be any real number.
-
-\[
-\text{Domain} = (-\infty,\infty)
-\]
-
-### 3. Range  
-Since \(3.5>0\) and \(2^x>0\) for all real \(x\), the product is always positive and never 0.
-
-\[
-\text{Range} = (0,\infty)
-\]
-
-### 4. Key points for the graph  
-Compute a few values:
-
-- \(x=-2:\quad f(-2)=3.5\cdot 2^{-2}=3.5\cdot\frac14=0.875\)
-- \(x=-1:\quad f(-1)=3.5\cdot\frac12=1.75\)
-- \(x=0:\quad f(0)=3.5\)
-- \(x=1:\quad f(1)=7\)
-- \(x=2:\quad f(2)=14\)
-
-Plot these points and sketch a smooth exponential curve increasing from left to right, approaching \(y=0\) as a horizontal asymptote.
-
----
-
-**Final answer:**
-
-- **Domain:** \((-\infty,\infty)\)  
-- **Range:** \((0,\infty)\)  
-- **y-intercept:** \((0,3.5)\)",True,"The solution correctly finds the y-intercept, domain, and range and matches the expected answer and style.",Complete,True
-C6-12,Accurate,Wrong answer,"We are given the parent function \(f(x) = 2^x\) and a transformed graph.
-
-For an exponential transformation we expect an equation of the form  
-
-\[
-g(x) = a\cdot 2^{(x-h)} + k
-\]
-
-where  
-
-- \(h\) is a horizontal shift,  
-- \(k\) is a vertical shift (also the horizontal asymptote \(y=k\)),  
-- \(a\) is a vertical stretch or reflection.
-
----
-
-### 1. Identify the horizontal asymptote  
-
-From the graph, the curve approaches the line \(y = -2\) as \(x \to -\infty\).  
-So the vertical shift is \(k = -2\).
-
-Thus,
-
-\[
-g(x) = a\cdot 2^{(x-h)} - 2
-\]
-
----
-
-### 2. Use a clear point on the graph  
-
-The curve crosses the x-axis at about \(x=2\) (i.e., it passes through \((2,0)\)).
-
-Substitute \((x,y) = (2,0)\):
-
-\[
-0 = a\cdot 2^{(2-h)} - 2
-\quad\Rightarrow\quad
-a\cdot 2^{(2-h)} = 2
-\]
-
-\[
-a\cdot 2^{(2-h)} = 2^1
-\]
-
-To keep the graph shape (no reflection, normal steepness), take \(a = 1\). Then  
-
-\[
-2^{(2-h)} = 2^1 \Rightarrow 2-h = 1 \Rightarrow h = 1.
-\]
-
-So we have  
-
-\[
-g(x) = 2^{x-1} - 2.
-\]
-
-Check: the asymptote is \(y=-2\), and at \(x=2\):  
-\(g(2) = 2^{1} - 2 = 0\), matching the graph.
-
----
+1. \(3x^3 = 0 \Rightarrow x^3 = 0 \Rightarrow x = 0\)
+2. \(x^2 - 2 = 0 \Rightarrow x^2 = 2 \Rightarrow x = \pm\sqrt{2}\)
 
 **Final answer:**  
 \[
-\boxed{y = 2^{x-1} - 2}
-\]",True,The equation y = 2^{x-1} - 2 matches the expected transformed function and uses correct reasoning based on the graph.,Step-by-Step,True
-C6-13,Accurate,Wrong answer,"We are given the exponential equation:
-
+\boxed{x = 0,\ \sqrt{2},\ -\sqrt{2}}
+\]",True,"The solution correctly factors the equation, applies the zero product property, and finds all roots matching the expected answer.",Step-by-Step,True
+C2-09,Accurate,Wrong Answer,"We need to solve  
 \[
-a^{-\frac{2}{5}} = b
+\sqrt{3x+7} + \sqrt{x+2} = 1
 \]
 
-To rewrite as a logarithmic equation, recall the relationship:
-
+### 1. Determine the domain
+For square roots to be defined:
 \[
-\text{If } A^x = B,\ \text{then } \log_A B = x.
-\]
-
-Here, the base is \(a\), the exponent is \(-\frac{2}{5}\), and the result is \(b\).  
-So:
-
-\[
-\log_a b = -\frac{2}{5}
-\]
-
-**Final answer:** \(\boxed{\log_a b = -\dfrac{2}{5}}\)",True,The conversion from the exponential equation to the logarithmic form is correct and matches the expected answer.,Accurate,True
-C6-14,Accurate,Wrong answer,"We are given  
-\[
-g(x)=\ln(4x+20)-17.
-\]
-
-### 1. Domain  
-The natural log requires its argument to be positive:
-
-\[
-4x+20>0 \Rightarrow 4x>-20 \Rightarrow x>-5.
-\]
-
-**Domain:** \(( -5,\infty )\).
-
----
-
-### 2. Vertical asymptote  
-A logarithmic function has a vertical asymptote where its argument is 0:
-
-\[
-4x+20=0 \Rightarrow x=-5.
-\]
-
-**Vertical asymptote:** \(x=-5\).
-
----
-
-### 3. End behavior  
-
-- As \(x \to -5^{+}\), we approach the asymptote from the right, so \(4x+20 \to 0^{+}\) and
-  \[
-  \ln(4x+20)\to -\infty \Rightarrow g(x)\to -\infty.
-  \]
-
-- As \(x \to \infty\), \(4x+20\to\infty\) and
-  \[
-  \ln(4x+20)\to\infty \Rightarrow g(x)\to\infty.
-  \]
-
----
-
-**Final Answer**
-
-- **Domain:** \(( -5,\infty )\)  
-- **Vertical Asymptote:** \(x=-5\)  
-- **End Behavior:**  
-  - \(x\to -5^{+} \Rightarrow g(x)\to -\infty\)  
-  - \(x\to \infty \Rightarrow g(x)\to \infty\)",True,"Domain, vertical asymptote, and end behavior all match the expected answer and are clearly stated.",Accurate,True
-C6-15,Accurate,Wrong answer,"We are given:
-
-\[
-3\log_7 v \;+\; 6\log_7 w \;-\; \frac{\log_7 u}{3}
-\]
-
-We want to condense this to a single logarithm.
-
-**Step 1: Use the power rule**  
-\[
-a\log_b x = \log_b(x^a)
-\]
-
-Apply to each term:
-
-\[
-3\log_7 v = \log_7(v^3)
+3x+7 \ge 0 \quad\Rightarrow\quad x \ge -\frac{7}{3}
 \]
 \[
-6\log_7 w = \log_7(w^6)
+x+2 \ge 0 \quad\Rightarrow\quad x \ge -2
+\]
+So the domain is \(x \ge -2\).
+
+On this domain, both square roots are nonnegative, so their sum is also nonnegative.
+
+### 2. Consider the right-hand side
+The right-hand side is 1 (positive). To see if equality is possible, note that if
+\[
+\sqrt{3x+7} + \sqrt{x+2} = 1,
+\]
+then in particular each term must be at most 1:
+\[
+\sqrt{3x+7} \le 1 \quad\text{and}\quad \sqrt{x+2} \le 1.
+\]
+
+That gives:
+\[
+3x + 7 \le 1 \Rightarrow 3x \le -6 \Rightarrow x \le -2,
 \]
 \[
-\frac{\log_7 u}{3} = \frac{1}{3}\log_7 u = \log_7(u^{1/3})
+x + 2 \le 1 \Rightarrow x \le -1.
 \]
 
-So the expression becomes:
+Combining with the domain \(x \ge -2\), we get the only possible value:
+\[
+x = -2.
+\]
+
+### 3. Check \(x = -2\) in the original equation
+\[
+\sqrt{3(-2)+7} + \sqrt{(-2)+2}
+= \sqrt{-6+7} + \sqrt{0}
+= \sqrt{1} + 0
+= 1.
+\]
+
+So \(x = -2\) satisfies the equation.
+
+**Final answer:** \(\boxed{x = -2}\).",True,The solution correctly finds x = -2 with valid reasoning and it matches the expected answer.,Step-by-Step,True
+C2-10,Complete,Clarification Needed,"We are given:
 
 \[
-\log_7(v^3) + \log_7(w^6) - \log_7(u^{1/3})
+|2x + 3| - 5 = 9
 \]
 
-**Step 2: Use product and quotient rules**
+1. Isolate the absolute value:
 
-Product rule:  
 \[
-\log_b A + \log_b B = \log_b(AB)
+|2x + 3| = 9 + 5 = 14
 \]
+
+2. Use the definition of absolute value:  
+If \(|A| = 14\), then \(A = 14\) or \(A = -14\).
 
 So:
 
 \[
-\log_7(v^3) + \log_7(w^6) = \log_7(v^3 w^6)
+2x + 3 = 14 \quad \text{or} \quad 2x + 3 = -14
 \]
 
-Quotient rule:  
+3. Solve each equation:
+
+- For \(2x + 3 = 14\):
+
 \[
-\log_b A - \log_b B = \log_b\left(\frac{A}{B}\right)
+2x = 11 \Rightarrow x = \frac{11}{2}
 \]
 
-Thus:
+- For \(2x + 3 = -14\):
 
 \[
-\log_7(v^3 w^6) - \log_7(u^{1/3})
-= \log_7\left(\frac{v^3 w^6}{u^{1/3}}\right)
+2x = -17 \Rightarrow x = -\frac{17}{2}
 \]
 
-**Final Answer:**
-
+**Final answer:** \(\boxed{x = \frac{11}{2} \text{ or } x = -\frac{17}{2}}\)",True,"The solution correctly isolates the absolute value, splits into two linear equations, and finds the two solutions that match the expected answers.",Step-by-Step,True
+C2-11,Accurate,Wrong Answer,"We need to solve the inequality  
 \[
-\boxed{\log_7\left(\dfrac{v^3 w^6}{u^{1/3}}\right)}
-\]",True,The condensed logarithmic expression matches the expected result and uses correct log rules.,Accurate,True
-C6-16,Accurate,Wrong answer,"We need to expand  
-\[
-\ln\left(2b\sqrt{\frac{b+1}{b-1}}\right).
+-2x + 5 > x - 7
 \]
 
-1. Separate the product inside the logarithm:
+1. Get all \(x\)-terms on one side and constants on the other.
+
+Add \(2x\) to both sides:
 \[
-\ln\left(2b\sqrt{\frac{b+1}{b-1}}\right)
-= \ln(2b) + \ln\left(\sqrt{\frac{b+1}{b-1}}\right).
+5 > 3x - 7
 \]
 
-2. Further split \(\ln(2b)\):
+Add \(7\) to both sides:
 \[
-\ln(2b) = \ln 2 + \ln b.
+12 > 3x
 \]
 
-3. Write the square root as an exponent:
+2. Divide both sides by \(3\) (positive, so inequality direction stays the same):
 \[
-\sqrt{\frac{b+1}{b-1}} = \left(\frac{b+1}{b-1}\right)^{1/2},
-\]
-so
-\[
-\ln\left(\sqrt{\frac{b+1}{b-1}}\right)
-= \ln\left(\left(\frac{b+1}{b-1}\right)^{1/2}\right)
-= \frac12 \ln\left(\frac{b+1}{b-1}\right).
+4 > x
 \]
 
-4. Expand the logarithm of the quotient:
+This is equivalent to:
 \[
-\frac12 \ln\left(\frac{b+1}{b-1}\right)
-= \frac12\left[\ln(b+1)-\ln(b-1)\right].
+x < 4
 \]
 
-Putting it all together:
+**Interval notation:** \(\boxed{(-\infty, 4)}\)",True,The inequality was solved correctly and the final interval notation matches the expected answer.,Accurate,True
+C2-12,Complete,Wrong Answer,"We are given the inequality (from the image):
+
 \[
-\ln\left(2b\sqrt{\frac{b+1}{b-1}}\right)
-= \ln 2 + \ln b + \frac12\ln(b+1) - \frac12\ln(b-1).
+|3x + 2| + 1 \le 9
 \]
 
-**Final answer:**
-\[
-\boxed{\ln\left(2b\sqrt{\frac{b+1}{b-1}}\right)
-= \ln 2 + \ln b + \tfrac12\ln(b+1) - \tfrac12\ln(b-1)}
-\]",True,The expanded logarithmic expression matches the expected form and is algebraically correct.,Accurate,True
-C6-17,Accurate,Wrong answer,"We are given the equation
+**Step 1: Isolate the absolute value**
 
 \[
-\frac{125}{\left(\frac{1}{625}\right)^{-x-3}} = 5^3
+|3x + 2| + 1 \le 9 \\
+|3x + 2| \le 8
 \]
 
-and asked to solve by rewriting each side with a common base.
+**Step 2: Rewrite without absolute value**
+
+For \(|A| \le k\), we have \(-k \le A \le k\).  
+So:
+
+\[
+-8 \le 3x + 2 \le 8
+\]
+
+**Step 3: Solve the compound inequality**
+
+Subtract 2 from all parts:
+
+\[
+-8 - 2 \le 3x \le 8 - 2
+\]
+\[
+-10 \le 3x \le 6
+\]
+
+Divide everything by 3:
+
+\[
+- \frac{10}{3} \le x \le 2
+\]
+
+**Final answer (interval notation):**
+
+\[
+\boxed{\left[-\dfrac{10}{3},\,2\right]}
+\]",True,"The solution correctly solves the absolute value inequality and expresses the answer in the required interval notation, matching the expected result.",Step-by-Step,True
+C2-13,Step-by-Step,Incomplete,"We are given the compound inequality
+
+\[
+3y < 1 - 2y < 5 + y
+\]
+
+This means we must satisfy both inequalities at the same time:
+
+1) \(3y < 1 - 2y\)  
+2) \(1 - 2y < 5 + y\)
 
 ---
 
-### Step 1: Rewrite in terms of base 5
+### 1) Solve \(3y < 1 - 2y\)
+
+Add \(2y\) to both sides:
 
 \[
-125 = 5^3, \qquad 625 = 5^4, \qquad \frac{1}{625} = 5^{-4}.
+3y + 2y < 1 \quad\Rightarrow\quad 5y < 1
 \]
 
-Substitute:
+Divide by 5:
 
 \[
-\frac{5^3}{\left(5^{-4}\right)^{-x-3}} = 5^3.
-\]
-
----
-
-### Step 2: Simplify the denominator
-
-\[
-\left(5^{-4}\right)^{-x-3} = 5^{-4(-x-3)} = 5^{4(x+3)}.
-\]
-
-So the equation becomes
-
-\[
-\frac{5^3}{5^{4(x+3)}} = 5^3.
-\]
-
----
-
-### Step 3: Combine exponents on the left
-
-\[
-\frac{5^3}{5^{4(x+3)}} = 5^{3 - 4(x+3)}.
-\]
-
-So we have
-
-\[
-5^{3 - 4(x+3)} = 5^3.
-\]
-
----
-
-### Step 4: Set exponents equal
-
-Since the bases are the same and nonzero, equate exponents:
-
-\[
-3 - 4(x+3) = 3.
-\]
-
-\[
-3 - 4x - 12 = 3
-\]
-\[
--4x - 9 = 3
-\]
-\[
--4x = 12
-\]
-\[
-x = -3.
+y < \frac{1}{5}
 \]
 
 ---
 
-**Final answer:**
+### 2) Solve \(1 - 2y < 5 + y\)
+
+Subtract 1 from both sides:
 
 \[
-\boxed{x = -3}
-\]",True,"The AI correctly rewrote the expressions with base 5, solved the resulting equation, and obtained x = -3, matching the expected answer.",Step-by-Step,True
-C6-18,Accurate,Wrong answer,"We are given the equation  
-\[
-2e^{5x-2} - 9 = -56
+-2y < 4 + y
 \]
 
-**Step 1: Isolate the exponential term.**
+Subtract \(y\) from both sides:
 
-Add 9 to both sides:
 \[
-2e^{5x-2} = -56 + 9 = -47
+-3y < 4
+\]
+
+Divide by \(-3\); reverse the inequality:
+
+\[
+y > -\frac{4}{3}
+\]
+
+---
+
+We must have both:
+
+\[
+-\frac{4}{3} < y < \frac{1}{5}
+\]
+
+In interval notation:
+
+\[
+\boxed{\left(-\frac{4}{3}, \frac{1}{5}\right)}
+\]",True,"The solution correctly solves both inequalities, combines them, and gives the correct interval notation matching the expected answer.",Step-by-Step,True
+C2-14,Complete,Wrong Answer,"We are given the inequality  
+
+\[
+x + 3 < 3x - 4
+\]
+
+The instructions say to think of each side as a line:
+
+- \(y_1 = x + 3\)
+- \(y_2 = 3x - 4\)
+
+### 1. Find the point of intersection  
+Set \(y_1 = y_2\):
+
+\[
+x + 3 = 3x - 4
+\]
+
+Subtract \(x\) from both sides:
+
+\[
+3 = 2x - 4
+\]
+
+Add 4 to both sides:
+
+\[
+7 = 2x
 \]
 
 Divide by 2:
+
 \[
-e^{5x-2} = -\frac{47}{2}
+x = \frac{7}{2} = 3.5
 \]
 
-**Step 2: Analyze for solutions.**
-
-The expression \(e^{5x-2}\) is always **positive** for any real \(x\) (since an exponential with base \(e>0\) never yields a negative number).
-
-But the equation would require
-\[
-e^{5x-2} = -\frac{47}{2},
-\]
-which is negative, so this is impossible for real \(x\).
-
-**Final answer:**  
-\[
-\boxed{\text{no solution}}
-\]",True,The solution correctly concludes that the exponential expression cannot equal a negative number and matches the expected answer of 'No solution'.,Accurate,True
-C6-19,Accurate,Wrong answer,"We use **Newton’s Law of Cooling**  
+Substitute back into either equation to get \(y\):
 
 \[
-T(t) = T_s + (T_0 - T_s)e^{kt}
+y = x + 3 = 3.5 + 3 = 6.5
 \]
 
-where  
+So the lines intersect at \(\left(\frac{7}{2}, \frac{13}{2}\right)\).
 
-- \(T(t)\) = temperature at time \(t\) (min),  
-- \(T_s\) = surrounding temperature \(=71^\circ F\),  
-- \(T_0\) = initial temperature \(=350^\circ F\),  
-- \(k\) = constant to be found.
+### 2. Determine where the inequality \(x+3 < 3x-4\) is true  
+
+This inequality says we want the region where \(y_1 < y_2\), i.e. where the graph of \(y_1 = x+3\) lies **below** the graph of \(y_2 = 3x-4\).
+
+Test a value on each side of the intersection \(x = \frac{7}{2}\).  
+
+Take \(x = 0\) (which is less than \(3.5\)):
+
+- \(y_1 = 0+3 = 3\)
+- \(y_2 = 3(0)-4 = -4\)
+
+Here \(y_1 > y_2\), so the inequality \(y_1 < y_2\) is **not** true for \(x<\frac{7}{2}\).
+
+Take \(x = 4\) (which is greater than \(3.5\)):
+
+- \(y_1 = 4+3 = 7\)
+- \(y_2 = 3(4)-4 = 8\)
+
+Here \(y_1 < y_2\), so the inequality is true for \(x>\frac{7}{2}\).
+
+Therefore, the solution set is:
+
+\[
+x > \frac{7}{2}
+\]
+
+**Final answer:** \(\boxed{x > \dfrac{7}{2}}\)",True,"The solution correctly finds the intersection point and identifies the interval x > 3.5, matching the expected answer and method.",Complete,True
+C2-15,Accurate,Wrong Answer,"We need to solve:
+\[
+12 - 5(x+1) = 2x - 5
+\]
+
+1. Distribute the \(-5\):
+\[
+12 - 5x - 5 = 2x - 5
+\]
+
+2. Combine like terms on the left:
+\[
+(12 - 5) - 5x = 2x - 5
+\]
+\[
+7 - 5x = 2x - 5
+\]
+
+3. Add \(5x\) to both sides:
+\[
+7 = 7x - 5
+\]
+
+4. Add 5 to both sides:
+\[
+12 = 7x
+\]
+
+5. Divide by 7:
+\[
+x = \frac{12}{7}
+\]
+
+**Final answer: \(\boxed{\frac{12}{7}}\)**",True,The solution correctly solves the equation and matches the expected answer x = 12/7 with clear steps.,Step-by-Step,True
+C2-16,Accurate,Wrong Answer,"The given line is  
+\[
+y = \frac{2}{3}x + 5
+\]
+Its slope is \(m = \frac{2}{3}\).
+
+A line parallel to this one has the same slope \(m = \frac{2}{3}\) and passes through the point \((-3, 4)\).
+
+Using the point-slope formula:
+\[
+y - y_1 = m(x - x_1)
+\]
+with \((x_1, y_1) = (-3,4)\) and \(m = \frac{2}{3}\):
+\[
+y - 4 = \frac{2}{3}(x - (-3))
+\]
+\[
+y - 4 = \frac{2}{3}(x + 3)
+\]
+
+This is the equation in point-slope form.
+
+If we simplify to slope-intercept form:
+\[
+y - 4 = \frac{2}{3}x + 2 \quad\Rightarrow\quad y = \frac{2}{3}x + 6
+\]
+
+**Final answer (point-slope form):**  
+\[
+\boxed{y - 4 = \frac{2}{3}(x + 3)}
+\]",True,The solution correctly finds the parallel line through the given point and matches the expected equation; it also presents the proper point-slope form.,Accurate,True
+C2-17,Complete,Wrong Answer,"We are given the quadratic equation:
+\[
+7x^2 - 9x = 0
+\]
+
+**Step 1: Factor out the greatest common factor.**
+
+Both terms have a factor of \(x\):
+\[
+7x^2 - 9x = x(7x - 9)
+\]
+
+So the equation becomes:
+\[
+x(7x - 9) = 0
+\]
+
+**Step 2: Use the Zero Product Property.**
+
+If a product is zero, at least one factor must be zero:
+1. \(x = 0\)
+2. \(7x - 9 = 0 \Rightarrow 7x = 9 \Rightarrow x = \frac{9}{7}\)
+
+**Final answer:**
+\[
+\boxed{x = 0 \text{ or } x = \frac{9}{7}}
+\]",True,The solution correctly factors the quadratic and finds both roots matching the expected answers.,Step-by-Step,True
+C2-18,Step-by-Step,Incomplete,"We are given the quadratic equation:
+
+\[
+x^2 = 10x + 3
+\]
+
+First, move all terms to one side to get standard form \(ax^2 + bx + c = 0\):
+
+\[
+x^2 - 10x - 3 = 0
+\]
+
+Here \(a = 1\), \(b = -10\), \(c = -3\).
+
+Use the quadratic formula:
+
+\[
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\]
+
+Substitute \(a, b, c\):
+
+\[
+x = \frac{-(-10) \pm \sqrt{(-10)^2 - 4(1)(-3)}}{2(1)}
+= \frac{10 \pm \sqrt{100 + 12}}{2}
+= \frac{10 \pm \sqrt{112}}{2}
+\]
+
+Simplify \(\sqrt{112}\):
+
+\[
+112 = 16 \cdot 7 \quad\Rightarrow\quad \sqrt{112} = \sqrt{16\cdot7} = 4\sqrt{7}
+\]
 
 So
 
 \[
-T(t) = 71 + (350-71)e^{kt}
-      = 71 + 279 e^{kt}.
+x = \frac{10 \pm 4\sqrt{7}}{2}
+= 5 \pm 2\sqrt{7}
 \]
 
-### 1. Use the 15‑minute data to find \(k\).
+**Final answer:**  
+\[
+\boxed{x = 5 + 2\sqrt{7} \quad \text{or} \quad x = 5 - 2\sqrt{7}}
+\]",True,"The solution correctly applies the quadratic formula and simplifies to x = 5 ± 2√7, matching the expected answer and showing clear steps.",Step-by-Step,True
+C2-19,Step-by-Step,Incomplete,"We are given the equation  
 
-After 15 minutes, \(T(15)=175^\circ F\):
-
 \[
-175 = 71 + 279 e^{15k}
-\]
-\[
-104 = 279 e^{15k}
-\]
-\[
-e^{15k} = \frac{104}{279}
-\]
-\[
-15k = \ln\!\left(\frac{104}{279}\right)
-\]
-\[
-k = \frac{1}{15}\ln\!\left(\frac{104}{279}\right)\approx -0.0619.
+x^{\frac12} - 4x^{\frac14} = 0
 \]
 
-### 2. Find time when the soup cools to \(85^\circ F\).
-
-Set \(T(t)=85\):
+1. Factor out the smallest power, \(x^{1/4}\):
 
 \[
-85 = 71 + 279 e^{kt}
-\]
-\[
-14 = 279 e^{kt}
-\]
-\[
-e^{kt} = \frac{14}{279}
-\]
-\[
-kt = \ln\!\left(\frac{14}{279}\right)
-\]
-\[
-t = \frac{\ln(14/279)}{k}.
+x^{\frac14}\left(x^{\frac14} - 4\right) = 0
 \]
 
-Substitute \(k\):
+2. Set each factor equal to zero.
 
+**First factor:**
 \[
-t = \frac{\ln(14/279)}{\frac{1}{15}\ln(104/279)}
-  = 15 \cdot \frac{\ln(14/279)}{\ln(104/279)}.
+x^{\frac14} = 0 \quad \Rightarrow \quad x = 0
 \]
 
-Compute:
-
+**Second factor:**
 \[
-\ln(14/279)\approx -2.980,\quad
-\ln(104/279)\approx -0.928,
+x^{\frac14} - 4 = 0 \quad \Rightarrow \quad x^{\frac14} = 4
+\]
+Raise both sides to the 4th power:
+\[
+x = 4^4 = 256
 \]
 
+So the solutions are:
+
 \[
-t \approx 15 \cdot \frac{-2.980}{-0.928} \approx 48.2 \text{ minutes}.
+\boxed{x = 0 \text{ or } x = 256}
+\]",False,"The AI’s algebra is correct but it includes an extra solution x = 0, while the expected single solution is x = 256.",Wrong Answer,False
+C2-20,Complete,Wrong Answer,"We are solving the inequality  
+\[
+|x-3| < -4.
 \]
 
-**Final answer:** It will take about **48 minutes** for the soup to cool to \(85^\circ\text{F}\).",False,"The expected answer is about 45 minutes, but the solution concludes about 48 minutes, so the numerical result does not match.",Wrong Answer,False
-C6-20,Accurate,Wrong answer,"The model is  
-
+Recall: The absolute value of any real number is **always nonnegative**:
 \[
-N(t) = \frac{1200}{1+119e^{-0.225t}}
+|x-3| \ge 0 \quad \text{for all real } x.
 \]
 
-where \(N(t)\) is the number of people who have heard the rumor after \(t\) days.
+So \(|x-3|\) can never be less than \(-4\), because \(-4\) is negative.
 
-The carrying capacity is the horizontal asymptote of the logistic function, which is the numerator:  
+Therefore, there is **no real number** \(x\) that satisfies this inequality.
+
+**Answer in interval notation:**  
 \[
-K = 1200
-\]
-
-Half the carrying capacity is  
-\[
-\frac{K}{2} = \frac{1200}{2} = 600
-\]
-
-Set \(N(t) = 600\) and solve for \(t\):
-
-\[
-600 = \frac{1200}{1+119e^{-0.225t}}
-\]
-
-Multiply both sides by the denominator:
-
-\[
-600(1+119e^{-0.225t}) = 1200
-\]
-
-Divide both sides by 600:
-
-\[
-1 + 119e^{-0.225t} = 2
-\]
-
-\[
-119e^{-0.225t} = 1
-\]
-
-\[
-e^{-0.225t} = \frac{1}{119}
-\]
-
-Take natural logarithms:
-
-\[
--0.225t = \ln\!\left(\frac{1}{119}\right)
-       = -\ln(119)
-\]
-
-\[
-t = \frac{\ln(119)}{0.225}
-\]
-
-Compute:
-
-\[
-\ln(119) \approx 4.7791
-\]
-
-\[
-t \approx \frac{4.7791}{0.225} \approx 21.24
-\]
-
-Rounded to the nearest tenth:
-
-\[
-\boxed{21.2\ \text{days}}
-\]",False,"The AI solved for when N(t) = 600 correctly but misread the model parameters, leading to a time of about 21.2 days instead of the expected 8.5 days.",Wrong Answer,False
+\boxed{\varnothing} \quad \text{(the empty set)}
+\]",True,"The solution correctly concludes there is no real x satisfying the inequality and gives the empty set in interval notation, matching the expected answer.",Complete,True
