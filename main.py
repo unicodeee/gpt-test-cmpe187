@@ -2,42 +2,66 @@ import os
 import json
 import csv
 import base64
+import logging
 from typing import List, Dict, Any
 
 from openai import OpenAI
-
-
 from dotenv import load_dotenv
 
-load_dotenv()
-# ---------- CONFIG ----------
+# Rich imports
+from rich.progress import Progress
+from rich.console import Console
+from rich.table import Table
+from rich.logging import RichHandler
 
-MODEL_SOLVER = "gpt-5.1"      # vision-capable model
-MODEL_JUDGE = "gpt-5.1"       # can be same or cheaper model
+# Thread
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+load_dotenv()
+
+# --------- CONFIG ---------
+MODEL_SOLVER = "gpt-5.1"
+MODEL_JUDGE = "gpt-5.1"
 
 DATA_FILE = "data/test_cases.jsonl"
 RESULTS_CSV = "results.csv"
+LOG_FILE = "run.log"
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+# --------------------------
 
+console = Console()
 
-# ----------------------------
+# -------- LOGGING SETUP --------
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(message)s",
+    datefmt="[%X]",
+    handlers=[
+        RichHandler(rich_tracebacks=True),
+        logging.FileHandler(LOG_FILE, mode='w', encoding='utf-8')
+    ],
+)
+log = logging.getLogger("rich")
+
+# Disable OpenAI client internal debug logs
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("openai").setLevel(logging.WARNING)
+logging.getLogger("httpcore").setLevel(logging.WARNING)
+
+# --------------------------------
 
 
 def encode_image_to_base64(image_path: str) -> str:
-    """Read a local image file and return base64-encoded string."""
     with open(image_path, "rb") as f:
         return base64.b64encode(f.read()).decode("utf-8")
 
 
 def load_test_cases(path: str) -> List[Dict[str, Any]]:
-    """Load JSONL file into a list of dicts."""
     cases = []
     with open(path, "r") as f:
         for line in f:
             line = line.strip()
-
-            print(line)
             if not line:
                 continue
             cases.append(json.loads(line))
@@ -45,14 +69,10 @@ def load_test_cases(path: str) -> List[Dict[str, Any]]:
 
 
 def call_solver(client: OpenAI, case: Dict[str, Any], image_b64: str) -> str:
-    """
-    Ask the model to solve the math problem from the image.
-    Returns the model's answer as text.
-    """
     prompt = (
         "You are a math tutor. Solve the problem shown in the image.\n"
-        # f"Problem context: {case['problem']}\n\n"
         "Show your work and give the final answer clearly at the end."
+
     )
 
     response = client.chat.completions.create(
@@ -62,12 +82,7 @@ def call_solver(client: OpenAI, case: Dict[str, Any], image_b64: str) -> str:
                 "role": "user",
                 "content": [
                     {"type": "text", "text": prompt},
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": f"data:image/png;base64,{image_b64}"
-                        },
-                    },
+                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{image_b64}"}},
                 ],
             }
         ],
@@ -77,17 +92,9 @@ def call_solver(client: OpenAI, case: Dict[str, Any], image_b64: str) -> str:
     return response.choices[0].message.content.strip()
 
 
-def call_judge(
-    client: OpenAI,
-    case: Dict[str, Any],
-    problem_image_b64: str,
-    solver_answer: str,
-    expected_answer_b64: str
-) -> Dict[str, Any]:
-    """
-    Use the model as a judge.
-    It re-looks at the image + problem + candidate answer, then returns Pass/Fail.
-    """
+def call_judge(client: OpenAI, case: Dict[str, Any], problem_image_b64: str,
+               solver_answer: str, expected_answer_b64: str) -> Dict[str, Any]:
+
     rubric = f"""
 You are grading another AI's answer to a math problem given as an image.
 
@@ -119,7 +126,6 @@ Return a JSON object with exactly these keys:
 
     judge_prompt = (
         f"{rubric}\n\n"
-        f"Problem description: {case['problem']}\n\n"
         f"Other AI's answer:\n{solver_answer}\n"
     )
 
@@ -129,19 +135,8 @@ Return a JSON object with exactly these keys:
             {
                 "role": "user",
                 "content": [
-                    # Problem image
-                    {
-                        "type": "image_url",
-                        "image_url": {"url": f"data:image/png;base64,{problem_image_b64}"}
-                    },
-
-                    # Expected answer image
-                    {
-                        "type": "image_url",
-                        "image_url": {"url": f"data:image/png;base64,{expected_answer_b64}"}
-                    },
-
-                    # Text instructions
+                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{problem_image_b64}"}},
+                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{expected_answer_b64}"}},
                     {"type": "text", "text": judge_prompt},
                 ],
             }
@@ -151,113 +146,166 @@ Return a JSON object with exactly these keys:
     )
 
     content = response.choices[0].message.content
-    # content should be a JSON string
+
     try:
-        judge_result = json.loads(content)
-    except json.JSONDecodeError:
-        # Fallback if something goes wrong
-        judge_result = {
+        return json.loads(content)
+    except:
+        return {
             "pass": False,
             "reason": "Judge returned invalid JSON.",
             "style_label": "Incomplete",
             "correct_math": False,
         }
 
-    return judge_result
+def run_single_case(client, case):
+    case_id = case["id"]
+
+    problem_image_b64 = encode_image_to_base64(case["image_path"])
+    expected_answer_b64 = encode_image_to_base64(case["image_problem_answer_path"])
+
+    # Solver
+    try:
+        solver_answer = call_solver(client, case, problem_image_b64)
+    except Exception as e:
+        solver_answer = f"[ERROR] {e}"
+        judge_result = {
+            "pass": False,
+            "reason": "Solver call failed.",
+            "style_label": "Incomplete",
+            "correct_math": False,
+        }
+        return case_id, solver_answer, judge_result
+
+    # Judge
+    try:
+        judge_result = call_judge(client, case, problem_image_b64, solver_answer, expected_answer_b64)
+    except Exception as e:
+        judge_result = {
+            "pass": False,
+            "reason": f"Judge call failed: {e}",
+            "style_label": "Incomplete",
+            "correct_math": False,
+        }
+
+    return case_id, solver_answer, judge_result
+
+
+import matplotlib.pyplot as plt
+
+def make_bar_charts(results):
+    import pandas as pd
+    df = pd.DataFrame(results)
+
+    # Chart 1: PASS/FAIL
+    fig1 = plt.figure()
+    df["pass"].value_counts().plot(kind="bar")
+    plt.title("Pass/Fail Counts")
+    plt.tight_layout()
+    plt.savefig("pass_fail_chart.png")
+
+    # Chart 2: Style mismatch
+    fig3 = plt.figure()
+    df["judge_style_label"].value_counts().plot(kind="bar")
+    plt.title("Judge Style Distribution")
+    plt.tight_layout()
+    plt.savefig("style_distribution_chart.png")
+
+    console.print("[green]Saved charts: pass_fail_chart.png, style_distribution_chart.png[/green]")
+
 
 
 def main():
-    # Ensure API key is set
+
     if "OPENAI_API_KEY" not in os.environ:
         raise RuntimeError("Please set OPENAI_API_KEY environment variable.")
 
     client = OpenAI()
 
-    print(f"Loading test cases from {DATA_FILE} ...")
+    console.print(f"[bold cyan]Loading test cases from {DATA_FILE}...[/bold cyan]")
     cases = load_test_cases(DATA_FILE)
-    print(f"Loaded {len(cases)} test cases.\n")
+    console.print(f"[green]Loaded {len(cases)} cases.[/green]\n")
 
     results = []
 
-    for case in cases:
-        case_id = case["id"]
-        image_path = case["image_path"]
+    # -------- Progress Bar --------
+    with Progress() as progress:
 
-        print(f"=== Running case {case_id} ===")
-        print(f"Image: {image_path}")
-        print(f"Problem: {case['problem']}\n")
+        task = progress.add_task("[cyan]Processing test cases...", total=len(cases))
 
-        # Encode image
-        problem_image_b64 = encode_image_to_base64(image_path)
-        expected_answer_b64 = encode_image_to_base64(case["image_problem_answer_path"])
+        results = []
+        futures = []
+
+        with ThreadPoolExecutor(max_workers=12) as executor:
+            for case in cases:
+                futures.append(executor.submit(run_single_case, client, case))
+
+            for future in as_completed(futures):
+                case_id, solver_answer, judge_result = future.result()
+
+                case = next(c for c in cases if c["id"] == case_id)
+
+                results.append({
+                    "id": case_id,
+                    "expected_valid": case["expected_valid"],
+                    "expected_invalid": case["expected_invalid"],
+                    "solver_answer": solver_answer,
+                    "pass": judge_result.get("pass", False),
+                    "judge_reason": judge_result.get("reason", ""),
+                    "judge_style_label": judge_result.get("style_label", ""),
+                    "judge_correct_math": judge_result.get("correct_math", False),
+                })
+
+                # Progress bar
+                progress.update(task, advance=1)
+
+                # Output result
+                status_color = "green" if judge_result.get("pass") else "red"
+                console.log(
+                    f"[{status_color}]{case_id} "
+                    f"{'PASS' if judge_result.get('pass') else 'FAIL'}[/] "
+                    f"| Output: [magenta]{judge_result.get('style_label')}[/] "
+                    f"| Correct Math: {'✅' if judge_result.get('correct_math') else '❌'}"
+                )
 
 
+    # -------- Save CSV --------
 
-        # 1) Solver
-        try:
-            solver_answer = call_solver(client, case, problem_image_b64)
-        except Exception as e:
-            print(f"[{case_id}] Solver error: {e}")
-            solver_answer = f"[ERROR] {e}"
-            # Mark as fail directly
-            judge_result = {
-                "pass": False,
-                "reason": "Solver call failed.",
-                "style_label": "Incomplete",
-                "correct_math": False,
-            }
-        else:
-            print(f"[{case_id}] Solver answer:\n{solver_answer}\n")
+        results.sort(key=lambda r: r["id"])
+        fieldnames = [
+            "id", "expected_valid", "expected_invalid",
+            "solver_answer", "pass", "judge_reason",
+            "judge_style_label", "judge_correct_math"
+        ]
 
-            # 2) Judge
-            try:
-                judge_result = call_judge(client, case, problem_image_b64, solver_answer, expected_answer_b64)
-            except Exception as e:
-                print(f"[{case_id}] Judge error: {e}")
-                judge_result = {
-                    "pass": False,
-                    "reason": f"Judge call failed: {e}",
-                    "style_label": "Incomplete",
-                    "correct_math": False,
-                }
+        with open(RESULTS_CSV, "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(results)
 
-        # Collect result
-        row = {
-            "id": case_id,
-            "problem": case["problem"],
-            "expected_valid": case["expected_valid"],
-            "expected_invalid": case["expected_invalid"],
-            "solver_answer": solver_answer,
-            "pass": judge_result.get("pass", False),
-            "judge_reason": judge_result.get("reason", ""),
-            "judge_style_label": judge_result.get("style_label", ""),
-            "judge_correct_math": judge_result.get("correct_math", False),
-        }
+        console.print(f"\n[bold green]Saved results to {RESULTS_CSV}[/bold green]")
+        console.print(f"[yellow]Log saved to {LOG_FILE}[/yellow]\n")
 
-        results.append(row)
-        print(f"[{case_id}] PASS? {row['pass']}  |  Style: {row['judge_style_label']}  |  Correct math: {row['judge_correct_math']}")
-        print(f"Reason: {row['judge_reason']}\n")
+        # ---------- Final Table ----------
+        table = Table(title="Test Case Summary", title_style="bold cyan")
 
-    # Write to CSV
-    fieldnames = [
-        "id",
-        "problem",
-        "expected_valid",
-        "expected_invalid",
-        "solver_answer",
-        "pass",
-        "judge_reason",
-        "judge_style_label",
-        "judge_correct_math",
-    ]
+        table.add_column("ID", style="white")
+        table.add_column("PASS?", style="bold")
+        table.add_column("Style", style="magenta")
+        table.add_column("Correct Math", style="green")
+        table.add_column("Reason", style="yellow")
 
-    with open(RESULTS_CSV, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        for row in results:
-            writer.writerow(row)
+        for r in results:
+            table.add_row(
+                r["id"],
+                "[green]YES[/green]" if r["pass"] else "[red]NO[/red]",
+                r["judge_style_label"],
+                "✅" if r["judge_correct_math"] else "❌",
+                r["judge_reason"],
+            )
 
-    print(f"\nSaved results to {RESULTS_CSV}")
+        console.print(table)
+        make_bar_charts(results)
+
 
 
 if __name__ == "__main__":
