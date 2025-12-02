@@ -1,746 +1,837 @@
 id,expected_valid,expected_invalid,solver_answer,pass,judge_reason,judge_style_label,judge_correct_math
-C2-01,Accurate,Wrong Answer,"We are given:
-
+C4-01,Accurate,Wrong Answer,"We are given the equation  
 \[
-3(x+2) - 10 = x + 4
+2x + 3y = 7
 \]
 
-1. Distribute the 3 on the left side:
-
+A **linear equation in two variables** has the form  
 \[
-3x + 6 - 10 = x + 4
+ax + by = c
 \]
+where \(a\), \(b\), and \(c\) are real numbers and \(x\), \(y\) are only to the first power (no exponents, products like \(xy\), or roots).
 
-2. Combine like terms on the left:
+Compare:
 
-\[
-3x - 4 = x + 4
-\]
+- \(a = 2\)
+- \(b = 3\)
+- \(c = 7\)
 
-3. Subtract \(x\) from both sides:
+Both variables \(x\) and \(y\) appear only to the first power and are not multiplied together or inside any non-linear functions.
 
-\[
-2x - 4 = 4
-\]
+Therefore, \(2x + 3y = 7\) **is a linear equation**.
 
-4. Add 4 to both sides:
+**Final answer:** The equation \(2x + 3y = 7\) is linear.",True,The solution correctly identifies 2x + 3y = 7 as a linear equation and matches the expected answer of 'Yes'.,Accurate,True
+C4-02,Accurate,Wrong Answer,"To find the slope of the line, pick two clear points on the line from the graph.
 
-\[
-2x = 8
-\]
+From the graph, two points the line passes through are approximately  
+\((0, -5)\) and \((3, 6)\).
 
-5. Divide both sides by 2:
-
-\[
-x = 4
-\]
-
-**Final answer: \(\boxed{x = 4}\)**",True,The solution correctly solves the equation and matches the expected answer x = 4 with clear steps.,Step-by-Step,True
-C2-02,Complete,Clarification Needed,"The image is too blurred for me to read the actual equation; I can see it’s a rational equation with restrictions \(x \neq 3,-3\), but I cannot reliably distinguish the numerators and denominators.
-
-To solve it correctly and show all steps, I need the exact expression. Please either:
-
-- Type the problem out in text (e.g., `x/(x^2-9) + 4/(x+3) = 3/(x^2-9)` or whatever it is), **or**
-- Upload a clearer image where the symbols are legible.
-
-Once I can see the exact equation, I’ll solve it step by step and present the final answer clearly.",False,The assistant did not solve the problem and requested clarification instead of giving the expected answer of 'No solution.',Clarification Needed,False
-C2-03,Step-by-Step,Incomplete,"We are given two points on the line:  
-\((-2,1)\) and \((4,2)\).
-
-**Step 1: Find the slope \(m\).**
+Use the slope formula:
 
 \[
 m = \frac{y_2 - y_1}{x_2 - x_1}
-   = \frac{2 - 1}{4 - (-2)}
-   = \frac{1}{6}
 \]
 
-**Step 2: Use the point-slope formula.**
+Let \((x_1, y_1) = (0, -5)\) and \((x_2, y_2) = (3, 6)\):
 
-Point-slope form:  
 \[
-y - y_1 = m(x - x_1)
+m = \frac{6 - (-5)}{3 - 0}
+= \frac{6 + 5}{3}
+= \frac{11}{3}
 \]
 
-Using point \((-2,1)\) and \(m = \frac{1}{6}\):
-
+**Final answer: \(\boxed{\dfrac{11}{3}}\)**",False,"The correct slope from the graph is 3, but the solver computed 11/3, so the numerical answer does not match the expected result.",Wrong Answer,False
+C4-03,Complete,Clarification Needed,"We want the equation of the line in **slope‑intercept form**:  
 \[
-y - 1 = \frac{1}{6}(x - (-2))
-\]
-\[
-y - 1 = \frac{1}{6}(x + 2)
+y = mx + b
 \]
 
-This is the equation in point-slope form.
+From the graph we can read two clear points on the line:  
+- The line crosses the \(y\)-axis at \((0,-1)\).  
+- Another nice point is \((3,5)\).
 
-**Optional: Convert to slope-intercept form.**
-
-\[
-y - 1 = \frac{1}{6}x + \frac{2}{6}
-\]
-\[
-y = \frac{1}{6}x + \frac{2}{6} + 1
-   = \frac{1}{6}x + \frac{2}{6} + \frac{6}{6}
-   = \frac{1}{6}x + \frac{8}{6}
-   = \frac{1}{6}x + \frac{4}{3}
-\]
-
-**Final Answer (point-slope form):**  
-\[
-\boxed{y - 1 = \frac{1}{6}(x + 2)}
-\]",True,"The solution correctly finds the slope, writes the point-slope form, and simplifies to the expected slope-intercept form y = 1/6 x + 4/3.",Step-by-Step,True
-C2-04,Accurate,Wrong Answer,"We need to solve the quadratic equation by factoring:
+**1. Find the slope \(m\):**
 
 \[
-3x^2 + 18x + 15 = 0
+m = \frac{y_2 - y_1}{x_2 - x_1}
+   = \frac{5 - (-1)}{3 - 0}
+   = \frac{6}{3}
+   = 2
 \]
 
-1. First factor out the greatest common factor (GCF), which is 3:
+So the slope is \(m = 2\).
 
+**2. Find the y‑intercept \(b\):**
+
+Since the line passes through \((0,-1)\), that point is directly the y‑intercept, so \(b = -1\).
+
+Thus the equation is:
 \[
-3(x^2 + 6x + 5) = 0
+y = 2x - 1
 \]
 
-2. Now factor the quadratic inside the parentheses. We want two numbers that multiply to \(5\) and add to \(6\). Those numbers are \(1\) and \(5\):
+**Final answer:** \(\boxed{y = 2x - 1}\)",False,"The expected equation is y = 2x - 2, but the solver found y = 2x - 1, so the y-intercept is incorrect.",Wrong Answer,False
+C4-04,Accurate,Incomplete,"We are given the table:
 
 \[
-x^2 + 6x + 5 = (x + 1)(x + 5)
+\begin{array}{c|cccc}
+x & 6 & 8 & 12 & 26\\
+\hline
+g(x) & -8 & -12 & -18 & -46
+\end{array}
 \]
 
-3. Substitute back:
+### 1. Check if it is linear
+Compute slopes between pairs of points:
+
+Between \((6,-8)\) and \((8,-12)\):
 
 \[
-3(x + 1)(x + 5) = 0
+m = \frac{-12 - (-8)}{8-6} = \frac{-4}{2} = -2
 \]
 
-4. Set each factor equal to zero:
+Between \((8,-12)\) and \((12,-18)\):
 
 \[
-x + 1 = 0 \quad \Rightarrow \quad x = -1
-\]
-\[
-x + 5 = 0 \quad \Rightarrow \quad x = -5
+m = \frac{-18 - (-12)}{12-8} = \frac{-6}{4} = -\frac{3}{2}
 \]
 
-**Final answer:** \(\boxed{x = -1 \text{ or } x = -5}\)",True,"The solution correctly factors the quadratic and finds x = -1 and x = -5, matching the expected answer.",Step-by-Step,True
-C2-05,Complete,Wrong Answer,"We are given the quadratic equation  
-\[
-(x - 4)^2 = 36
-\]
+These slopes are different (\(-2 \neq -\frac{3}{2}\)), so the rate of change is not constant.
 
-Use the square-root property: if \(A^2 = B\), then \(A = \pm\sqrt{B}\).
-
-Let \(A = x - 4\). Then
-\[
-x - 4 = \pm\sqrt{36}
-\]
-\[
-x - 4 = \pm 6
-\]
-
-This gives two equations:
-
-1. \(x - 4 = 6 \Rightarrow x = 10\)  
-2. \(x - 4 = -6 \Rightarrow x = -2\)
-
-**Final answer:** \(\boxed{x = 10 \text{ or } x = -2}\)",True,"The solution correctly applies the square-root property and finds both roots, matching the expected answers x = 10 and x = -2.",Step-by-Step,True
-C2-06,Step-by-Step,Incomplete,"We are given:
-\[
-4x^2 + 2x - 1 = 0
-\]
-and asked to solve by completing the square.
-
-1. Move the constant to the other side:
-\[
-4x^2 + 2x = 1
-\]
-
-2. Factor out the coefficient of \(x^2\) from the left:
-\[
-4\left(x^2 + \frac{1}{2}x\right) = 1
-\]
-
-3. Complete the square inside the parentheses.  
-Take half of \(\frac{1}{2}\), which is \(\frac{1}{4}\), and square it:
-\[
-\left(\frac{1}{4}\right)^2 = \frac{1}{16}
-\]
-Add and subtract \(\frac{1}{16}\) inside:
-\[
-4\left(x^2 + \frac{1}{2}x + \frac{1}{16} - \frac{1}{16}\right) = 1
-\]
-\[
-4\left(\left(x + \frac{1}{4}\right)^2 - \frac{1}{16}\right) = 1
-\]
-
-4. Distribute the 4:
-\[
-4\left(x + \frac{1}{4}\right)^2 - 4\cdot\frac{1}{16} = 1
-\]
-\[
-4\left(x + \frac{1}{4}\right)^2 - \frac{1}{4} = 1
-\]
-
-5. Move \(-\frac{1}{4}\) to the other side:
-\[
-4\left(x + \frac{1}{4}\right)^2 = 1 + \frac{1}{4} = \frac{5}{4}
-\]
-
-6. Divide both sides by 4:
-\[
-\left(x + \frac{1}{4}\right)^2 = \frac{5}{4} \cdot \frac{1}{4} = \frac{5}{16}
-\]
-
-7. Take the square root of both sides:
-\[
-x + \frac{1}{4} = \pm \sqrt{\frac{5}{16}} = \pm \frac{\sqrt{5}}{4}
-\]
-
-8. Solve for \(x\):
-\[
-x = -\frac{1}{4} \pm \frac{\sqrt{5}}{4}
-\]
-
-So the solutions are
-\[
-\boxed{x = \frac{-1 + \sqrt{5}}{4} \quad\text{and}\quad x = \frac{-1 - \sqrt{5}}{4}}
-\]",True,"The solution correctly completes the square and arrives at the expected roots, matching the form x = (-1 ± √5)/4 with clear steps.",Step-by-Step,True
-C2-07,Accurate,Wrong Answer,"We want to solve the quadratic equation  
-\[
-15x^2 - x - 2 = 0
-\]
-using the quadratic formula.
-
-For a quadratic \(ax^2 + bx + c = 0\), the quadratic formula is  
-\[
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.
-\]
-
-Here:
-- \(a = 15\)
-- \(b = -1\)
-- \(c = -2\)
-
-Substitute into the formula:
-
-\[
-x = \frac{-(-1) \pm \sqrt{(-1)^2 - 4(15)(-2)}}{2(15)}
-= \frac{1 \pm \sqrt{1 + 120}}{30}
-= \frac{1 \pm \sqrt{121}}{30}
-= \frac{1 \pm 11}{30}.
-\]
-
-So the two solutions are:
-\[
-x = \frac{1 + 11}{30} = \frac{12}{30} = \frac{2}{5},
-\]
-\[
-x = \frac{1 - 11}{30} = \frac{-10}{30} = -\frac{1}{3}.
-\]
-
-**Final answer:** \(\boxed{x = \frac{2}{5} \text{ or } x = -\frac{1}{3}}\).",True,The solution correctly applies the quadratic formula and obtains the exact roots matching the expected answer.,Step-by-Step,True
-C2-08,Complete,Wrong Answer,"The equation in the image is:
-
-\[
-3x^5 - 6x^3 = 0
-\]
-
-**Step 1: Factor out the greatest common factor.**
-
-Both terms have a factor of \(3x^3\):
-
-\[
-3x^5 - 6x^3 = 3x^3(x^2 - 2) = 0
-\]
-
-**Step 2: Use the zero product property.**
-
-If a product is zero, then at least one factor must be zero:
-
-1. \(3x^3 = 0 \Rightarrow x^3 = 0 \Rightarrow x = 0\)
-2. \(x^2 - 2 = 0 \Rightarrow x^2 = 2 \Rightarrow x = \pm\sqrt{2}\)
+Therefore, the data **do not** represent a linear function, and there is no single linear equation that models all of the given points.
 
 **Final answer:**  
+The table does **not** represent a linear function.",True,"The solution correctly determines that the slopes between consecutive points are not equal and concludes the relation is not linear, matching the expected answer.",Accurate,True
+C4-05,Step-by-Step,Wrong Answer,"First, translate each plan into an expression for the total cost.
+
+Let \(m\) be the number of miles driven in one day.
+
+**Plan A:**  
+Cost = \$25 per day + \$0.10 per mile  
 \[
-\boxed{x = 0,\ \sqrt{2},\ -\sqrt{2}}
-\]",True,"The solution correctly factors the equation, applies the zero product property, and finds all roots matching the expected answer.",Step-by-Step,True
-C2-09,Accurate,Wrong Answer,"We need to solve  
-\[
-\sqrt{3x+7} + \sqrt{x+2} = 1
+C_A = 25 + 0.10m
 \]
 
-### 1. Determine the domain
-For square roots to be defined:
+**Plan B:**  
+Cost = \$50 per day with unlimited mileage  
 \[
-3x+7 \ge 0 \quad\Rightarrow\quad x \ge -\frac{7}{3}
-\]
-\[
-x+2 \ge 0 \quad\Rightarrow\quad x \ge -2
-\]
-So the domain is \(x \ge -2\).
-
-On this domain, both square roots are nonnegative, so their sum is also nonnegative.
-
-### 2. Consider the right-hand side
-The right-hand side is 1 (positive). To see if equality is possible, note that if
-\[
-\sqrt{3x+7} + \sqrt{x+2} = 1,
-\]
-then in particular each term must be at most 1:
-\[
-\sqrt{3x+7} \le 1 \quad\text{and}\quad \sqrt{x+2} \le 1.
+C_B = 50
 \]
 
-That gives:
+We want to know when Plan B saves money, so we want:
 \[
-3x + 7 \le 1 \Rightarrow 3x \le -6 \Rightarrow x \le -2,
-\]
-\[
-x + 2 \le 1 \Rightarrow x \le -1.
+C_B < C_A
 \]
 
-Combining with the domain \(x \ge -2\), we get the only possible value:
+Substitute:
 \[
-x = -2.
+50 < 25 + 0.10m
 \]
 
-### 3. Check \(x = -2\) in the original equation
+Solve for \(m\):
 \[
-\sqrt{3(-2)+7} + \sqrt{(-2)+2}
-= \sqrt{-6+7} + \sqrt{0}
-= \sqrt{1} + 0
-= 1.
-\]
-
-So \(x = -2\) satisfies the equation.
-
-**Final answer:** \(\boxed{x = -2}\).",True,The solution correctly finds x = -2 with valid reasoning and it matches the expected answer.,Step-by-Step,True
-C2-10,Complete,Clarification Needed,"We are given:
-
-\[
-|2x + 3| - 5 = 9
-\]
-
-1. Isolate the absolute value:
-
-\[
-|2x + 3| = 9 + 5 = 14
-\]
-
-2. Use the definition of absolute value:  
-If \(|A| = 14\), then \(A = 14\) or \(A = -14\).
-
-So:
-
-\[
-2x + 3 = 14 \quad \text{or} \quad 2x + 3 = -14
-\]
-
-3. Solve each equation:
-
-- For \(2x + 3 = 14\):
-
-\[
-2x = 11 \Rightarrow x = \frac{11}{2}
-\]
-
-- For \(2x + 3 = -14\):
-
-\[
-2x = -17 \Rightarrow x = -\frac{17}{2}
-\]
-
-**Final answer:** \(\boxed{x = \frac{11}{2} \text{ or } x = -\frac{17}{2}}\)",True,"The solution correctly isolates the absolute value, splits into two linear equations, and finds the two solutions that match the expected answers.",Step-by-Step,True
-C2-11,Accurate,Wrong Answer,"We need to solve the inequality  
-\[
--2x + 5 > x - 7
-\]
-
-1. Get all \(x\)-terms on one side and constants on the other.
-
-Add \(2x\) to both sides:
-\[
-5 > 3x - 7
-\]
-
-Add \(7\) to both sides:
-\[
-12 > 3x
-\]
-
-2. Divide both sides by \(3\) (positive, so inequality direction stays the same):
-\[
-4 > x
-\]
-
-This is equivalent to:
-\[
-x < 4
-\]
-
-**Interval notation:** \(\boxed{(-\infty, 4)}\)",True,The inequality was solved correctly and the final interval notation matches the expected answer.,Accurate,True
-C2-12,Complete,Wrong Answer,"We are given the inequality (from the image):
-
-\[
-|3x + 2| + 1 \le 9
-\]
-
-**Step 1: Isolate the absolute value**
-
-\[
-|3x + 2| + 1 \le 9 \\
-|3x + 2| \le 8
-\]
-
-**Step 2: Rewrite without absolute value**
-
-For \(|A| \le k\), we have \(-k \le A \le k\).  
-So:
-
-\[
--8 \le 3x + 2 \le 8
-\]
-
-**Step 3: Solve the compound inequality**
-
-Subtract 2 from all parts:
-
-\[
--8 - 2 \le 3x \le 8 - 2
+50 - 25 < 0.10m
 \]
 \[
--10 \le 3x \le 6
+25 < 0.10m
+\]
+\[
+m > \frac{25}{0.10} = 250
 \]
 
-Divide everything by 3:
+So plan B is cheaper if you drive **more than 250 miles** in a day.
 
-\[
-- \frac{10}{3} \le x \le 2
-\]
+**Final answer:** You need to drive **over 250 miles** (i.e., 251 miles or more) for Plan B to save you money.",True,"The solution correctly sets up the cost equations, solves the inequality, and concludes that Plan B is cheaper for more than 250 miles, matching the expected answer.",Step-by-Step,True
+C4-06,Step-by-Step,High,"Problem statement (from the image):
 
-**Final answer (interval notation):**
-
-\[
-\boxed{\left[-\dfrac{10}{3},\,2\right]}
-\]",True,"The solution correctly solves the absolute value inequality and expresses the answer in the required interval notation, matching the expected result.",Step-by-Step,True
-C2-13,Step-by-Step,Incomplete,"We are given the compound inequality
-
-\[
-3y < 1 - 2y < 5 + y
-\]
-
-This means we must satisfy both inequalities at the same time:
-
-1) \(3y < 1 - 2y\)  
-2) \(1 - 2y < 5 + y\)
+A town’s population increases at a constant rate. In 2010 the population was 55,000. By 2012 the population had increased to 76,000. If this trend continues, predict the population in 2016.
 
 ---
 
-### 1) Solve \(3y < 1 - 2y\)
+### Step 1: Find the yearly rate of increase
 
-Add \(2y\) to both sides:
+From 2010 to 2012 is 2 years.
 
+Population change in that time:
 \[
-3y + 2y < 1 \quad\Rightarrow\quad 5y < 1
+76{,}000 - 55{,}000 = 21{,}000
 \]
 
-Divide by 5:
-
+Yearly increase:
 \[
-y < \frac{1}{5}
+\frac{21{,}000}{2} = 10{,}500 \text{ people per year}
 \]
 
 ---
 
-### 2) Solve \(1 - 2y < 5 + y\)
+### Step 2: Find the increase from 2010 to 2016
 
-Subtract 1 from both sides:
+From 2010 to 2016 is 6 years.
 
+Total increase over 6 years:
 \[
--2y < 4 + y
-\]
-
-Subtract \(y\) from both sides:
-
-\[
--3y < 4
-\]
-
-Divide by \(-3\); reverse the inequality:
-
-\[
-y > -\frac{4}{3}
+6 \times 10{,}500 = 63{,}000
 \]
 
 ---
 
-We must have both:
+### Step 3: Add to the 2010 population
 
 \[
--\frac{4}{3} < y < \frac{1}{5}
+55{,}000 + 63{,}000 = 118{,}000
 \]
 
-In interval notation:
+---
+
+**Final answer:**  
+The predicted population in 2016 is **118,000** people.",True,"The solution correctly computes the annual increase and projects the population to 2016 with clear steps, matching the expected answer of 118,000.",Step-by-Step,True
+C4-07,Complete,Incomplete,"We are told that \(y\) is the profit (in thousands of dollars) and \(x\) is the number of years since 1980.  
+From the graph, the line passes through the two points
 
 \[
-\boxed{\left(-\frac{4}{3}, \frac{1}{5}\right)}
-\]",True,"The solution correctly solves both inequalities, combines them, and gives the correct interval notation matching the expected answer.",Step-by-Step,True
-C2-14,Complete,Wrong Answer,"We are given the inequality  
-
-\[
-x + 3 < 3x - 4
+(5, 11{,}000) \quad\text{and}\quad (25, 5{,}000)
 \]
 
-The instructions say to think of each side as a line:
+(These are read from the axes: at \(x=5\), \(y=11{,}000\); at \(x=25\), \(y=5{,}000\).)
 
-- \(y_1 = x + 3\)
-- \(y_2 = 3x - 4\)
-
-### 1. Find the point of intersection  
-Set \(y_1 = y_2\):
-
+### 1. Find the slope  
 \[
-x + 3 = 3x - 4
+m = \frac{y_2 - y_1}{x_2 - x_1}
+   = \frac{5{,}000 - 11{,}000}{25 - 5}
+   = \frac{-6{,}000}{20}
+   = -300
 \]
 
-Subtract \(x\) from both sides:
+So the slope is \(-300\) (thousand dollars per year).
+
+### 2. Use point–slope form to get the equation  
+Use point \((5, 11{,}000)\):
 
 \[
-3 = 2x - 4
+y - 11{,}000 = -300(x - 5)
 \]
 
-Add 4 to both sides:
+Distribute:
 
 \[
-7 = 2x
+y - 11{,}000 = -300x + 1{,}500
 \]
 
-Divide by 2:
-
 \[
-x = \frac{7}{2} = 3.5
+y = -300x + 1{,}500 + 11{,}000
 \]
 
-Substitute back into either equation to get \(y\):
-
 \[
-y = x + 3 = 3.5 + 3 = 6.5
+y = -300x + 12{,}500
 \]
 
-So the lines intersect at \(\left(\frac{7}{2}, \frac{13}{2}\right)\).
-
-### 2. Determine where the inequality \(x+3 < 3x-4\) is true  
-
-This inequality says we want the region where \(y_1 < y_2\), i.e. where the graph of \(y_1 = x+3\) lies **below** the graph of \(y_2 = 3x-4\).
-
-Test a value on each side of the intersection \(x = \frac{7}{2}\).  
-
-Take \(x = 0\) (which is less than \(3.5\)):
-
-- \(y_1 = 0+3 = 3\)
-- \(y_2 = 3(0)-4 = -4\)
-
-Here \(y_1 > y_2\), so the inequality \(y_1 < y_2\) is **not** true for \(x<\frac{7}{2}\).
-
-Take \(x = 4\) (which is greater than \(3.5\)):
-
-- \(y_1 = 4+3 = 7\)
-- \(y_2 = 3(4)-4 = 8\)
-
-Here \(y_1 < y_2\), so the inequality is true for \(x>\frac{7}{2}\).
-
-Therefore, the solution set is:
+So the linear function relating profit \(y\) to years since 1980, \(x\), is:
 
 \[
-x > \frac{7}{2}
+\boxed{y = -300x + 12{,}500}
 \]
 
-**Final answer:** \(\boxed{x > \dfrac{7}{2}}\)",True,"The solution correctly finds the intersection point and identifies the interval x > 3.5, matching the expected answer and method.",Complete,True
-C2-15,Accurate,Wrong Answer,"We need to solve:
+(\(y\) is in dollars; in thousands it would be \(y = -0.3x + 12.5\).)",False,"The derived equation y = -300x + 12,500 does not match the expected linear function y = -300x + 11,500.",Wrong Answer,False
+C4-08,Accurate,Clarification Needed,"First, read the data from the table (year, population):
+
+- 1990 → 5,600  
+- 1995 → 5,950  
+- 2000 → 6,300  
+- 2005 → 6,600  
+- 2010 → 6,900  
+
+### 1. Scatter plot (description)
+
+On graph paper:
+
+- Put *Year* on the horizontal axis (x‑axis): mark 1990, 1995, 2000, 2005, 2010.
+- Put *Population* on the vertical axis (y‑axis), with values from about 5,500 to 7,000.
+- Plot the points:  
+  (1990, 5600), (1995, 5950), (2000, 6300), (2005, 6600), (2010, 6900).
+
+You will see the points trend upward roughly in a straight line.
+
+### 2. Interpolation or extrapolation?
+
+The question asks: *If we wanted to know **when** the population would reach 15,000, would that involve interpolation or extrapolation?*
+
+- All data values in the table are between 5,600 and 6,900.  
+- A population of 15,000 is **far outside** this range.
+
+So we would be predicting a value well beyond the existing data; this is **extrapolation**, not interpolation.
+
+**Final answer:** The scatter plot is made from the points above, and determining when the population would reach 15,000 would involve **extrapolation**.",True,"They correctly described the scatter plot points from the table and identified that finding when the population reaches 15,000 requires extrapolation, matching the expected answer.",Accurate,True
+C4-09,Complete,Wrong Answer,"We are given the data:
+
 \[
-12 - 5(x+1) = 2x - 5
+\begin{array}{c|ccccc}
+\text{Year} & 2000 & 2002 & 2005 & 2007 & 2010\\ \hline
+\text{Percent graduates} & 6.5 & 7.0 & 7.4 & 8.2 & 9.0
+\end{array}
 \]
 
-1. Distribute the \(-5\):
+We assume the percentage increases linearly with time.  
+Let \(x\) be the number of years after 2000, and \(P(x)\) be the percent graduates.
+
+Use the data from 2000 and 2010 to find the line:
+
+- Point 1: \((0, 6.5)\) (year 2000)
+- Point 2: \((10, 9.0)\) (year 2010)
+
+Slope:
 \[
-12 - 5x - 5 = 2x - 5
+m = \frac{9.0 - 6.5}{10 - 0} = \frac{2.5}{10} = 0.25
 \]
 
-2. Combine like terms on the left:
+Equation of the line:
 \[
-(12 - 5) - 5x = 2x - 5
-\]
-\[
-7 - 5x = 2x - 5
+P(x) = 6.5 + 0.25x
 \]
 
-3. Add \(5x\) to both sides:
-\[
-7 = 7x - 5
-\]
+We want \(P(x) > 12\):
 
-4. Add 5 to both sides:
 \[
-12 = 7x
-\]
-
-5. Divide by 7:
-\[
-x = \frac{12}{7}
-\]
-
-**Final answer: \(\boxed{\frac{12}{7}}\)**",True,The solution correctly solves the equation and matches the expected answer x = 12/7 with clear steps.,Step-by-Step,True
-C2-16,Accurate,Wrong Answer,"The given line is  
-\[
-y = \frac{2}{3}x + 5
-\]
-Its slope is \(m = \frac{2}{3}\).
-
-A line parallel to this one has the same slope \(m = \frac{2}{3}\) and passes through the point \((-3, 4)\).
-
-Using the point-slope formula:
-\[
-y - y_1 = m(x - x_1)
-\]
-with \((x_1, y_1) = (-3,4)\) and \(m = \frac{2}{3}\):
-\[
-y - 4 = \frac{2}{3}(x - (-3))
+6.5 + 0.25x > 12
 \]
 \[
-y - 4 = \frac{2}{3}(x + 3)
+0.25x > 12 - 6.5 = 5.5
+\]
+\[
+x > \frac{5.5}{0.25} = 22
 \]
 
-This is the equation in point-slope form.
+So the percentage exceeds 12% more than 22 years after 2000:
 
-If we simplify to slope-intercept form:
 \[
-y - 4 = \frac{2}{3}x + 2 \quad\Rightarrow\quad y = \frac{2}{3}x + 6
+2000 + 22 = 2022
 \]
 
-**Final answer (point-slope form):**  
+**Answer: The percentage will exceed 12% in the year 2022.**",False,"The correct year is 2023, while the solution concluded 2022, so the numerical answer does not match.",Wrong Answer,False
+C4-10,Complete,Incomplete,"We are given the data from the table:
+
 \[
-\boxed{y - 4 = \frac{2}{3}(x + 3)}
-\]",True,The solution correctly finds the parallel line through the given point and matches the expected equation; it also presents the proper point-slope form.,Accurate,True
-C2-17,Complete,Wrong Answer,"We are given the quadratic equation:
-\[
-7x^2 - 9x = 0
+\begin{array}{c|cccccc}
+x & 10 & 12 & 15 & 18 & 20 \\
+\hline
+y & 36 & 34 & 30 & 28 & 27
+\end{array}
 \]
 
-**Step 1: Factor out the greatest common factor.**
+There are \(n = 5\) data points.
 
-Both terms have a factor of \(x\):
+---
+
+### 1. Compute necessary sums
+
 \[
-7x^2 - 9x = x(7x - 9)
+\begin{aligned}
+\sum x &= 10+12+15+18+20 = 75 \\
+\sum y &= 36+34+30+28+27 = 155 \\
+\sum x^2 &= 10^2+12^2+15^2+18^2+20^2 \\
+        &= 100+144+225+324+400 = 1193 \\
+\sum y^2 &= 36^2+34^2+30^2+28^2+27^2 \\
+        &= 1296+1156+900+784+729 = 4865 \\
+\sum xy &= 10\cdot36+12\cdot34+15\cdot30+18\cdot28+20\cdot27 \\
+        &= 360+408+450+504+540 = 2262
+\end{aligned}
 \]
 
-So the equation becomes:
+---
+
+### 2. Regression line \(y = a + bx\)
+
+Slope
 \[
-x(7x - 9) = 0
+b = 
+\dfrac{n\sum xy - (\sum x)(\sum y)}
+      {n\sum x^2 - (\sum x)^2}
+=
+\dfrac{5(2262)-75\cdot155}{5(1193)-75^2}
+=
+\dfrac{11310-11625}{5965-5625}
+=
+\dfrac{-315}{340}
+=-0.926\ (\text{to three decimals})
 \]
 
-**Step 2: Use the Zero Product Property.**
+Intercept
+\[
+a = \bar y - b\bar x
+= \frac{\sum y}{n} - b\frac{\sum x}{n}
+= 31 - (-0.926)(15)
+= 31 + 13.89
+\approx 44.89
+\]
 
-If a product is zero, at least one factor must be zero:
-1. \(x = 0\)
-2. \(7x - 9 = 0 \Rightarrow 7x = 9 \Rightarrow x = \frac{9}{7}\)
+So the regression line is
+\[
+\boxed{y \approx 44.89 - 0.926x}
+\]
+
+---
+
+### 3. Correlation coefficient \(r\)
+
+\[
+r = 
+\dfrac{n\sum xy - (\sum x)(\sum y)}
+     {\sqrt{\left[n\sum x^2 - (\sum x)^2\right]
+                \left[n\sum y^2 - (\sum y)^2\right]}}
+\]
+
+We already have
+\(n\sum xy - (\sum x)(\sum y) = -315\) and  
+\(n\sum x^2 - (\sum x)^2 = 340\).
+
+Now
+\[
+n\sum y^2 - (\sum y)^2
+= 5(4865)-155^2
+= 24325-24025
+= 300.
+\]
+
+Thus
+\[
+r = \dfrac{-315}{\sqrt{340\cdot 300}}
+= \dfrac{-315}{\sqrt{102000}}
+\approx \dfrac{-315}{319.06}
+\approx -0.987 \quad (\text{to three decimals})
+\]
+
+---
 
 **Final answer:**
-\[
-\boxed{x = 0 \text{ or } x = \frac{9}{7}}
-\]",True,The solution correctly factors the quadratic and finds both roots matching the expected answers.,Step-by-Step,True
-C2-18,Step-by-Step,Incomplete,"We are given the quadratic equation:
+
+Regression line: \(\boxed{y \approx 44.89 - 0.926x}\)
+
+Correlation coefficient: \(\boxed{r \approx -0.987}\)",False,The regression line and correlation coefficient do not match the expected values; both slope/intercept and r are incorrect.,Wrong Answer,False
+C4-11,Accurate,Wrong Answer,"We are given two lines:
+
+1) \(2x - 6y = 12\)  
+2) \(-x + 3y = 1\)
+
+To compare them, write each in slope-intercept form \(y = mx + b\), where \(m\) is the slope.
+
+---
+
+**Line 1:**
 
 \[
-x^2 = 10x + 3
+2x - 6y = 12
 \]
 
-First, move all terms to one side to get standard form \(ax^2 + bx + c = 0\):
+Subtract \(2x\) from both sides:
 
 \[
-x^2 - 10x - 3 = 0
+-6y = -2x + 12
 \]
 
-Here \(a = 1\), \(b = -10\), \(c = -3\).
-
-Use the quadratic formula:
+Divide by \(-6\):
 
 \[
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+y = \frac{-2}{-6}x + \frac{12}{-6}
+= \frac{1}{3}x - 2
 \]
 
-Substitute \(a, b, c\):
+So the slope of line 1 is \(m_1 = \frac{1}{3}\).
+
+---
+
+**Line 2:**
 
 \[
-x = \frac{-(-10) \pm \sqrt{(-10)^2 - 4(1)(-3)}}{2(1)}
-= \frac{10 \pm \sqrt{100 + 12}}{2}
-= \frac{10 \pm \sqrt{112}}{2}
+-x + 3y = 1
 \]
 
-Simplify \(\sqrt{112}\):
+Add \(x\) to both sides:
 
 \[
-112 = 16 \cdot 7 \quad\Rightarrow\quad \sqrt{112} = \sqrt{16\cdot7} = 4\sqrt{7}
+3y = x + 1
 \]
 
-So
+Divide by 3:
 
 \[
-x = \frac{10 \pm 4\sqrt{7}}{2}
-= 5 \pm 2\sqrt{7}
+y = \frac{1}{3}x + \frac{1}{3}
 \]
+
+So the slope of line 2 is \(m_2 = \frac{1}{3}\).
+
+---
+
+**Compare slopes**
+
+- Parallel lines have equal slopes and different intercepts.
+- Perpendicular lines have slopes that are negative reciprocals (their product is \(-1\)).
+
+Here \(m_1 = m_2 = \frac{1}{3}\) and the y-intercepts differ (\(-2\) vs. \(1/3\)), so the lines are **parallel**, not the same line and not perpendicular.
+
+**Final answer:** The lines are **parallel**.",True,"The solution correctly finds both slopes as 1/3 and concludes the lines are parallel, matching the expected answer.",Accurate,True
+C4-12,Step-by-Step,Incomplete,"The problem says:
+
+> For the following exercises, use the descriptions of the pairs of lines to find the slopes of Line 1 and Line 2. Is each pair of lines parallel, perpendicular, or neither?  
+> 17. Line 1 passes through (5,1) and (10,1).  
+> Line 2 passes through (-1,3) and (-5,11).
+
+---
+
+### Slope of Line 1
+
+Line 1 points: \((x_1,y_1)=(5,1)\), \((x_2,y_2)=(10,1)\).
+
+\[
+m_1 = \frac{y_2-y_1}{x_2-x_1}
+    = \frac{1-1}{10-5}
+    = \frac{0}{5}
+    = 0
+\]
+
+So Line 1 has slope \(m_1 = 0\) (a horizontal line).
+
+---
+
+### Slope of Line 2
+
+Line 2 points: \((x_1,y_1)=(-1,3)\), \((x_2,y_2)=(-5,11)\).
+
+\[
+m_2 = \frac{y_2-y_1}{x_2-x_1}
+    = \frac{11-3}{-5-(-1)}
+    = \frac{8}{-4}
+    = -2
+\]
+
+So Line 2 has slope \(m_2 = -2\).
+
+---
+
+### Relationship between the lines
+
+- Parallel lines must have equal slopes. Here \(0 \neq -2\), so they are **not parallel**.
+- Perpendicular lines must have slopes whose product is \(-1\).  
+  \[
+  m_1 \cdot m_2 = 0 \cdot (-2) = 0 \neq -1
+  \]
+  So they are **not perpendicular**.
+
+Therefore, the lines are **neither parallel nor perpendicular**.
+
+---
 
 **Final answer:**  
+Slope of Line 1: \(0\).  
+Slope of Line 2: \(-2\).  
+The lines are **neither parallel nor perpendicular**.",False,"The expected slopes for both lines are -2 and the lines are parallel, but the solution found slope 0 for line 1 and concluded they are neither.",Wrong Answer,False
+C4-13,Accurate,Wrong Answer,"We are given the line  
 \[
-\boxed{x = 5 + 2\sqrt{7} \quad \text{or} \quad x = 5 - 2\sqrt{7}}
-\]",True,"The solution correctly applies the quadratic formula and simplifies to x = 5 ± 2√7, matching the expected answer and showing clear steps.",Step-by-Step,True
-C2-19,Step-by-Step,Incomplete,"We are given the equation  
-
+f(x) = 5x - 1
+\]
+This is in slope-intercept form \(y = mx + b\), so its slope is  
 \[
-x^{\frac12} - 4x^{\frac14} = 0
+m = 5.
 \]
 
-1. Factor out the smallest power, \(x^{1/4}\):
-
+Lines that are **perpendicular** have slopes that are negative reciprocals.  
+So the slope of a line perpendicular to this one is  
 \[
-x^{\frac14}\left(x^{\frac14} - 4\right) = 0
+m_{\perp} = -\frac{1}{5}.
 \]
 
-2. Set each factor equal to zero.
-
-**First factor:**
+We want the line with slope \(-\frac{1}{5}\) that passes through the point \((5, 20)\).  
+Use point-slope form:
 \[
-x^{\frac14} = 0 \quad \Rightarrow \quad x = 0
+y - y_1 = m(x - x_1),
+\]
+with \((x_1,y_1) = (5,20)\) and \(m = -\frac{1}{5}\):
+
+\[
+y - 20 = -\frac{1}{5}(x - 5).
 \]
 
-**Second factor:**
+Distribute:
 \[
-x^{\frac14} - 4 = 0 \quad \Rightarrow \quad x^{\frac14} = 4
-\]
-Raise both sides to the 4th power:
-\[
-x = 4^4 = 256
+y - 20 = -\frac{1}{5}x + 1.
 \]
 
-So the solutions are:
-
+Add 20 to both sides:
 \[
-\boxed{x = 0 \text{ or } x = 256}
-\]",False,"The AI’s algebra is correct but it includes an extra solution x = 0, while the expected single solution is x = 256.",Wrong Answer,False
-C2-20,Complete,Wrong Answer,"We are solving the inequality  
-\[
-|x-3| < -4.
+y = -\frac{1}{5}x + 21.
 \]
 
-Recall: The absolute value of any real number is **always nonnegative**:
+**Final answer:** \(\boxed{y = -\dfrac{1}{5}x + 21}\).",True,"The solution correctly finds the perpendicular slope and equation, matching the expected answer y = -0.2x + 21.",Accurate,True
+C4-14,Complete,Clarification Needed,"The problem says:
+
+> Sketch a graph of the linear function \(f(t) = 2t - 5.\)
+
+This is a line in slope‑intercept form \(y = mt + b\), where  
+
+- **Slope** \(m = 2\)  
+- **\(y\)-intercept** \(b = -5\)
+
+So the line:
+
+1. Crosses the \(y\)-axis at the point \((0, -5)\).
+2. Has slope \(2\), meaning it rises 2 units for every 1 unit moved to the right.
+
+To sketch:
+
+- Plot the intercept \((0,-5)\).
+- From \((0,-5)\), go right 1 unit and up 2 units to \((1,-3)\); plot this point.
+- Draw a straight line through the points \((0,-5)\) and \((1,-3)\); extend it in both directions.
+
+That is the graph of \(f(t) = 2t - 5\).
+
+**Final answer:** A straight line with slope \(2\) passing through \((0,-5)\), for example through the points \((0,-5)\) and \((1,-3)\).",True,"The solution correctly identifies the slope and y-intercept and describes how to sketch the line, matching the expected graph.",Complete,True
+C4-15,Step-by-Step,Incomplete,"We are told the moose population changes linearly.
+
+Year 2000: \(P = 6500\)  
+Year 2010: \(P = 12500\)
+
+1. **Find the yearly rate of change (slope).**
+
 \[
-|x-3| \ge 0 \quad \text{for all real } x.
+m = \frac{12500 - 6500}{2010 - 2000}
+   = \frac{6000}{10}
+   = 600 \text{ moose per year}
 \]
 
-So \(|x-3|\) can never be less than \(-4\), because \(-4\) is negative.
+2. **Write the linear model.**  
+Let \(t\) be years since 2000, so \(t=0\) corresponds to year 2000.
 
-Therefore, there is **no real number** \(x\) that satisfies this inequality.
-
-**Answer in interval notation:**  
 \[
-\boxed{\varnothing} \quad \text{(the empty set)}
-\]",True,"The solution correctly concludes there is no real x satisfying the inequality and gives the empty set in interval notation, matching the expected answer.",Complete,True
+P(t) = 6500 + 600t
+\]
+
+3. **Find the population in 2020.**  
+Year 2020 corresponds to \(t = 2020 - 2000 = 20\).
+
+\[
+P(20) = 6500 + 600(20) = 6500 + 12000 = 18500
+\]
+
+**Final answer: The model predicts a moose population of 18,500 in 2020.**",True,"The solution correctly computes the linear model, finds the 2020 population as 18,500, and shows clear step-by-step work matching the expected answer.",Step-by-Step,True
+C4-16,Accurate,Wrong Answer,"We are told home values change **linearly** and are given Pima Central data:
+
+- 1970: \$32,000  
+- 2010: \$85,000  
+
+Let \(t\) be years since 1970, and \(V(t)\) the median home value.
+
+So:
+- At \(t = 0\) (1970), \(V = 32000\)
+- At \(t = 40\) (2010), \(V = 85000\)
+
+**1. Find the slope (rate of change).**
+
+\[
+m = \frac{85{,}000 - 32{,}000}{40 - 0}
+   = \frac{53{,}000}{40}
+   = 1325 \text{ dollars per year}
+\]
+
+**2. Equation for value.**
+
+\[
+V(t) = 32000 + 1325t
+\]
+
+**3. Find value in 2015.**
+
+2015 is \(2015 - 1970 = 45\) years after 1970, so \(t = 45\).
+
+\[
+V(45) = 32000 + 1325 \cdot 45
+\]
+
+\[
+1325 \cdot 45 = 1325(40 + 5) = 1325 \cdot 40 + 1325 \cdot 5
+= 53{,}000 + 6{,}625 = 59{,}625
+\]
+
+\[
+V(45) = 32{,}000 + 59{,}625 = 91{,}625
+\]
+
+**Final Answer:**  
+The predicted median home value in Pima Central in 2015 is **\$91,625**.",True,"The solution correctly models linear growth, computes the slope, and evaluates the function for 2015 to get $91,625, matching the expected answer.",Accurate,True
+C4-17,Complete,Incomplete,"We are asked to draw (or describe) a **best-fit line** for the scatter plot.
+
+From the picture, the plotted points are approximately
+
+\[
+(2, 75),\quad (4, 82),\quad (6, 84),\quad (8, 88),\quad (10, 97)
+\]
+
+A best-fit line should:
+
+- follow the upward trend (positive slope),
+- have roughly the same number of points above and below the line.
+
+### 1. Estimate the slope
+
+Take two representative points, say \((2,75)\) and \((10,97)\):
+
+\[
+m = \frac{97 - 75}{10 - 2} = \frac{22}{8} \approx 2.75
+\]
+
+So the slope is about \(3\) units in \(y\) for each unit in \(x\).
+
+### 2. Estimate the intercept
+
+Use one of the points with the slope \(m \approx 2.75\).  
+Using \((2,75)\):
+
+\[
+75 \approx 2.75(2) + b \\
+75 \approx 5.5 + b \\
+b \approx 69.5 \approx 70
+\]
+
+### 3. Equation of a best-fit line
+
+An appropriate best-fit line is:
+
+\[
+\boxed{y \approx 2.75x + 70}
+\]
+
+On the graph, you would draw a straight line increasing from left to right that passes near all points, for example going through about \((0,70)\) and \((10, 97)\).",False,"The task was only to draw a best-fit line; no equation or numeric slope/intercept was required, so the detailed algebraic answer does not match the expected simple graphical response.",Incomplete,True
+C4-18,Accurate,Wrong Answer,"We are told the city’s population increases steadily (linearly).
+
+Given ordered pairs (population, year):
+
+- (3600, 2000)  
+- (4000, 2001)  
+- (4700, 2003)  
+- (6000, 2006)
+
+First, find the rate of change (slope).  
+Use the first two points:
+
+\[
+\text{slope} = \frac{4000 - 3600}{2001 - 2000} = \frac{400}{1} = 400
+\]
+
+So the population increases by 400 people per year.
+
+Use point-slope form with point (3600, 2000):
+
+Let \(P\) be population and \(t\) be year.
+
+\[
+P - 3600 = 400(t - 2000)
+\]
+
+Solve for \(t\) when \(P = 12000\):
+
+\[
+12000 - 3600 = 400(t - 2000)
+\]
+\[
+8400 = 400(t - 2000)
+\]
+\[
+t - 2000 = \frac{8400}{400} = 21
+\]
+\[
+t = 2000 + 21 = 2021
+\]
+
+**Final answer:** The population will reach 12,000 in the year **2021**.",False,"The correct year from the key is 2027, but the AI computed 2021 due to a mismatch with the intended target population, so the final answer is wrong.",Wrong Answer,False
+C4-19,Complete,Incomplete,"We are given ordered pairs in the form (population, year):
+
+- (3600, 2000)  
+- (4000, 2001)  
+- (4700, 2003)  
+- (6000, 2006)
+
+The problem states the population increased *steadily*, so we model it with a linear function:  
+\(P(y) = my + b\), where \(P\) is the population and \(y\) is the year.
+
+Use two points to find the slope \(m\).  
+Take (3600, 2000) and (4000, 2001):
+
+\[
+m = \frac{4000 - 3600}{2001 - 2000} = \frac{400}{1} = 400
+\]
+
+So the population increases by 400 people per year.
+
+Now find \(b\) using (3600, 2000):
+
+\[
+3600 = 400(2000) + b
+\]
+\[
+3600 = 800{,}000 + b
+\]
+\[
+b = 3600 - 800{,}000 = -796{,}400
+\]
+
+Thus,
+\[
+P(y) = 400y - 796{,}400
+\]
+
+To find the population in 2014, plug in \(y = 2014\):
+
+\[
+P(2014) = 400(2014) - 796{,}400
+\]
+\[
+P(2014) = 805{,}600 - 796{,}400 = 9{,}200
+\]
+
+**Final answer: The population in 2014 is 9,200.**",False,"The expected population in 2014 is 7,660, but the solver computed 9,200, so the math result is incorrect.",Wrong Answer,False
+C4-20,Complete,Clarification Needed,"We are told:
+
+- In 2004, population \(=1700\).
+- In 2012, population \(=2500\).
+- Assume linear change.
+
+### (a) Total population growth 2004–2012
+
+\[
+\text{Growth} = 2500 - 1700 = 800
+\]
+
+So the population increased by **800 students**.
+
+---
+
+### (b) Average population growth per year
+
+From 2004 to 2012 is \(2012-2004 = 8\) years.
+
+\[
+\text{Average yearly growth} = \frac{\text{total growth}}{\text{years}}
+= \frac{800}{8} = 100
+\]
+
+So the population grows by **100 students per year** on average.
+
+---
+
+### (c) Equation for the population \(P\) \(t\) years after 2004
+
+Let \(t=0\) correspond to year 2004. Then:
+
+- Initial value (intercept): \(P(0)=1700\)
+- Slope (rate of change): \(100\) students per year
+
+Linear equation:
+
+\[
+P(t) = 1700 + 100t
+\]
+
+---
+
+**Final answers:**
+
+(a) \(800\) students  
+(b) \(100\) students per year  
+(c) \(P(t) = 1700 + 100t\)",True,All three parts match the expected numerical answers and provide the correct linear equation.,Complete,True
