@@ -14,6 +14,9 @@ from rich.console import Console
 from rich.table import Table
 from rich.logging import RichHandler
 
+# Thread
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 load_dotenv()
 
 # --------- CONFIG ---------
@@ -154,6 +157,62 @@ Return a JSON object with exactly these keys:
             "correct_math": False,
         }
 
+def run_single_case(client, case):
+    case_id = case["id"]
+
+    problem_image_b64 = encode_image_to_base64(case["image_path"])
+    expected_answer_b64 = encode_image_to_base64(case["image_problem_answer_path"])
+
+    # Solver
+    try:
+        solver_answer = call_solver(client, case, problem_image_b64)
+    except Exception as e:
+        solver_answer = f"[ERROR] {e}"
+        judge_result = {
+            "pass": False,
+            "reason": "Solver call failed.",
+            "style_label": "Incomplete",
+            "correct_math": False,
+        }
+        return case_id, solver_answer, judge_result
+
+    # Judge
+    try:
+        judge_result = call_judge(client, case, problem_image_b64, solver_answer, expected_answer_b64)
+    except Exception as e:
+        judge_result = {
+            "pass": False,
+            "reason": f"Judge call failed: {e}",
+            "style_label": "Incomplete",
+            "correct_math": False,
+        }
+
+    return case_id, solver_answer, judge_result
+
+
+import matplotlib.pyplot as plt
+
+def make_bar_charts(results):
+    import pandas as pd
+    df = pd.DataFrame(results)
+
+    # Chart 1: PASS/FAIL
+    fig1 = plt.figure()
+    df["pass"].value_counts().plot(kind="bar")
+    plt.title("Pass/Fail Counts")
+    plt.tight_layout()
+    plt.savefig("pass_fail_chart.png")
+
+    # Chart 2: Style mismatch
+    fig3 = plt.figure()
+    df["judge_style_label"].value_counts().plot(kind="bar")
+    plt.title("Judge Style Distribution")
+    plt.tight_layout()
+    plt.savefig("style_distribution_chart.png")
+
+    console.print("[green]Saved charts: pass_fail_chart.png, style_distribution_chart.png[/green]")
+
+
 
 def main():
 
@@ -170,99 +229,83 @@ def main():
 
     # -------- Progress Bar --------
     with Progress() as progress:
+
         task = progress.add_task("[cyan]Processing test cases...", total=len(cases))
 
-        for case in cases:
-            case_id = case["id"]
+        results = []
+        futures = []
 
-            console.log(f"[bold cyan]→ Starting {case_id}[/bold cyan]")
+        with ThreadPoolExecutor(max_workers=12) as executor:
+            for case in cases:
+                futures.append(executor.submit(run_single_case, client, case))
+
+            for future in as_completed(futures):
+                case_id, solver_answer, judge_result = future.result()
+
+                case = next(c for c in cases if c["id"] == case_id)
+
+                results.append({
+                    "id": case_id,
+                    "expected_valid": case["expected_valid"],
+                    "expected_invalid": case["expected_invalid"],
+                    "solver_answer": solver_answer,
+                    "pass": judge_result.get("pass", False),
+                    "judge_reason": judge_result.get("reason", ""),
+                    "judge_style_label": judge_result.get("style_label", ""),
+                    "judge_correct_math": judge_result.get("correct_math", False),
+                })
+
+                # Progress bar
+                progress.update(task, advance=1)
+
+                # Output result
+                status_color = "green" if judge_result.get("pass") else "red"
+                console.log(
+                    f"[{status_color}]{case_id} "
+                    f"{'PASS' if judge_result.get('pass') else 'FAIL'}[/] "
+                    f"| Output: [magenta]{judge_result.get('style_label')}[/] "
+                    f"| Correct Math: {'✅' if judge_result.get('correct_math') else '❌'}"
+                )
 
 
-            problem_image_b64 = encode_image_to_base64(case["image_path"])
-            expected_answer_b64 = encode_image_to_base64(case["image_problem_answer_path"])
+    # -------- Save CSV --------
 
-            # Solver
-            try:
-                solver_answer = call_solver(client, case, problem_image_b64)
-            except Exception as e:
-                log.error(f"[{case_id}] Solver error: {e}")
-                solver_answer = f"[ERROR] {e}"
-                judge_result = {
-                    "pass": False,
-                    "reason": "Solver call failed.",
-                    "style_label": "Incomplete",
-                    "correct_math": False,
-                }
-            else:
-                log.info(f"[{case_id}] Test completed")
+        results.sort(key=lambda r: r["id"])
+        fieldnames = [
+            "id", "expected_valid", "expected_invalid",
+            "solver_answer", "pass", "judge_reason",
+            "judge_style_label", "judge_correct_math"
+        ]
 
-                try:
-                    judge_result = call_judge(client, case, problem_image_b64, solver_answer, expected_answer_b64)
-                except Exception as e:
-                    log.error(f"[{case_id}] Judge error: {e}")
-                    judge_result = {
-                        "pass": False,
-                        "reason": f"Judge call failed: {e}",
-                        "style_label": "Incomplete",
-                        "correct_math": False,
-                    }
+        with open(RESULTS_CSV, "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(results)
 
-            results.append({
-                "id": case_id,
-                "expected_valid": case["expected_valid"],
-                "expected_invalid": case["expected_invalid"],
-                "solver_answer": solver_answer,
-                "pass": judge_result.get("pass", False),
-                "judge_reason": judge_result.get("reason", ""),
-                "judge_style_label": judge_result.get("style_label", ""),
-                "judge_correct_math": judge_result.get("correct_math", False),
-            })
+        console.print(f"\n[bold green]Saved results to {RESULTS_CSV}[/bold green]")
+        console.print(f"[yellow]Log saved to {LOG_FILE}[/yellow]\n")
 
-            progress.update(task, advance=1)
-            status_color = "green" if judge_result.get("pass") else "red"
+        # ---------- Final Table ----------
+        table = Table(title="Test Case Summary", title_style="bold cyan")
 
-            console.log(
-                f"[{status_color}]{case_id} "
-                f"{'PASS' if judge_result.get('pass') else 'FAIL'}[/] "
-                f"| Output: [magenta]{judge_result.get('style_label')}[/] "
-                f"| Correct Math: {'✔️' if judge_result.get('correct_math') else '❌'}"
+        table.add_column("ID", style="white")
+        table.add_column("PASS?", style="bold")
+        table.add_column("Style", style="magenta")
+        table.add_column("Correct Math", style="green")
+        table.add_column("Reason", style="yellow")
+
+        for r in results:
+            table.add_row(
+                r["id"],
+                "[green]YES[/green]" if r["pass"] else "[red]NO[/red]",
+                r["judge_style_label"],
+                "✅" if r["judge_correct_math"] else "❌",
+                r["judge_reason"],
             )
 
+        console.print(table)
+        make_bar_charts(results)
 
-# -------- Save CSV --------
-    fieldnames = [
-        "id", "expected_valid", "expected_invalid",
-        "solver_answer", "pass", "judge_reason",
-        "judge_style_label", "judge_correct_math"
-    ]
-
-    with open(RESULTS_CSV, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(results)
-
-    console.print(f"\n[bold green]Saved results to {RESULTS_CSV}[/bold green]")
-    console.print(f"[yellow]Log saved to {LOG_FILE}[/yellow]\n")
-
-    # ---------- Final Table ----------
-    table = Table(title="Test Case Summary", title_style="bold cyan")
-
-    table.add_column("ID", style="white")
-    table.add_column("PASS?", style="bold")
-    table.add_column("Style", style="magenta")
-    table.add_column("Correct Math", style="green")
-    table.add_column("Reason", style="yellow")
-
-    for r in results:
-        table.add_row(
-            r["id"],
-            "[green]YES[/green]" if r["pass"] else "[red]NO[/red]",
-            r["judge_style_label"],
-            "✔️" if r["judge_correct_math"] else "❌",
-            r["judge_reason"],
-        )
-
-    console.print(table)
 
 
 if __name__ == "__main__":

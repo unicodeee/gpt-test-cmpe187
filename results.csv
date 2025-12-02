@@ -1,297 +1,1086 @@
 id,expected_valid,expected_invalid,solver_answer,pass,judge_reason,judge_style_label,judge_correct_math
-C4-01,Accurate,Wrong Answer,"We are given the equation  
+C2-01,Accurate,Wrong Answer,"We are given the equation
+
+\[
+3(x + 2) - 10 = x + 4
+\]
+
+Step 1: Distribute the 3 on the left side.
+
+\[
+3(x + 2) = 3x + 6
+\]
+
+So the equation becomes
+
+\[
+3x + 6 - 10 = x + 4
+\]
+
+Step 2: Combine like terms on the left.
+
+\[
+3x - 4 = x + 4
+\]
+
+Step 3: Get all \(x\)-terms on one side. Subtract \(x\) from both sides.
+
+\[
+3x - x - 4 = 4
+\]
+\[
+2x - 4 = 4
+\]
+
+Step 4: Add 4 to both sides.
+
+\[
+2x = 8
+\]
+
+Step 5: Divide both sides by 2.
+
+\[
+x = 4
+\]
+
+**Final answer: \(\boxed{x = 4}\)**",True,The solution correctly solves the equation and matches the expected answer x = 4 with clear steps.,Step-by-Step,True
+C2-02,Complete,Clarification Needed,"The text in the image is too blurred for me to read the actual equation (the numerators and denominators aren’t distinguishable). I can see it’s problem 17 and it involves rational expressions with denominators containing \(x^2-9\) and \(x+3\), and it states \(x\neq 3,-3\), but the exact fractions are unclear.
+
+Please either:
+- Type the equation in text (for example: `x/(x^2-9) + 4/(x+3) = 3/(x^2-9)`), or  
+- Upload a clearer image of the problem.
+
+Once I can see the exact equation, I’ll solve it step by step and clearly state the final answer.",False,"The solver did not attempt a solution and instead asked for clarification, while the expected answer is a concrete result (No solution).",Clarification Needed,False
+C2-03,Step-by-Step,Incomplete,"We are given two points on a line:  
+\((-2, 1)\) and \((4, 2)\).
+
+**Step 1: Find the slope \(m\).**
+
+\[
+m = \frac{y_2 - y_1}{x_2 - x_1}
+= \frac{2 - 1}{4 - (-2)}
+= \frac{1}{6}
+\]
+
+**Step 2: Use the point-slope formula.**
+
+Point-slope form:  
+\[
+y - y_1 = m(x - x_1)
+\]
+
+Use point \((-2, 1)\):
+
+\[
+y - 1 = \frac{1}{6}(x - (-2))
+\]
+\[
+y - 1 = \frac{1}{6}(x + 2)
+\]
+
+This is the equation in point-slope form.
+
+We can also write it in slope-intercept form:
+
+\[
+y - 1 = \frac{1}{6}x + \frac{2}{6}
+\]
+\[
+y = \frac{1}{6}x + \frac{2}{6} + 1
+= \frac{1}{6}x + \frac{2}{6} + \frac{6}{6}
+= \frac{1}{6}x + \frac{8}{6}
+= \frac{1}{6}x + \frac{4}{3}
+\]
+
+**Final answer (point-slope form):**  
+\[
+\boxed{y - 1 = \frac{1}{6}(x + 2)}
+\]
+
+**Equivalent slope-intercept form:**  
+\[
+\boxed{y = \frac{1}{6}x + \frac{4}{3}}
+\]",True,"The solution finds the correct slope, correctly applies the point-slope formula, and simplifies to the expected slope-intercept form.",Step-by-Step,True
+C2-04,Accurate,Wrong Answer,"We are solving  
+\[
+3x^2 + 18x + 15 = 0
+\]
+
+1. Factor out the greatest common factor:
+\[
+3x^2 + 18x + 15 = 3(x^2 + 6x + 5)
+\]
+
+2. Factor the quadratic inside the parentheses.  
+We need two numbers that multiply to \(5\) and add to \(6\): those numbers are \(1\) and \(5\).
+
+So,
+\[
+x^2 + 6x + 5 = (x+1)(x+5)
+\]
+
+3. Write the fully factored form:
+\[
+3x^2 + 18x + 15 = 3(x+1)(x+5)
+\]
+
+4. Set equal to zero and solve:
+\[
+3(x+1)(x+5) = 0
+\]
+
+This product is zero when either factor is zero:
+\[
+x+1 = 0 \quad \text{or} \quad x+5 = 0
+\]
+
+\[
+x = -1 \quad \text{or} \quad x = -5
+\]
+
+**Final answer:** \(\boxed{x = -1 \text{ or } x = -5}\).",True,"The solution correctly factors the quadratic and finds the roots x = -1 and x = -5, matching the expected answer.",Step-by-Step,True
+C2-05,Complete,Wrong Answer,"We are given the quadratic equation  
+
+\[
+(x - 4)^2 = 36
+\]
+
+Use the square-root property: if \(A^2 = k\), then \(A = \pm\sqrt{k}\).
+
+Here \(A = x - 4\) and \(k = 36\):
+
+\[
+x - 4 = \pm\sqrt{36}
+\]
+\[
+x - 4 = \pm 6
+\]
+
+This gives two equations:
+
+1. \(x - 4 = 6 \Rightarrow x = 10\)
+2. \(x - 4 = -6 \Rightarrow x = -2\)
+
+**Final answer:** \(\boxed{x = 10 \text{ or } x = -2}\)",True,"The solution correctly applied the square-root property and found both roots, matching the expected answers.",Step-by-Step,True
+C2-06,Step-by-Step,Incomplete,"We solve \(4x^2 + 2x - 1 = 0\) by completing the square.
+
+1. Move the constant to the other side:
+\[
+4x^2 + 2x = 1
+\]
+
+2. Factor out the coefficient of \(x^2\) from the left side:
+\[
+4\left(x^2 + \frac{1}{2}x\right) = 1
+\]
+
+3. Complete the square inside the parentheses.  
+Take half of \(\frac{1}{2}\), which is \(\frac{1}{4}\), and square it: \(\left(\frac{1}{4}\right)^2 = \frac{1}{16}\).
+
+Add and subtract \(\frac{1}{16}\) inside:
+\[
+4\left(x^2 + \frac{1}{2}x + \frac{1}{16} - \frac{1}{16}\right) = 1
+\]
+\[
+4\left(\left(x + \frac{1}{4}\right)^2 - \frac{1}{16}\right) = 1
+\]
+
+4. Distribute the 4:
+\[
+4\left(x + \frac{1}{4}\right)^2 - 4\cdot\frac{1}{16} = 1
+\]
+\[
+4\left(x + \frac{1}{4}\right)^2 - \frac{1}{4} = 1
+\]
+
+5. Move \(-\frac{1}{4}\) to the right:
+\[
+4\left(x + \frac{1}{4}\right)^2 = 1 + \frac{1}{4} = \frac{5}{4}
+\]
+
+6. Divide by 4:
+\[
+\left(x + \frac{1}{4}\right)^2 = \frac{5}{4} \cdot \frac{1}{4} = \frac{5}{16}
+\]
+
+7. Take the square root of both sides:
+\[
+x + \frac{1}{4} = \pm \sqrt{\frac{5}{16}} = \pm \frac{\sqrt{5}}{4}
+\]
+
+8. Solve for \(x\):
+\[
+x = -\frac{1}{4} \pm \frac{\sqrt{5}}{4}
+\]
+\[
+x = \frac{-1 \pm \sqrt{5}}{4}
+\]
+
+**Final answer:** \(\displaystyle x = \frac{-1 + \sqrt{5}}{4},\; x = \frac{-1 - \sqrt{5}}{4}\).",True,"The solution correctly completes the square, finds the roots matching the expected answer, and shows clear logical steps.",Step-by-Step,True
+C2-07,Accurate,Wrong Answer,"We want to solve the quadratic equation  
+\[
+15x^2 - x - 2 = 0
+\]
+using the quadratic formula.
+
+For a quadratic \(ax^2 + bx + c = 0\), the solutions are
+\[
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.
+\]
+
+Here:
+- \(a = 15\)
+- \(b = -1\)
+- \(c = -2\)
+
+Substitute into the formula:
+
+\[
+x = \frac{-(-1) \pm \sqrt{(-1)^2 - 4(15)(-2)}}{2(15)}
+\]
+
+Simplify step by step:
+
+\[
+x = \frac{1 \pm \sqrt{1 - 4 \cdot 15 \cdot (-2)}}{30}
+\]
+\[
+x = \frac{1 \pm \sqrt{1 + 120}}{30}
+\]
+\[
+x = \frac{1 \pm \sqrt{121}}{30}
+\]
+\[
+x = \frac{1 \pm 11}{30}
+\]
+
+Now compute the two solutions:
+
+1. \(x = \dfrac{1 + 11}{30} = \dfrac{12}{30} = \dfrac{2}{5}\)
+
+2. \(x = \dfrac{1 - 11}{30} = \dfrac{-10}{30} = -\dfrac{1}{3}\)
+
+**Final answer:**  
+\[
+\boxed{x = \frac{2}{5} \quad \text{or} \quad x = -\frac{1}{3}}
+\]",True,The quadratic was solved correctly using the quadratic formula and the final roots match the expected answers.,Step-by-Step,True
+C2-08,Complete,Wrong Answer,"The equation in the image is:
+
+\[
+3x^5 - 6x^3 = 0
+\]
+
+**Step 1: Factor out the greatest common factor.**
+
+Both terms contain \(3x^3\):
+
+\[
+3x^5 - 6x^3 = 3x^3(x^2 - 2) = 0
+\]
+
+**Step 2: Use the zero product property.**
+
+If a product is zero, at least one factor must be zero:
+
+1. \(3x^3 = 0\)
+2. \(x^2 - 2 = 0\)
+
+**From 1:**
+
+\[
+3x^3 = 0 \Rightarrow x^3 = 0 \Rightarrow x = 0
+\]
+
+**From 2:**
+
+\[
+x^2 - 2 = 0 \Rightarrow x^2 = 2 \Rightarrow x = \pm\sqrt{2}
+\]
+
+**Final answer:**
+
+\[
+\boxed{x = 0,\; x = \sqrt{2},\; x = -\sqrt{2}}
+\]",True,"The solution correctly factors the equation, applies the zero product property, and finds all roots matching the expected answer.",Step-by-Step,True
+C2-09,Accurate,Wrong Answer,"We need to solve:
+
+\[
+\sqrt{3x+7} + \sqrt{x+5} = 1
+\]
+
+### 1. Determine the domain
+Inside each square root we must have a nonnegative number:
+
+\[
+3x + 7 \ge 0 \Rightarrow x \ge -\frac{7}{3}
+\]
+\[
+x + 5 \ge 0 \Rightarrow x \ge -5
+\]
+
+So overall domain: \(x \ge -\frac{7}{3}\).
+
+### 2. Analyze the equation
+
+Both square roots are **nonnegative** for all \(x\) in the domain.  
+Hence their sum is also nonnegative.
+
+But for any \(x\) in the domain:
+
+\[
+\sqrt{3x+7} \ge 0,\quad \sqrt{x+5} \ge 0
+\]
+
+So
+
+\[
+\sqrt{3x+7} + \sqrt{x+5} \ge 0 + 0 = 0
+\]
+
+Actually, the only way the sum could be as small as possible is if both terms are 0:
+
+\[
+\sqrt{3x+7} = 0 \Rightarrow 3x+7=0 \Rightarrow x = -\frac{7}{3}
+\]
+\[
+\sqrt{x+5} = 0 \Rightarrow x+5=0 \Rightarrow x = -5
+\]
+
+These give **different** values of \(x\); therefore there is no \(x\) for which both radicals are zero at the same time. Hence for every admissible \(x\),
+
+\[
+\sqrt{3x+7}+\sqrt{x+5} > 0
+\]
+
+In particular, can this sum ever equal 1?
+
+Test the endpoints/behavior:
+
+At \(x=-\frac{7}{3}\):
+
+\[
+\sqrt{3(-\tfrac{7}{3}) + 7} + \sqrt{-\tfrac{7}{3}+5}
+= \sqrt{0} + \sqrt{\tfrac{8}{3}} = \sqrt{\tfrac{8}{3}} > 1
+\]
+
+As \(x\) increases, both \(3x+7\) and \(x+5\) increase, so each square root increases, and their sum increases further. So the sum is **always greater than 1** for every \(x\) in the domain.
+
+Thus the equation
+\[
+\sqrt{3x+7} + \sqrt{x+5} = 1
+\]
+has **no solution**.
+
+---
+
+**Final answer:** \(\boxed{\text{No real solution}}\).",False,"The correct solution is x = -2, but the other AI concluded there is no real solution, so the math result is wrong.",Wrong Answer,False
+C2-10,Complete,Clarification Needed,"We are given:
+
+\[
+|2x + 3| - 5 = 9
+\]
+
+Step 1: Isolate the absolute value.
+
+\[
+|2x + 3| - 5 = 9 \quad \Rightarrow \quad |2x + 3| = 9 + 5 = 14
+\]
+
+Step 2: Remove the absolute value by considering two cases.
+
+\[
+|2x + 3| = 14 \Rightarrow
+\begin{cases}
+2x + 3 = 14 \\
+2x + 3 = -14
+\end{cases}
+\]
+
+**Case 1:**
+
+\[
+2x + 3 = 14 \Rightarrow 2x = 11 \Rightarrow x = \frac{11}{2}
+\]
+
+**Case 2:**
+
+\[
+2x + 3 = -14 \Rightarrow 2x = -17 \Rightarrow x = -\frac{17}{2}
+\]
+
+**Final Answer:**
+
+\[
+\boxed{x = \frac{11}{2} \text{ or } x = -\frac{17}{2}}
+\]",True,The solution correctly solves the absolute value equation and gives both roots matching the expected answer.,Step-by-Step,True
+C2-11,Accurate,Wrong Answer,"We are solving the inequality
+
+\[
+-2x + 5 > x - 7
+\]
+
+Step 1: Get all \(x\)-terms on one side.  
+Add \(2x\) to both sides:
+
+\[
+5 > 3x - 7
+\]
+
+Step 2: Move constants to the other side.  
+Add 7 to both sides:
+
+\[
+12 > 3x
+\]
+
+Step 3: Solve for \(x\).  
+Divide both sides by 3:
+
+\[
+4 > x
+\]
+
+This is the same as
+
+\[
+x < 4
+\]
+
+In interval notation, this is:
+
+\[
+(-\infty, 4)
+\]
+
+**Final answer:** \(\boxed{(-\infty, 4)}\)",True,The inequality was solved correctly and the final interval notation matches the expected answer.,Accurate,True
+C2-12,Complete,Wrong Answer,"We are solving the inequality  
+
+\[
+|3x + 2| + 1 \le 9
+\]
+
+1. Subtract 1 from both sides:
+
+\[
+|3x + 2| \le 8
+\]
+
+2. For an absolute value inequality \(|A| \le k\), we have \(-k \le A \le k\).  
+   So:
+
+\[
+-8 \le 3x + 2 \le 8
+\]
+
+3. Subtract 2 from all parts:
+
+\[
+-10 \le 3x \le 6
+\]
+
+4. Divide everything by 3:
+
+\[
+-\frac{10}{3} \le x \le 2
+\]
+
+So the solution set in interval notation is:
+
+\[
+\boxed{\left[-\frac{10}{3},\,2\right]}
+\]",True,The solution correctly solves the absolute value inequality and expresses the answer in the required interval notation.,Complete,True
+C2-13,Step-by-Step,Incomplete,"We are given the compound inequality  
+
+\[
+3y < 1 - 2y < 5 + y.
+\]
+
+This means both inequalities must be true:
+
+1. \(3y < 1 - 2y\)  
+2. \(1 - 2y < 5 + y\)
+
+---
+
+### 1) Solve \(3y < 1 - 2y\)
+
+Add \(2y\) to both sides:
+
+\[
+3y + 2y < 1 \Rightarrow 5y < 1
+\]
+
+Divide by 5:
+
+\[
+y < \frac{1}{5}
+\]
+
+---
+
+### 2) Solve \(1 - 2y < 5 + y\)
+
+Subtract 1 from both sides:
+
+\[
+-2y < 4 + y
+\]
+
+Subtract \(y\) from both sides:
+
+\[
+-3y < 4
+\]
+
+Divide by \(-3\), which reverses the inequality:
+
+\[
+y > -\frac{4}{3}
+\]
+
+---
+
+Both must hold, so we combine:
+
+\[
+-\frac{4}{3} < y < \frac{1}{5}
+\]
+
+**Final answer (interval notation):**  
+
+\[
+\boxed{\left(-\frac{4}{3},\ \frac{1}{5}\right)}
+\]",True,"The solution correctly solves both inequalities, combines them, and presents the final answer in the required interval notation matching the expected result.",Step-by-Step,True
+C2-14,Complete,Wrong Answer,"We are given the inequality
+
+\[
+x + 3 < 3x - 4
+\]
+
+Think of each side as a line:
+
+- \(y_1 = x + 3\)
+- \(y_2 = 3x - 4\)
+
+### 1. Find the intersection of the two lines  
+Set \(y_1 = y_2\):
+
+\[
+x + 3 = 3x - 4
+\]
+
+Subtract \(x\) from both sides:
+
+\[
+3 = 2x - 4
+\]
+
+Add 4 to both sides:
+
+\[
+7 = 2x
+\]
+
+Divide by 2:
+
+\[
+x = \frac{7}{2} = 3.5
+\]
+
+So the lines intersect at \(x = 3.5\).
+
+### 2. Determine where the inequality is true  
+We want \(x + 3 < 3x - 4\), i.e., \(y_1 < y_2\).  
+Compare the lines around the intersection point \(x = 3.5\):
+
+- For a value **less than** 3.5, say \(x = 0\):
+  - \(y_1 = 0 + 3 = 3\)
+  - \(y_2 = 3(0) - 4 = -4\)
+  - Here \(y_1 > y_2\), so the inequality \(y_1 < y_2\) is **false** for \(x < 3.5\).
+
+- For a value **greater than** 3.5, say \(x = 4\):
+  - \(y_1 = 4 + 3 = 7\)
+  - \(y_2 = 3(4) - 4 = 8\)
+  - Here \(y_1 < y_2\), so the inequality is **true** for \(x > 3.5\).
+
+Thus, the solution set is all \(x\) values greater than \(\frac{7}{2}\).
+
+\[
+\boxed{x > \frac{7}{2}}
+\]",True,"The solution correctly finds the intersection at x = 3.5 and identifies that the inequality holds for x > 3.5, matching the expected interval (3.5, ∞).",Step-by-Step,True
+C2-15,Accurate,Wrong Answer,"We are given the equation  
+\[
+12 - 5(x+1) = 2x - 5
+\]
+
+Step 1: Distribute the \(-5\) on the left side.  
+\[
+12 - 5x - 5 = 2x - 5
+\]
+
+Step 2: Combine like terms on the left.  
+\[
+(12 - 5) - 5x = 2x - 5
+\]
+\[
+7 - 5x = 2x - 5
+\]
+
+Step 3: Get all \(x\)-terms on one side. Add \(5x\) to both sides.  
+\[
+7 = 7x - 5
+\]
+
+Step 4: Isolate \(x\). Add 5 to both sides.  
+\[
+12 = 7x
+\]
+
+Step 5: Divide both sides by 7.  
+\[
+x = \frac{12}{7}
+\]
+
+**Final answer:** \(\boxed{x = \dfrac{12}{7}}\).",True,"The solution shows correct algebraic steps and arrives at x = 12/7, matching the expected answer.",Step-by-Step,True
+C2-16,Accurate,Wrong Answer,"We want the equation of a line that:
+
+- passes through the point \((-3, 4)\)
+- is parallel to the line \(y = \frac{2}{3}x + 5\)
+
+Parallel lines have the same slope.  
+The given line has slope \(m = \frac{2}{3}\).
+
+Use the **point-slope formula** for a line:
+
+\[
+y - y_1 = m(x - x_1)
+\]
+
+Here, \((x_1, y_1) = (-3, 4)\) and \(m = \frac{2}{3}\):
+
+\[
+y - 4 = \frac{2}{3}(x - (-3))
+\]
+\[
+y - 4 = \frac{2}{3}(x + 3)
+\]
+
+This is the point-slope form.
+
+If we want slope-intercept form, distribute:
+
+\[
+y - 4 = \frac{2}{3}x + 2
+\]
+\[
+y = \frac{2}{3}x + 6
+\]
+
+**Final answer (point-slope form):** \(\boxed{y - 4 = \frac{2}{3}(x + 3)}\)  
+**Equivalent slope-intercept form:** \(\boxed{y = \frac{2}{3}x + 6}\)",True,"The solution correctly finds the parallel line with slope 2/3 through (-3,4) and matches the expected equation y = (2/3)x + 6.",Accurate,True
+C2-17,Complete,Wrong Answer,"We are given the quadratic equation:
+
+\[
+7x^2 - 9x = 0
+\]
+
+**Step 1: Factor the expression.**
+
+Both terms have a common factor of \(x\):
+
+\[
+7x^2 - 9x = x(7x - 9)
+\]
+
+So the equation becomes:
+
+\[
+x(7x - 9) = 0
+\]
+
+**Step 2: Use the Zero Product Property.**
+
+If a product is zero, then at least one factor must be zero:
+
+1. \(x = 0\)
+2. \(7x - 9 = 0 \Rightarrow 7x = 9 \Rightarrow x = \frac{9}{7}\)
+
+**Final Answer:**
+
+\[
+\boxed{x = 0 \text{ or } x = \frac{9}{7}}
+\]",True,The solution correctly factors the quadratic and finds both roots matching the expected answer.,Step-by-Step,True
+C2-18,Step-by-Step,Incomplete,"We are given the quadratic equation:
+
+\[
+x^2 = 10x + 3
+\]
+
+First, move all terms to one side to set the equation equal to zero:
+
+\[
+x^2 - 10x - 3 = 0
+\]
+
+Now use the quadratic formula for \(ax^2 + bx + c = 0\):
+
+\[
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\]
+
+Here \(a = 1\), \(b = -10\), and \(c = -3\). Substitute:
+
+\[
+x = \frac{-(-10) \pm \sqrt{(-10)^2 - 4(1)(-3)}}{2(1)}
+= \frac{10 \pm \sqrt{100 + 12}}{2}
+= \frac{10 \pm \sqrt{112}}{2}
+\]
+
+Simplify \(\sqrt{112}\):
+
+\[
+112 = 16 \cdot 7 \Rightarrow \sqrt{112} = \sqrt{16}\sqrt{7} = 4\sqrt{7}
+\]
+
+So:
+
+\[
+x = \frac{10 \pm 4\sqrt{7}}{2}
+= 5 \pm 2\sqrt{7}
+\]
+
+**Final answer:** \(\boxed{x = 5 + 2\sqrt{7} \text{ or } x = 5 - 2\sqrt{7}}\)",True,"The solution correctly applies the quadratic formula, simplifies properly, and arrives at x = 5 ± 2√7, matching the expected answer with clear steps.",Step-by-Step,True
+C2-19,Step-by-Step,Incomplete,"We are given the equation:
+
+\[
+x^{\frac12} - 4x^{\frac14} = 0
+\]
+
+Step 1: Factor out the common term \(x^{1/4}\).
+
+\[
+x^{1/4}\left(x^{1/4} - 4\right) = 0
+\]
+
+Step 2: Use the zero product property.
+
+So either
+
+1. \(x^{1/4} = 0\), or  
+2. \(x^{1/4} - 4 = 0\)
+
+Case 1:  
+\[
+x^{1/4} = 0 \implies x = 0^4 = 0
+\]
+
+Case 2:  
+\[
+x^{1/4} = 4 \implies x = 4^4 = 256
+\]
+
+Both satisfy the original equation (and \(x \ge 0\) is required for real roots, which they are).
+
+**Final answer:** \(\boxed{x = 0 \text{ or } x = 256}\).",False,The solver added an extraneous solution x = 0; the expected single solution is x = 256. The work is step-by-step but the final set of solutions does not match the correct one.,Wrong Answer,False
+C2-20,Complete,Wrong Answer,"We want to solve the inequality  
+\[
+|x - 3| < -4.
+\]
+
+Recall that the absolute value of any real number is **always nonnegative**:
+\[
+|x - 3| \ge 0 \quad \text{for all real } x.
+\]
+
+The inequality asks for values of \(x\) where a nonnegative number is **less than \(-4\)**, which is impossible. There are **no real numbers** \(x\) that satisfy this inequality.
+
+So the solution set is the empty set.
+
+**Final answer (interval notation):** \(\boxed{\varnothing}\)",True,"The solution correctly notes that an absolute value cannot be less than a negative number and gives the empty set, matching the expected 'No solution' answer.",Complete,True
+C4-01,Accurate,Wrong Answer,"To determine if an equation is linear, each variable must:
+
+- Be to the first power (no exponents other than 1),
+- Not be multiplied by another variable,
+- Not appear in denominators or inside roots.
+
+Given equation:  
 \[
 2x + 3y = 7
 \]
 
-A **linear equation in two variables** has the form  
-\[
-ax + by = c
-\]
-where \(a\), \(b\), and \(c\) are real numbers and \(x\), \(y\) are only to the first power (no exponents, products like \(xy\), or roots).
+Check:
+- \(x\) and \(y\) both appear only to the first power.
+- There are no products like \(xy\), no squares, roots, or denominators involving \(x\) or \(y\).
 
-Compare:
+Therefore, this equation is linear in two variables.
 
-- \(a = 2\)
-- \(b = 3\)
-- \(c = 7\)
+**Final answer:** The equation \(2x + 3y = 7\) is linear.",True,"The solution correctly identifies the equation as linear and provides appropriate justification, matching the expected yes/no answer.",Accurate,True
+C4-02,Accurate,Wrong Answer,"We want the slope of the line shown.
 
-Both variables \(x\) and \(y\) appear only to the first power and are not multiplied together or inside any non-linear functions.
-
-Therefore, \(2x + 3y = 7\) **is a linear equation**.
-
-**Final answer:** The equation \(2x + 3y = 7\) is linear.",True,The solution correctly identifies 2x + 3y = 7 as a linear equation and matches the expected answer of 'Yes'.,Accurate,True
-C4-02,Accurate,Wrong Answer,"To find the slope of the line, pick two clear points on the line from the graph.
-
-From the graph, two points the line passes through are approximately  
-\((0, -5)\) and \((3, 6)\).
+From the graph, pick two clear points on the line.  
+It passes exactly through the point \((0, -4)\) and also through \((3, 6)\).
 
 Use the slope formula:
-
 \[
 m = \frac{y_2 - y_1}{x_2 - x_1}
 \]
 
-Let \((x_1, y_1) = (0, -5)\) and \((x_2, y_2) = (3, 6)\):
-
+Let \((x_1, y_1) = (0, -4)\) and \((x_2, y_2) = (3, 6)\):
 \[
-m = \frac{6 - (-5)}{3 - 0}
-= \frac{6 + 5}{3}
-= \frac{11}{3}
+m = \frac{6 - (-4)}{3 - 0} 
+   = \frac{6 + 4}{3}
+   = \frac{10}{3}
 \]
 
-**Final answer: \(\boxed{\dfrac{11}{3}}\)**",False,"The correct slope from the graph is 3, but the solver computed 11/3, so the numerical answer does not match the expected result.",Wrong Answer,False
-C4-03,Complete,Clarification Needed,"We want the equation of the line in **slope‑intercept form**:  
+**Final answer: \(\boxed{\dfrac{10}{3}}\)**",False,"The correct slope is 3, but the solver misread the graph and computed 10/3 instead.",Wrong Answer,False
+C4-03,Complete,Clarification Needed,"We need the equation of the line shown.
+
+From the graph we can read two clear points on the line:
+
+- The point where the line crosses the y-axis: \((0,-1)\).
+- Another point, for example at the top right of the line: \((4,6)\).
+
+**1. Find the slope.**
+
 \[
-y = mx + b
+m = \frac{y_2 - y_1}{x_2 - x_1}
+= \frac{6 - (-1)}{4 - 0}
+= \frac{7}{4}
 \]
 
-From the graph we can read two clear points on the line:  
-- The line crosses the \(y\)-axis at \((0,-1)\).  
-- Another nice point is \((3,5)\).
+So the slope is \(m = \dfrac{7}{4}\).
+
+**2. Use slope-intercept form \(y = mx + b\).**
+
+Substitute \(m = \dfrac{7}{4}\) and the point \((0,-1)\):
+
+\[
+y = \frac{7}{4}x + b
+\]
+\[
+-1 = \frac{7}{4}(0) + b \Rightarrow b = -1
+\]
+
+So the y-intercept is \(-1\).
+
+**Final equation:**
+
+\[
+\boxed{y = \frac{7}{4}x - 1}
+\]",False,"The graph corresponds to the line y = 2x - 2, but the solver found y = (7/4)x - 1, so the math result does not match the expected answer.",Wrong Answer,False
+C4-04,Accurate,Incomplete,"We are given the table:
+
+\[
+\begin{array}{c|cccc}
+x & 6 & 8 & 12 & 26\\ \hline
+g(x) & -8 & -12 & -18 & -46
+\end{array}
+\]
+
+### 1. Check if it’s linear
+
+For a linear function, the rate of change (slope) between any two points must be the same.
+
+Compute slopes between pairs of points:
+
+1. Between \((6,-8)\) and \((8,-12)\):
+
+\[
+m = \frac{-12 - (-8)}{8 - 6} = \frac{-4}{2} = -2
+\]
+
+2. Between \((8,-12)\) and \((12,-18)\):
+
+\[
+m = \frac{-18 - (-12)}{12 - 8} = \frac{-6}{4} = -\frac{3}{2}
+\]
+
+The slopes \(-2\) and \(-\frac{3}{2}\) are not equal.  
+Since the slopes between points are different, the data do **not** lie on a single straight line.
+
+Therefore, the table **does not represent a linear function**, and there is no single linear equation that models all of the data.
+
+**Final answer:** The function is **not linear**; no single linear equation fits all the points.",True,"The solution correctly computes differing slopes between points and concludes the relation is not linear, which matches the expected answer.",Accurate,True
+C4-05,Step-by-Step,Wrong Answer,"First, translate the information into equations.
+
+Let \(x\) be the number of miles you drive.
+
+**Plan A:**  
+Cost \(= 25 + 0.10x\) dollars  
+(\$25 per day plus \$0.10 per mile)
+
+**Plan B:**  
+Cost \(= 50\) dollars  
+(\$50 per day with unlimited mileage)
+
+We want to know when Plan B saves money, so we need:
+\[
+\text{Cost of Plan B} < \text{Cost of Plan A}
+\]
+\[
+50 < 25 + 0.10x
+\]
+
+Subtract 25 from both sides:
+\[
+25 < 0.10x
+\]
+
+Divide both sides by 0.10:
+\[
+x > \frac{25}{0.10} = 250
+\]
+
+So, you must drive **more than 250 miles** for Plan B to be cheaper.
+
+**Final answer:** Plan B saves you money if you drive **more than 250 miles**.",True,"The solution correctly sets up the cost equations, solves the inequality, and matches the expected answer of more than 250 miles with clear steps.",Step-by-Step,True
+C4-06,Step-by-Step,High,"The problem says the population grows at a **constant rate** (linear growth).
+
+Data:
+- In 2010: \(P = 55{,}000\)
+- In 2012: \(P = 76{,}000\)
+
+Time between 2010 and 2012 is \(2\) years.
+
+Increase in population over those 2 years:
+\[
+76{,}000 - 55{,}000 = 21{,}000
+\]
+
+So the yearly increase is:
+\[
+\frac{21{,}000}{2} = 10{,}500 \text{ people per year}
+\]
+
+From 2010 to 2016 is \(6\) years.  
+Increase over 6 years:
+\[
+6 \times 10{,}500 = 63{,}000
+\]
+
+Predicted population in 2016:
+\[
+55{,}000 + 63{,}000 = 118{,}000
+\]
+
+**Final answer: \(118{,}000\) people**.",True,"The solution computes the yearly increase correctly and arrives at the correct 2016 population of 118,000, showing clear linear reasoning.",Step-by-Step,True
+C4-07,Complete,Incomplete,"We are given a graph of profit \(y\) (in thousands of dollars) versus \(x\) (years since 1980).  
+The line passes through two clear points:
+
+- At \(x = 5\), \(y = 10{,}000\)
+- At \(x = 25\), \(y = 4{,}000\)
+
+Use these points to find the linear function \(y = mx + b\).
 
 **1. Find the slope \(m\):**
 
 \[
 m = \frac{y_2 - y_1}{x_2 - x_1}
-   = \frac{5 - (-1)}{3 - 0}
-   = \frac{6}{3}
-   = 2
-\]
-
-So the slope is \(m = 2\).
-
-**2. Find the y‑intercept \(b\):**
-
-Since the line passes through \((0,-1)\), that point is directly the y‑intercept, so \(b = -1\).
-
-Thus the equation is:
-\[
-y = 2x - 1
-\]
-
-**Final answer:** \(\boxed{y = 2x - 1}\)",False,"The expected equation is y = 2x - 2, but the solver found y = 2x - 1, so the y-intercept is incorrect.",Wrong Answer,False
-C4-04,Accurate,Incomplete,"We are given the table:
-
-\[
-\begin{array}{c|cccc}
-x & 6 & 8 & 12 & 26\\
-\hline
-g(x) & -8 & -12 & -18 & -46
-\end{array}
-\]
-
-### 1. Check if it is linear
-Compute slopes between pairs of points:
-
-Between \((6,-8)\) and \((8,-12)\):
-
-\[
-m = \frac{-12 - (-8)}{8-6} = \frac{-4}{2} = -2
-\]
-
-Between \((8,-12)\) and \((12,-18)\):
-
-\[
-m = \frac{-18 - (-12)}{12-8} = \frac{-6}{4} = -\frac{3}{2}
-\]
-
-These slopes are different (\(-2 \neq -\frac{3}{2}\)), so the rate of change is not constant.
-
-Therefore, the data **do not** represent a linear function, and there is no single linear equation that models all of the given points.
-
-**Final answer:**  
-The table does **not** represent a linear function.",True,"The solution correctly determines that the slopes between consecutive points are not equal and concludes the relation is not linear, matching the expected answer.",Accurate,True
-C4-05,Step-by-Step,Wrong Answer,"First, translate each plan into an expression for the total cost.
-
-Let \(m\) be the number of miles driven in one day.
-
-**Plan A:**  
-Cost = \$25 per day + \$0.10 per mile  
-\[
-C_A = 25 + 0.10m
-\]
-
-**Plan B:**  
-Cost = \$50 per day with unlimited mileage  
-\[
-C_B = 50
-\]
-
-We want to know when Plan B saves money, so we want:
-\[
-C_B < C_A
-\]
-
-Substitute:
-\[
-50 < 25 + 0.10m
-\]
-
-Solve for \(m\):
-\[
-50 - 25 < 0.10m
-\]
-\[
-25 < 0.10m
-\]
-\[
-m > \frac{25}{0.10} = 250
-\]
-
-So plan B is cheaper if you drive **more than 250 miles** in a day.
-
-**Final answer:** You need to drive **over 250 miles** (i.e., 251 miles or more) for Plan B to save you money.",True,"The solution correctly sets up the cost equations, solves the inequality, and concludes that Plan B is cheaper for more than 250 miles, matching the expected answer.",Step-by-Step,True
-C4-06,Step-by-Step,High,"Problem statement (from the image):
-
-A town’s population increases at a constant rate. In 2010 the population was 55,000. By 2012 the population had increased to 76,000. If this trend continues, predict the population in 2016.
-
----
-
-### Step 1: Find the yearly rate of increase
-
-From 2010 to 2012 is 2 years.
-
-Population change in that time:
-\[
-76{,}000 - 55{,}000 = 21{,}000
-\]
-
-Yearly increase:
-\[
-\frac{21{,}000}{2} = 10{,}500 \text{ people per year}
-\]
-
----
-
-### Step 2: Find the increase from 2010 to 2016
-
-From 2010 to 2016 is 6 years.
-
-Total increase over 6 years:
-\[
-6 \times 10{,}500 = 63{,}000
-\]
-
----
-
-### Step 3: Add to the 2010 population
-
-\[
-55{,}000 + 63{,}000 = 118{,}000
-\]
-
----
-
-**Final answer:**  
-The predicted population in 2016 is **118,000** people.",True,"The solution correctly computes the annual increase and projects the population to 2016 with clear steps, matching the expected answer of 118,000.",Step-by-Step,True
-C4-07,Complete,Incomplete,"We are told that \(y\) is the profit (in thousands of dollars) and \(x\) is the number of years since 1980.  
-From the graph, the line passes through the two points
-
-\[
-(5, 11{,}000) \quad\text{and}\quad (25, 5{,}000)
-\]
-
-(These are read from the axes: at \(x=5\), \(y=11{,}000\); at \(x=25\), \(y=5{,}000\).)
-
-### 1. Find the slope  
-\[
-m = \frac{y_2 - y_1}{x_2 - x_1}
-   = \frac{5{,}000 - 11{,}000}{25 - 5}
+   = \frac{4{,}000 - 10{,}000}{25 - 5}
    = \frac{-6{,}000}{20}
    = -300
 \]
 
-So the slope is \(-300\) (thousand dollars per year).
+So, \(m = -300\).
 
-### 2. Use point–slope form to get the equation  
-Use point \((5, 11{,}000)\):
+**2. Find the intercept \(b\):**
 
-\[
-y - 11{,}000 = -300(x - 5)
-\]
-
-Distribute:
+Use one point, say \((5, 10{,}000)\):
 
 \[
-y - 11{,}000 = -300x + 1{,}500
+y = mx + b \Rightarrow 10{,}000 = -300(5) + b
 \]
+\[
+10{,}000 = -1{,}500 + b
+\]
+\[
+b = 10{,}000 + 1{,}500 = 11{,}500
+\]
+
+So \(b = 11{,}500\).
+
+**Linear function:**
 
 \[
-y = -300x + 1{,}500 + 11{,}000
+\boxed{y = -300x + 11{,}500}
 \]
 
-\[
-y = -300x + 12{,}500
-\]
+(Here \(y\) is profit in dollars, \(x\) is years since 1980.)",True,The solver correctly determined the slope and intercept from the graph and wrote the linear function matching the expected answer.,Step-by-Step,True
+C4-08,Accurate,Clarification Needed,"The table gives:
 
-So the linear function relating profit \(y\) to years since 1980, \(x\), is:
+| Year | Population |
+|------|------------|
+| 1990 | 5600 |
+| 1995 | 5850 |
+| 2000 | 6300 |
+| 2005 | 6500 |
+| 2010 | 6900 |
 
-\[
-\boxed{y = -300x + 12{,}500}
-\]
+1. **Scatter plot**
 
-(\(y\) is in dollars; in thousands it would be \(y = -0.3x + 12.5\).)",False,"The derived equation y = -300x + 12,500 does not match the expected linear function y = -300x + 11,500.",Wrong Answer,False
-C4-08,Accurate,Clarification Needed,"First, read the data from the table (year, population):
+On graph paper (or a coordinate plane):
 
-- 1990 → 5,600  
-- 1995 → 5,950  
-- 2000 → 6,300  
-- 2005 → 6,600  
-- 2010 → 6,900  
+- Horizontal axis (x-axis): Year  
+- Vertical axis (y-axis): Population  
 
-### 1. Scatter plot (description)
+Plot the points:
 
-On graph paper:
+- (1990, 5600)  
+- (1995, 5850)  
+- (2000, 6300)  
+- (2005, 6500)  
+- (2010, 6900)
 
-- Put *Year* on the horizontal axis (x‑axis): mark 1990, 1995, 2000, 2005, 2010.
-- Put *Population* on the vertical axis (y‑axis), with values from about 5,500 to 7,000.
-- Plot the points:  
-  (1990, 5600), (1995, 5950), (2000, 6300), (2005, 6600), (2010, 6900).
+These dots form the scatter plot.
 
-You will see the points trend upward roughly in a straight line.
+2. **Interpolation or extrapolation?**
 
-### 2. Interpolation or extrapolation?
+All the given populations are between **5600** and **6900**.  
+A population of **15,000** is far above this range and has not yet been observed in the data.
 
-The question asks: *If we wanted to know **when** the population would reach 15,000, would that involve interpolation or extrapolation?*
+To find when the population would reach 15,000, we would have to **extend the trend beyond the data we have**, which is called **extrapolation**, not interpolation (interpolation is estimating between known data points).
 
-- All data values in the table are between 5,600 and 6,900.  
-- A population of 15,000 is **far outside** this range.
-
-So we would be predicting a value well beyond the existing data; this is **extrapolation**, not interpolation.
-
-**Final answer:** The scatter plot is made from the points above, and determining when the population would reach 15,000 would involve **extrapolation**.",True,"They correctly described the scatter plot points from the table and identified that finding when the population reaches 15,000 requires extrapolation, matching the expected answer.",Accurate,True
-C4-09,Complete,Wrong Answer,"We are given the data:
+**Final answer:**  
+The question of when the population will reach 15,000 would involve **extrapolation**.",True,"The AI correctly describes how to make the scatter plot and correctly identifies that finding when the population reaches 15,000 requires extrapolation, matching the expected answer.",Accurate,True
+C4-09,Complete,Wrong Answer,"We’re given the percent of unemployed people (age 25 or older) who are college graduates.
 
 \[
 \begin{array}{c|ccccc}
 \text{Year} & 2000 & 2002 & 2005 & 2007 & 2010\\ \hline
-\text{Percent graduates} & 6.5 & 7.0 & 7.4 & 8.2 & 9.0
+\text{Percent} & 6.5 & 7.0 & 7.4 & 8.2 & 9.0
 \end{array}
 \]
 
-We assume the percentage increases linearly with time.  
-Let \(x\) be the number of years after 2000, and \(P(x)\) be the percent graduates.
+We assume the percent increases linearly with time.
 
-Use the data from 2000 and 2010 to find the line:
+Let \(x\) = number of years since 2000, and \(P(x)\) = percent graduates.
 
-- Point 1: \((0, 6.5)\) (year 2000)
-- Point 2: \((10, 9.0)\) (year 2010)
+Use the first and last data points (2000, 6.5) and (2010, 9.0) to find a linear model.
 
 Slope:
 \[
-m = \frac{9.0 - 6.5}{10 - 0} = \frac{2.5}{10} = 0.25
+m = \frac{9.0 - 6.5}{2010 - 2000} = \frac{2.5}{10} = 0.25
 \]
 
-Equation of the line:
+So,
 \[
-P(x) = 6.5 + 0.25x
+P(x) = 0.25x + b
+\]
+Use \(P(0) = 6.5\) (year 2000):
+\[
+6.5 = 0.25(0) + b \Rightarrow b = 6.5
 \]
 
-We want \(P(x) > 12\):
+Model:
+\[
+P(x) = 0.25x + 6.5
+\]
+
+We want the year when \(P(x) > 12\).
 
 \[
-6.5 + 0.25x > 12
+0.25x + 6.5 > 12
 \]
 \[
 0.25x > 12 - 6.5 = 5.5
@@ -300,191 +1089,78 @@ We want \(P(x) > 12\):
 x > \frac{5.5}{0.25} = 22
 \]
 
-So the percentage exceeds 12% more than 22 years after 2000:
+So the percent exceeds 12% for \(x > 22\), i.e., after:
 
 \[
 2000 + 22 = 2022
 \]
 
-**Answer: The percentage will exceed 12% in the year 2022.**",False,"The correct year is 2023, while the solution concluded 2022, so the numerical answer does not match.",Wrong Answer,False
-C4-10,Complete,Incomplete,"We are given the data from the table:
+**Final answer:** The percentage will exceed 12% in **the year 2022**.",False,"The correct year, as shown, is 2023, but the solver’s linear model predicts 2022 instead.",Wrong Answer,False
+C4-10,Complete,Incomplete,,False,The other AI provided no actual answer or calculations to compare with the expected regression equation and correlation coefficient.,Incomplete,False
+C4-11,Accurate,Wrong Answer,"We want to determine whether the two lines are parallel, perpendicular, or neither.
 
-\[
-\begin{array}{c|cccccc}
-x & 10 & 12 & 15 & 18 & 20 \\
-\hline
-y & 36 & 34 & 30 & 28 & 27
-\end{array}
-\]
-
-There are \(n = 5\) data points.
-
----
-
-### 1. Compute necessary sums
-
-\[
-\begin{aligned}
-\sum x &= 10+12+15+18+20 = 75 \\
-\sum y &= 36+34+30+28+27 = 155 \\
-\sum x^2 &= 10^2+12^2+15^2+18^2+20^2 \\
-        &= 100+144+225+324+400 = 1193 \\
-\sum y^2 &= 36^2+34^2+30^2+28^2+27^2 \\
-        &= 1296+1156+900+784+729 = 4865 \\
-\sum xy &= 10\cdot36+12\cdot34+15\cdot30+18\cdot28+20\cdot27 \\
-        &= 360+408+450+504+540 = 2262
-\end{aligned}
-\]
-
----
-
-### 2. Regression line \(y = a + bx\)
-
-Slope
-\[
-b = 
-\dfrac{n\sum xy - (\sum x)(\sum y)}
-      {n\sum x^2 - (\sum x)^2}
-=
-\dfrac{5(2262)-75\cdot155}{5(1193)-75^2}
-=
-\dfrac{11310-11625}{5965-5625}
-=
-\dfrac{-315}{340}
-=-0.926\ (\text{to three decimals})
-\]
-
-Intercept
-\[
-a = \bar y - b\bar x
-= \frac{\sum y}{n} - b\frac{\sum x}{n}
-= 31 - (-0.926)(15)
-= 31 + 13.89
-\approx 44.89
-\]
-
-So the regression line is
-\[
-\boxed{y \approx 44.89 - 0.926x}
-\]
-
----
-
-### 3. Correlation coefficient \(r\)
-
-\[
-r = 
-\dfrac{n\sum xy - (\sum x)(\sum y)}
-     {\sqrt{\left[n\sum x^2 - (\sum x)^2\right]
-                \left[n\sum y^2 - (\sum y)^2\right]}}
-\]
-
-We already have
-\(n\sum xy - (\sum x)(\sum y) = -315\) and  
-\(n\sum x^2 - (\sum x)^2 = 340\).
-
-Now
-\[
-n\sum y^2 - (\sum y)^2
-= 5(4865)-155^2
-= 24325-24025
-= 300.
-\]
-
-Thus
-\[
-r = \dfrac{-315}{\sqrt{340\cdot 300}}
-= \dfrac{-315}{\sqrt{102000}}
-\approx \dfrac{-315}{319.06}
-\approx -0.987 \quad (\text{to three decimals})
-\]
-
----
-
-**Final answer:**
-
-Regression line: \(\boxed{y \approx 44.89 - 0.926x}\)
-
-Correlation coefficient: \(\boxed{r \approx -0.987}\)",False,The regression line and correlation coefficient do not match the expected values; both slope/intercept and r are incorrect.,Wrong Answer,False
-C4-11,Accurate,Wrong Answer,"We are given two lines:
-
-1) \(2x - 6y = 12\)  
+Given equations:
+1) \(2x - 6y = 12\)
 2) \(-x + 3y = 1\)
 
-To compare them, write each in slope-intercept form \(y = mx + b\), where \(m\) is the slope.
+**Step 1: Put each equation into slope-intercept form \(y = mx + b\).**
 
----
-
-**Line 1:**
-
-\[
-2x - 6y = 12
-\]
-
-Subtract \(2x\) from both sides:
+1) \(2x - 6y = 12\)
 
 \[
 -6y = -2x + 12
 \]
-
-Divide by \(-6\):
-
 \[
 y = \frac{-2}{-6}x + \frac{12}{-6}
-= \frac{1}{3}x - 2
 \]
-
-So the slope of line 1 is \(m_1 = \frac{1}{3}\).
-
----
-
-**Line 2:**
-
 \[
--x + 3y = 1
+y = \frac{1}{3}x - 2
 \]
 
-Add \(x\) to both sides:
+So the slope of the first line is \(m_1 = \frac{1}{3}\).
+
+2) \(-x + 3y = 1\)
 
 \[
 3y = x + 1
 \]
-
-Divide by 3:
-
 \[
 y = \frac{1}{3}x + \frac{1}{3}
 \]
 
-So the slope of line 2 is \(m_2 = \frac{1}{3}\).
+So the slope of the second line is \(m_2 = \frac{1}{3}\).
 
----
+**Step 2: Compare slopes.**
 
-**Compare slopes**
+- If \(m_1 = m_2\), the lines are parallel (unless the equations represent the same line, but here they have different y-intercepts).
+- If \(m_1 \cdot m_2 = -1\), the lines are perpendicular.
 
-- Parallel lines have equal slopes and different intercepts.
-- Perpendicular lines have slopes that are negative reciprocals (their product is \(-1\)).
+Here:
+\[
+m_1 = \frac{1}{3}, \quad m_2 = \frac{1}{3} \Rightarrow m_1 = m_2
+\]
 
-Here \(m_1 = m_2 = \frac{1}{3}\) and the y-intercepts differ (\(-2\) vs. \(1/3\)), so the lines are **parallel**, not the same line and not perpendicular.
+So the lines are **parallel**.
 
-**Final answer:** The lines are **parallel**.",True,"The solution correctly finds both slopes as 1/3 and concludes the lines are parallel, matching the expected answer.",Accurate,True
-C4-12,Step-by-Step,Incomplete,"The problem says:
+**Final Answer:** The lines are **parallel**.",True,"The solution correctly finds equal slopes for both lines and concludes they are parallel, matching the expected answer.",Accurate,True
+C4-12,Step-by-Step,Incomplete,"First, read the problem from the image:
 
-> For the following exercises, use the descriptions of the pairs of lines to find the slopes of Line 1 and Line 2. Is each pair of lines parallel, perpendicular, or neither?  
-> 17. Line 1 passes through (5,1) and (10,1).  
-> Line 2 passes through (-1,3) and (-5,11).
+> For the following exercises, use the descriptions of the pairs of lines to find the slopes of Line 1 and Line 2. Is each pair of lines parallel, perpendicular, or neither?
+
+Problem 17:
+
+- **Line 1** passes through \((5,1)\) and \((10,1)\).  
+- **Line 2** passes through \((-1,3)\) and \((-5,11)\).
 
 ---
 
 ### Slope of Line 1
 
-Line 1 points: \((x_1,y_1)=(5,1)\), \((x_2,y_2)=(10,1)\).
+Use the slope formula \(m = \dfrac{y_2 - y_1}{x_2 - x_1}\).
 
+For Line 1:
 \[
-m_1 = \frac{y_2-y_1}{x_2-x_1}
-    = \frac{1-1}{10-5}
-    = \frac{0}{5}
-    = 0
+m_1 = \frac{1 - 1}{10 - 5} = \frac{0}{5} = 0
 \]
 
 So Line 1 has slope \(m_1 = 0\) (a horizontal line).
@@ -493,11 +1169,10 @@ So Line 1 has slope \(m_1 = 0\) (a horizontal line).
 
 ### Slope of Line 2
 
-Line 2 points: \((x_1,y_1)=(-1,3)\), \((x_2,y_2)=(-5,11)\).
-
+For Line 2, with points \((-1,3)\) and \((-5,11)\):
 \[
-m_2 = \frac{y_2-y_1}{x_2-x_1}
-    = \frac{11-3}{-5-(-1)}
+m_2 = \frac{11 - 3}{-5 - (-1)} 
+    = \frac{8}{-5 + 1}
     = \frac{8}{-4}
     = -2
 \]
@@ -508,291 +1183,321 @@ So Line 2 has slope \(m_2 = -2\).
 
 ### Relationship between the lines
 
-- Parallel lines must have equal slopes. Here \(0 \neq -2\), so they are **not parallel**.
-- Perpendicular lines must have slopes whose product is \(-1\).  
-  \[
-  m_1 \cdot m_2 = 0 \cdot (-2) = 0 \neq -1
-  \]
-  So they are **not perpendicular**.
+- Parallel lines have equal slopes. Here, \(0 \neq -2\), so they are **not parallel**.
+- Perpendicular lines have slopes whose product is \(-1\): \(m_1 m_2 = 0 \cdot (-2) = 0\), which is not \(-1\), so they are **not perpendicular**.
 
-Therefore, the lines are **neither parallel nor perpendicular**.
+Thus, they are **neither** parallel nor perpendicular.
 
 ---
 
-**Final answer:**  
-Slope of Line 1: \(0\).  
-Slope of Line 2: \(-2\).  
-The lines are **neither parallel nor perpendicular**.",False,"The expected slopes for both lines are -2 and the lines are parallel, but the solution found slope 0 for line 1 and concluded they are neither.",Wrong Answer,False
-C4-13,Accurate,Wrong Answer,"We are given the line  
+**Final Answer:**
+
+- Slope of Line 1: \(m_1 = 0\)  
+- Slope of Line 2: \(m_2 = -2\)  
+- Relationship: The lines are **neither** parallel nor perpendicular.",False,"The correct slopes for both lines are -2, making them parallel; the solution computed the first slope incorrectly as 0 and concluded they are neither.",Wrong Answer,False
+C4-13,Accurate,Wrong Answer,"The given line is  
 \[
 f(x) = 5x - 1
 \]
-This is in slope-intercept form \(y = mx + b\), so its slope is  
+This is in slope-intercept form \(y = mx + b\), so its slope is \(m = 5\).
+
+For a line to be **perpendicular**, its slope must be the negative reciprocal of 5:
 \[
-m = 5.
+m_{\perp} = -\frac{1}{5}
 \]
 
-Lines that are **perpendicular** have slopes that are negative reciprocals.  
-So the slope of a line perpendicular to this one is  
+We want a line with slope \(-\frac{1}{5}\) that passes through the point \((5, 20)\).  
+Use the point-slope form:
 \[
-m_{\perp} = -\frac{1}{5}.
+y - y_1 = m(x - x_1)
 \]
-
-We want the line with slope \(-\frac{1}{5}\) that passes through the point \((5, 20)\).  
-Use point-slope form:
 \[
-y - y_1 = m(x - x_1),
-\]
-with \((x_1,y_1) = (5,20)\) and \(m = -\frac{1}{5}\):
-
-\[
-y - 20 = -\frac{1}{5}(x - 5).
+y - 20 = -\frac{1}{5}(x - 5)
 \]
 
 Distribute:
 \[
-y - 20 = -\frac{1}{5}x + 1.
+y - 20 = -\frac{1}{5}x + 1
 \]
 
 Add 20 to both sides:
 \[
-y = -\frac{1}{5}x + 21.
+y = -\frac{1}{5}x + 1 + 20
+\]
+\[
+y = -\frac{1}{5}x + 21
 \]
 
-**Final answer:** \(\boxed{y = -\dfrac{1}{5}x + 21}\).",True,"The solution correctly finds the perpendicular slope and equation, matching the expected answer y = -0.2x + 21.",Accurate,True
-C4-14,Complete,Clarification Needed,"The problem says:
+**Final answer:** \(\boxed{y = -\dfrac{1}{5}x + 21}\).",True,"The solution correctly finds the perpendicular slope and equation, matching the expected answer y = -0.2x + 21.",Step-by-Step,True
+C4-14,Complete,Clarification Needed,"The problem says:  
+“Sketch a graph of the linear function \(f(t) = 2t - 5.\)”
 
-> Sketch a graph of the linear function \(f(t) = 2t - 5.\)
+This is a linear function of the form \(y = mt + b\), where
+- slope \(m = 2\)
+- \(y\)-intercept \(b = -5\)
 
-This is a line in slope‑intercept form \(y = mt + b\), where  
+**Step 1: Plot the y-intercept**
 
-- **Slope** \(m = 2\)  
-- **\(y\)-intercept** \(b = -5\)
+When \(t = 0\):  
+\[
+f(0) = 2(0) - 5 = -5
+\]
+So the graph passes through the point \((0, -5)\).
 
-So the line:
+**Step 2: Use the slope**
 
-1. Crosses the \(y\)-axis at the point \((0, -5)\).
-2. Has slope \(2\), meaning it rises 2 units for every 1 unit moved to the right.
+Slope \(2\) means “rise 2 units for every 1 unit to the right.”
 
-To sketch:
+Starting from \((0, -5)\), move:
+- right 1 unit to \(t = 1\)
+- up 2 units to \(y = -3\)
 
-- Plot the intercept \((0,-5)\).
-- From \((0,-5)\), go right 1 unit and up 2 units to \((1,-3)\); plot this point.
-- Draw a straight line through the points \((0,-5)\) and \((1,-3)\); extend it in both directions.
+So another point on the line is \((1, -3)\).
 
-That is the graph of \(f(t) = 2t - 5\).
+We can also go in the opposite direction:
+- left 1 unit to \(t = -1\)
+- down 2 units to \(y = -7\)
 
-**Final answer:** A straight line with slope \(2\) passing through \((0,-5)\), for example through the points \((0,-5)\) and \((1,-3)\).",True,"The solution correctly identifies the slope and y-intercept and describes how to sketch the line, matching the expected graph.",Complete,True
+So \((-1, -7)\) is also on the line.
+
+**Step 3: Draw the line**
+
+On a coordinate plane with horizontal axis \(t\) and vertical axis \(f(t)\):
+
+1. Plot the points \((0, -5)\), \((1, -3)\), and \((-1, -7)\).
+2. Draw a straight line through these points extending in both directions.
+
+This line is the graph of \(f(t) = 2t - 5\).
+
+**Final answer:** The graph is a straight line with slope \(2\) and \(y\)-intercept \(-5\), passing through points such as \((0, -5)\), \((1, -3)\), and \((-1, -7)\).",True,"The explanation correctly identifies the slope and intercept of f(t)=2t−5 and describes plotting appropriate points to sketch the line, matching the expected graph.",Step-by-Step,True
 C4-15,Step-by-Step,Incomplete,"We are told the moose population changes linearly.
 
-Year 2000: \(P = 6500\)  
-Year 2010: \(P = 12500\)
+- In 2000: population \(P = 6500\)  
+- In 2010: population \(P = 12500\)
 
-1. **Find the yearly rate of change (slope).**
+Let \(t\) be years since 2000, and \(P(t)\) the population.
 
+So:
+- At \(t = 0\): \(P(0) = 6500\)  
+- At \(t = 10\): \(P(10) = 12500\)
+
+**1. Find the slope (rate of change)**  
 \[
-m = \frac{12500 - 6500}{2010 - 2000}
-   = \frac{6000}{10}
-   = 600 \text{ moose per year}
+m = \frac{\Delta P}{\Delta t} = \frac{12500 - 6500}{10 - 0}
+    = \frac{6000}{10} = 600 \text{ moose per year}
 \]
 
-2. **Write the linear model.**  
-Let \(t\) be years since 2000, so \(t=0\) corresponds to year 2000.
+**2. Write the linear model**
 
 \[
 P(t) = 6500 + 600t
 \]
 
-3. **Find the population in 2020.**  
-Year 2020 corresponds to \(t = 2020 - 2000 = 20\).
+**3. Predict the population in 2020**
+
+Year 2020 corresponds to \(t = 20\) (20 years after 2000):
 
 \[
 P(20) = 6500 + 600(20) = 6500 + 12000 = 18500
 \]
 
-**Final answer: The model predicts a moose population of 18,500 in 2020.**",True,"The solution correctly computes the linear model, finds the 2020 population as 18,500, and shows clear step-by-step work matching the expected answer.",Step-by-Step,True
-C4-16,Accurate,Wrong Answer,"We are told home values change **linearly** and are given Pima Central data:
+**Final answer:** The model predicts a moose population of **18,500** in 2020.",True,"The solution correctly constructs the linear model, computes the slope, and finds the 2020 population as 18,500, matching the expected answer.",Step-by-Step,True
+C4-16,Accurate,Wrong Answer,"We’re told that median home values in **Pima Central** are changing linearly.
+
+From the table (Pima Central):
 
 - 1970: \$32,000  
 - 2010: \$85,000  
 
-Let \(t\) be years since 1970, and \(V(t)\) the median home value.
-
-So:
-- At \(t = 0\) (1970), \(V = 32000\)
-- At \(t = 40\) (2010), \(V = 85000\)
-
-**1. Find the slope (rate of change).**
+So in 40 years (from 1970 to 2010), the value increased by  
 
 \[
-m = \frac{85{,}000 - 32{,}000}{40 - 0}
-   = \frac{53{,}000}{40}
-   = 1325 \text{ dollars per year}
+85{,}000 - 32{,}000 = 53{,}000 \text{ dollars}
 \]
 
-**2. Equation for value.**
+The yearly rate of change (slope) is
 
 \[
-V(t) = 32000 + 1325t
+\text{slope} = \frac{53{,}000}{40} = 1{,}325 \text{ dollars per year}
 \]
 
-**3. Find value in 2015.**
-
-2015 is \(2015 - 1970 = 45\) years after 1970, so \(t = 45\).
+Let \(V(t)\) be the median value in year \(t\). Using 1970 as a starting point:
 
 \[
-V(45) = 32000 + 1325 \cdot 45
+V(t) = 32{,}000 + 1{,}325(t - 1970)
 \]
+
+We want \(V(2015)\):
 
 \[
-1325 \cdot 45 = 1325(40 + 5) = 1325 \cdot 40 + 1325 \cdot 5
-= 53{,}000 + 6{,}625 = 59{,}625
+\begin{aligned}
+V(2015) &= 32{,}000 + 1{,}325(2015 - 1970) \\
+&= 32{,}000 + 1{,}325 \cdot 45 \\
+&= 32{,}000 + 59{,}625 \\
+&= 91{,}625
+\end{aligned}
 \]
+
+**Final answer:** The projected median home value in Pima Central in 2015 is **\$91,625**.",True,"The solution correctly models the linear change and computes the 2015 value as $91,625, matching the expected answer.",Accurate,True
+C4-17,Complete,Incomplete,"We estimate the coordinates of the plotted points from the graph:
 
 \[
-V(45) = 32{,}000 + 59{,}625 = 91{,}625
+(2, 75),\ (4, 82),\ (6, 84),\ (8, 88),\ (10, 97)
 \]
 
-**Final Answer:**  
-The predicted median home value in Pima Central in 2015 is **\$91,625**.",True,"The solution correctly models linear growth, computes the slope, and evaluates the function for 2015 to get $91,625, matching the expected answer.",Accurate,True
-C4-17,Complete,Incomplete,"We are asked to draw (or describe) a **best-fit line** for the scatter plot.
-
-From the picture, the plotted points are approximately
-
-\[
-(2, 75),\quad (4, 82),\quad (6, 84),\quad (8, 88),\quad (10, 97)
-\]
-
-A best-fit line should:
-
-- follow the upward trend (positive slope),
-- have roughly the same number of points above and below the line.
+To draw a best‑fit line, we find a line \(y = mx + b\) that is close to all these points.
 
 ### 1. Estimate the slope
-
-Take two representative points, say \((2,75)\) and \((10,97)\):
+Use two of the points near the ends, say \((2,75)\) and \((10,97)\):
 
 \[
-m = \frac{97 - 75}{10 - 2} = \frac{22}{8} \approx 2.75
+m = \frac{97 - 75}{10 - 2}
+   = \frac{22}{8}
+   \approx 2.75
 \]
 
-So the slope is about \(3\) units in \(y\) for each unit in \(x\).
+So the line rises about 2.75 units in \(y\) for each 1 unit in \(x\).
 
 ### 2. Estimate the intercept
-
-Use one of the points with the slope \(m \approx 2.75\).  
-Using \((2,75)\):
+Use \(y = mx + b\) with one point, say \((4,82)\):
 
 \[
-75 \approx 2.75(2) + b \\
-75 \approx 5.5 + b \\
-b \approx 69.5 \approx 70
+82 = 2.75(4) + b
 \]
-
-### 3. Equation of a best-fit line
-
-An appropriate best-fit line is:
-
 \[
-\boxed{y \approx 2.75x + 70}
+82 = 11 + b
+\]
+\[
+b \approx 71
 \]
 
-On the graph, you would draw a straight line increasing from left to right that passes near all points, for example going through about \((0,70)\) and \((10, 97)\).",False,"The task was only to draw a best-fit line; no equation or numeric slope/intercept was required, so the detailed algebraic answer does not match the expected simple graphical response.",Incomplete,True
-C4-18,Accurate,Wrong Answer,"We are told the city’s population increases steadily (linearly).
+### 3. Equation of the best‑fit line
+\[
+\boxed{y \approx 2.75x + 71}
+\]
+
+To draw it on the graph, plot points such as \((0,71)\) and \((10,98)\), then draw a straight line through them so that it runs close to all the data points.",False,"The problem only asks to draw a best-fit line; the expected answer is just a roughly drawn line through the data, not a specific equation, so the solver’s response does not match the required style.",Incomplete,True
+C4-18,Accurate,Wrong Answer,"We’re told the population increases steadily (linearly).
 
 Given ordered pairs (population, year):
 
-- (3600, 2000)  
-- (4000, 2001)  
-- (4700, 2003)  
-- (6000, 2006)
-
-First, find the rate of change (slope).  
-Use the first two points:
-
 \[
-\text{slope} = \frac{4000 - 3600}{2001 - 2000} = \frac{400}{1} = 400
+(3600, 2000),\ (4000, 2001),\ (4700, 2003),\ (6000, 2006)
 \]
 
-So the population increases by 400 people per year.
+Use two of them to find the linear model.  
+Take \((3600,2000)\) and \((6000,2006)\).
 
-Use point-slope form with point (3600, 2000):
-
-Let \(P\) be population and \(t\) be year.
-
-\[
-P - 3600 = 400(t - 2000)
-\]
-
-Solve for \(t\) when \(P = 12000\):
+**1. Find slope (rate of change in population per year)**
 
 \[
-12000 - 3600 = 400(t - 2000)
-\]
-\[
-8400 = 400(t - 2000)
-\]
-\[
-t - 2000 = \frac{8400}{400} = 21
-\]
-\[
-t = 2000 + 21 = 2021
+m=\frac{6000-3600}{2006-2000}
+=\frac{2400}{6}=400
 \]
 
-**Final answer:** The population will reach 12,000 in the year **2021**.",False,"The correct year from the key is 2027, but the AI computed 2021 due to a mismatch with the intended target population, so the final answer is wrong.",Wrong Answer,False
-C4-19,Complete,Incomplete,"We are given ordered pairs in the form (population, year):
+So population increases by 400 people per year.
 
-- (3600, 2000)  
-- (4000, 2001)  
-- (4700, 2003)  
-- (6000, 2006)
+**2. Write equation**
 
-The problem states the population increased *steadily*, so we model it with a linear function:  
-\(P(y) = my + b\), where \(P\) is the population and \(y\) is the year.
-
-Use two points to find the slope \(m\).  
-Take (3600, 2000) and (4000, 2001):
+Let \(P\) be population, \(t\) be year.
 
 \[
-m = \frac{4000 - 3600}{2001 - 2000} = \frac{400}{1} = 400
+P = 400t + b
 \]
 
-So the population increases by 400 people per year.
-
-Now find \(b\) using (3600, 2000):
+Use \((3600,2000)\) to find \(b\):
 
 \[
 3600 = 400(2000) + b
 \]
 \[
-3600 = 800{,}000 + b
-\]
-\[
-b = 3600 - 800{,}000 = -796{,}400
+b = 3600 - 800000 = -796400
 \]
 
-Thus,
-\[
-P(y) = 400y - 796{,}400
-\]
-
-To find the population in 2014, plug in \(y = 2014\):
+So
 
 \[
-P(2014) = 400(2014) - 796{,}400
+P = 400t - 796400
+\]
+
+**3. When will population be 12,000?**
+
+\[
+12000 = 400t - 796400
 \]
 \[
-P(2014) = 805{,}600 - 796{,}400 = 9{,}200
+400t = 12000 + 796400 = 808400
+\]
+\[
+t = \frac{808400}{400} = 2021
 \]
 
-**Final answer: The population in 2014 is 9,200.**",False,"The expected population in 2014 is 7,660, but the solver computed 9,200, so the math result is incorrect.",Wrong Answer,False
-C4-20,Complete,Clarification Needed,"We are told:
+**Final answer:** The population will reach 12,000 in **the year 2021**.",False,"The computed year 2021 does not match the expected answer 2027, so the linear model or calculation is incorrect.",Wrong Answer,False
+C4-19,Complete,Incomplete,"We are told the population increases steadily (linearly) over time.  
+The ordered pairs are in the form (population, year):
 
-- In 2004, population \(=1700\).
-- In 2012, population \(=2500\).
-- Assume linear change.
+\[
+(3600, 2000),\ (4000, 2001),\ (4700, 2003),\ (6000, 2006)
+\]
 
-### (a) Total population growth 2004–2012
+First, find the rate of change (slope):  
+From 2000 to 2001: population changes from 3600 to 4000.
+
+\[
+\text{Rate} = \frac{4000 - 3600}{2001 - 2000} = \frac{400}{1} = 400
+\]
+
+Check with another pair to confirm:
+
+From 2001 to 2003:
+
+\[
+\frac{4700 - 4000}{2003 - 2001} = \frac{700}{2} = 350
+\]
+
+From 2003 to 2006:
+
+\[
+\frac{6000 - 4700}{2006 - 2003} = \frac{1300}{3} \approx 433.33
+\]
+
+The rates are not exactly equal, but the problem says the population “increased steadily” and asks “according to the model.” Typically, they intend a linear model using the first and last data points (over the ten‑year span).
+
+Use points (3600, 2000) and (6000, 2006) to make the linear model.
+
+Slope:
+
+\[
+m = \frac{6000 - 3600}{2006 - 2000} = \frac{2400}{6} = 400
+\]
+
+So the linear equation relating population \(P\) to year \(t\) is:
+
+\[
+P = 400(t - 2000) + 3600
+\]
+
+Now find the population in 2014:
+
+\[
+P(2014) = 400(2014 - 2000) + 3600
+= 400(14) + 3600
+= 5600 + 3600
+= 9200
+\]
+
+**Final answer: The population in 2014 is 9,200.**",False,"The computed population for 2014 is 9,200, but the expected answer is 7,660, so the math/model used does not match the intended solution.",Wrong Answer,False
+C4-20,Complete,Clarification Needed,"We’re given:
+
+- In 2004, the school population was \(1700\).
+- In 2012, the population was \(2500\).
+- Assume the population changes linearly.
+
+Let \(t\) be the number of years after 2004, and \(P\) be the population.
+
+---
+
+### (a) How much did the population grow between 2004 and 2012?
 
 \[
 \text{Growth} = 2500 - 1700 = 800
@@ -802,36 +1507,1887 @@ So the population increased by **800 students**.
 
 ---
 
-### (b) Average population growth per year
+### (b) What is the average population growth per year?
 
-From 2004 to 2012 is \(2012-2004 = 8\) years.
+From 2004 to 2012 is:
 
 \[
-\text{Average yearly growth} = \frac{\text{total growth}}{\text{years}}
-= \frac{800}{8} = 100
+2012 - 2004 = 8 \text{ years}
 \]
 
-So the population grows by **100 students per year** on average.
+Average yearly growth:
+
+\[
+\frac{800 \text{ students}}{8 \text{ years}} = 100 \text{ students per year}
+\]
 
 ---
 
-### (c) Equation for the population \(P\) \(t\) years after 2004
+### (c) Find an equation for the population \(P\) of the school \(t\) years after 2004.
 
-Let \(t=0\) correspond to year 2004. Then:
+Linear model: \(P(t) = mt + b\), where
+- \(m\) is the slope (growth per year),
+- \(b\) is the initial value (population at \(t=0\)).
 
-- Initial value (intercept): \(P(0)=1700\)
-- Slope (rate of change): \(100\) students per year
+We already have:
+- \(m = 100\),
+- \(b = 1700\) (population in 2004, when \(t=0\)).
 
-Linear equation:
+So:
 
 \[
-P(t) = 1700 + 100t
+P(t) = 100t + 1700
 \]
 
 ---
 
 **Final answers:**
 
-(a) \(800\) students  
-(b) \(100\) students per year  
-(c) \(P(t) = 1700 + 100t\)",True,All three parts match the expected numerical answers and provide the correct linear equation.,Complete,True
+a) \(800\) students  
+b) \(100\) students per year  
+c) \(P(t) = 100t + 1700\)",True,"All three parts match the correct numerical answers and the linear equation, with clear supporting work.",Step-by-Step,True
+C6-01,Accurate,Wrong Answer,"We are given:
+
+- Principal \(P = 100{,}000\)
+- Annual interest rate \(r = 12\% = 0.12\)
+- Compounded weekly: \(n = 52\) times per year
+- Time \(t = 30\) years  
+
+Use the compound interest formula:
+
+\[
+A = P\left(1 + \frac{r}{n}\right)^{nt}
+\]
+
+Substitute:
+
+\[
+A = 100{,}000 \left(1 + \frac{0.12}{52}\right)^{52 \cdot 30}
+\]
+
+\[
+\frac{0.12}{52} \approx 0.0023076923
+\]
+
+\[
+52 \cdot 30 = 1560
+\]
+
+\[
+A \approx 100{,}000 \left(1.0023076923\right)^{1560}
+\]
+
+Using a calculator:
+
+\[
+\left(1.0023076923\right)^{1560} \approx 40.41
+\]
+
+\[
+A \approx 100{,}000 \times 40.41 = 4,041,000
+\]
+
+**Final answer:**  
+The investment will be worth **about \$4,041,000** after 30 years.",False,"The compound interest setup is correct, but the computed final value is off; the correct amount is about $3,644,675.88, not $4,041,000.",Wrong Answer,False
+C6-02,Accurate,Wrong Answer,"We are given  
+\[
+f(x)=2^{x+1}-3
+\]
+
+### 1. Start from the basic exponential
+The parent function is \(y = 2^x\).
+
+- Domain of \(2^x\): all real numbers \((-\infty,\infty)\).
+- Range of \(2^x\): \( (0,\infty)\).
+- Horizontal asymptote of \(2^x\): \(y=0\).
+
+### 2. Transformations
+- \(2^{x+1}\): shift \(2^x\) left by 1 unit (this does not change the domain, range, or asymptote).
+- \(2^{x+1} - 3\): shift the whole graph down by 3 units.
+
+This vertical shift:
+- keeps the domain the same: still all real numbers.
+- moves the range from \((0,\infty)\) to \((-3,\infty)\) (subtracting 3 from all \(y\)-values).
+- moves the horizontal asymptote from \(y=0\) to \(y=-3\).
+
+### 3. Graph description
+The graph is an increasing exponential curve that approaches \(y=-3\) from above as \(x\to -\infty\) and rises rapidly as \(x\to\infty\).
+
+---
+
+**Final answers:**
+
+- **Domain:** \((-\infty,\infty)\)  
+- **Range:** \((-3,\infty)\)  
+- **Horizontal asymptote:** \(y=-3\)",False,"The solver’s domain is correct, but the range and horizontal asymptote signs are wrong compared to the expected answer.",Wrong Answer,False
+C6-03,Accurate,Wrong Answer,"We are given the logarithmic equation:
+
+\[
+\log_{10}(1,000,000) = 6
+\]
+
+Recall the relationship between logarithmic and exponential form:
+
+\[
+\log_b (a) = c \quad \Longleftrightarrow \quad b^c = a
+\]
+
+Here \(b = 10\), \(a = 1{,}000{,}000\), and \(c = 6\).  
+So in exponential form:
+
+\[
+10^6 = 1{,}000{,}000
+\]
+
+**Final answer:** \(\boxed{10^6 = 1{,}000{,}000}\)",True,"The solution correctly converts the logarithmic equation to its equivalent exponential form, matching the expected answer.",Accurate,True
+C6-04,Accurate,Wrong Answer,"We use the logarithm power rule:
+
+\[
+\ln(a^k) = k \ln|a|
+\]
+
+Here, \(a = x\) and \(k = 2\). Therefore,
+
+\[
+\ln(x^2) = 2\ln|x|.
+\]
+
+**Final answer:** \(\boxed{2\ln|x|}\).",False,"The math expression 2 ln|x| is correct in general, but the expected answer is 2 ln x without absolute value, so the structure does not match the required style.",Wrong Answer,True
+C6-05,Accurate,Wrong Answer,"We want to solve the equation  
+\[
+2^x = 3^{x+1}.
+\]
+
+1. Take natural logarithms of both sides:
+\[
+\ln(2^x) = \ln(3^{x+1}).
+\]
+
+2. Use the power rule \( \ln(a^b)=b\ln a \):
+\[
+x\ln 2 = (x+1)\ln 3.
+\]
+
+3. Distribute on the right side:
+\[
+x\ln 2 = x\ln 3 + \ln 3.
+\]
+
+4. Bring all terms with \(x\) to one side:
+\[
+x\ln 2 - x\ln 3 = \ln 3
+\]
+\[
+x(\ln 2 - \ln 3) = \ln 3.
+\]
+
+5. Solve for \(x\):
+\[
+x = \frac{\ln 3}{\ln 2 - \ln 3}.
+\]
+
+This can also be written as
+\[
+x = -\frac{\ln 3}{\ln(3/2)}
+\]
+since \(\ln 2 - \ln 3 = \ln(2/3) = -\ln(3/2)\).
+
+**Final answer:**  
+\[
+\boxed{x = \dfrac{\ln 3}{\ln 2 - \ln 3}}
+\]",False,The solver’s expression is algebraically equivalent but not written in the expected form x = ln(3)/ln(2/3).,Wrong Answer,True
+C6-06,Accurate,Wrong Answer,"We are given:
+\[
+\ln(x^2) = \ln 1
+\]
+
+1. Use the fact that the natural log function is one-to-one on its domain of positive numbers.  
+   If \(\ln A = \ln B\), then \(A = B\), provided \(A>0\) and \(B>0\).
+
+2. So we set the arguments equal:
+\[
+x^2 = 1
+\]
+
+3. Solve for \(x\):
+\[
+x^2 - 1 = 0 \\
+(x-1)(x+1) = 0
+\]
+Hence,
+\[
+x = 1 \quad \text{or} \quad x = -1
+\]
+
+4. Check domain: \(x^2 > 0\) for \(x \neq 0\), so both \(x=1\) and \(x=-1\) are allowed.
+
+**Final answer:** \(\boxed{x = -1 \text{ or } x = 1}\).",True,"The solution correctly solves ln(x^2) = ln 1 to obtain x = ±1 and notes the domain, matching the expected answer.",Step-by-Step,True
+C6-07,Accurate,Wrong Answer,"We use Newton’s Law of Cooling (or warming):
+
+\[
+T(t) = T_s + (T_0 - T_s)e^{kt}
+\]
+
+where  
+- \(T_s = 70^\circ F\) (room temperature),  
+- \(T_0 = 40^\circ F\) (initial water temperature),  
+- \(T(t)\) is water temperature at time \(t\) (hours),  
+- \(k\) is a constant.
+
+So
+
+\[
+T(t) = 70 + (40-70)e^{kt}=70-30e^{kt}.
+\]
+
+**Step 1: Use the 1-hour data to find \(k\).**
+
+After 1 hour, \(T(1) = 45^\circ F\):
+
+\[
+45 = 70-30e^{k}
+\]
+\[
+-25 = -30e^{k}
+\]
+\[
+e^{k} = \frac{25}{30} = \frac{5}{6}.
+\]
+
+Thus
+
+\[
+k = \ln\left(\frac{5}{6}\right).
+\]
+
+**Step 2: Find time when \(T(t)=60^\circ F\).**
+
+Set \(T(t)=60\):
+
+\[
+60 = 70-30e^{kt}
+\]
+\[
+-10 = -30e^{kt}
+\]
+\[
+e^{kt} = \frac{1}{3}.
+\]
+
+So
+
+\[
+kt = \ln\left(\frac{1}{3}\right) \quad\Rightarrow\quad
+t = \frac{\ln(1/3)}{\ln(5/6)}.
+\]
+
+Compute:
+
+\[
+t \approx \frac{-1.0986}{-0.1823} \approx 6.0 \text{ hours}.
+\]
+
+**Final answer:**  
+It will take about **6 hours** for the water temperature to rise to \(60^\circ F\).",True,"The solution correctly applies Newton’s Law of Cooling, finds the constant, and computes the time to reach 60°F, matching the expected numeric answer.",Accurate,True
+C6-08,Complete,Wrong Answer,,False,"The provided answer text is empty, so it cannot be compared to the expected correct model and prediction.",Incomplete,False
+C6-09,Complete,Wrong Answer,"We are given the function  
+
+\[
+y = 156(0.825)^t
+\]
+
+A general exponential function has the form  
+
+\[
+y = a\cdot b^t
+\]
+
+- If \(b>1\), the function shows **exponential growth**.
+- If \(0<b<1\), the function shows **exponential decay**.
+- If \(b=1\) or \(b\le 0\), it is **neither**.
+
+Here, \(a = 156\) and \(b = 0.825\).  
+Since \(0.825\) is between 0 and 1, the value of \(y\) decreases as \(t\) increases.
+
+Therefore, the function represents **exponential decay**.
+
+**Final answer:** Exponential decay.",True,"They correctly identified the function as exponential decay and explained that the base is between 0 and 1, matching the expected answer.",Complete,True
+C6-10,Accurate,Wrong answer,"The problem states:
+
+“A retirement account is opened with an initial deposit of \$8,500 and earns 8.12% interest compounded monthly. What will the account be worth in 20 years?”
+
+We use the compound interest formula:
+
+\[
+A = P\left(1 + \frac{r}{n}\right)^{nt}
+\]
+
+Where  
+- \(P = 8500\) (initial principal)  
+- \(r = 0.0812\) (annual interest rate)  
+- \(n = 12\) (compounded monthly)  
+- \(t = 20\) years  
+
+Substitute:
+
+\[
+A = 8500\left(1 + \frac{0.0812}{12}\right)^{12 \cdot 20}
+\]
+
+\[
+\frac{0.0812}{12} \approx 0.0067667
+\]
+
+\[
+A = 8500(1.0067667)^{240}
+\]
+
+Now evaluate the exponent:
+
+\[
+(1.0067667)^{240} \approx 4.65
+\]
+
+\[
+A \approx 8500 \times 4.65 \approx 39{,}525
+\]
+
+**Final answer:** The account will be worth **approximately \$39,525** after 20 years.",False,"The calculated final amount does not match the correct value of $42,888.18 shown in the key.",Wrong Answer,False
+C6-11,Complete,Wrong answer,"We are given the exponential function  
+
+\[
+f(x) = 3.5(2)^x
+\]
+
+### 1. Graph behavior  
+This is an exponential growth function with base \(2>1\) and vertical stretch factor \(3.5\).  
+- It passes through the point \((0, 3.5)\).  
+- As \(x\) increases, the function values grow quickly.  
+- As \(x \to -\infty\), \(2^x \to 0\), so \(f(x) \to 0\) from above (never reaching 0).  
+So the horizontal asymptote is the \(x\)-axis: \(y=0\).
+
+Some sample points for plotting:
+- \(x=-2:\; f(-2) = 3.5 \cdot 2^{-2} = 3.5 \cdot \frac14 = 0.875\)
+- \(x=-1:\; f(-1)=3.5\cdot\frac12 = 1.75\)
+- \(x=0:\; f(0)=3.5\)
+- \(x=1:\; f(1)=7\)
+- \(x=2:\; f(2)=14\)
+
+Plot these and sketch a smooth curve increasing from near \(y=0\) on the left, through these points, going up to the right.
+
+### 2. Domain  
+For exponential functions \(a b^x\) with \(b>0, b\neq 1\), the domain is all real numbers.  
+\[
+\boxed{\text{Domain: } (-\infty, \infty)}
+\]
+
+### 3. Range  
+Since \(3.5>0\) and \(2^x>0\) for all real \(x\), their product is always positive, and can be any positive number but never 0.  
+\[
+\boxed{\text{Range: } (0, \infty)}
+\]
+
+### 4. \(y\)-intercept  
+The \(y\)-intercept is \(f(0)\):
+\[
+f(0) = 3.5(2)^0 = 3.5 \cdot 1 = 3.5
+\]
+So the graph crosses the \(y\)-axis at \((0, 3.5)\).
+
+**Final answer:**  
+- Domain: \((-\infty, \infty)\)  
+- Range: \((0, \infty)\)  
+- \(y\)-intercept: \((0, 3.5)\)",True,"Domain, range, and y-intercept all match the expected answer and the explanation is complete.",Complete,True
+C6-12,Accurate,Wrong answer,"We are told the original function is  
+
+\[
+f(x) = 2^x
+\]
+
+and we must determine the transformed equation from the graph.
+
+From the picture:
+
+- The horizontal asymptote of the new graph is at \(y = -2\) (the curve levels off near \(-2\) as \(x \to -\infty\)).  
+  That means there is a **vertical shift downward by 2 units**, so we have something of the form  
+
+  \[
+  y = a\cdot 2^{x} - 2
+  \]
+
+- The curve appears to pass through the point \((2,0)\) (the x‑intercept is at \(x=2\)).  
+  Substitute \((x,y) = (2,0)\) into \(y = a\cdot 2^{x} - 2\):
+
+  \[
+  0 = a\cdot 2^{2} - 2 \quad\Rightarrow\quad 0 = 4a - 2
+  \]
+
+  \[
+  4a = 2 \quad\Rightarrow\quad a = \frac12
+  \]
+
+Thus the equation is  
+
+\[
+y = \frac12 \cdot 2^{x} - 2.
+\]
+
+You can also write \(\frac12 \cdot 2^{x} = 2^{x-1}\), so another equivalent form is \(y = 2^{x-1} - 2\).
+
+**Final answer:** \(\displaystyle y = \frac12\,2^{x} - 2\) (or \(y = 2^{x-1} - 2\)).",True,The solver’s equation y = 2^{x-1} - 2 matches the expected transformation exactly and is mathematically correct.,Accurate,True
+C6-13,Accurate,Wrong answer,"We are given the exponential equation  
+
+\[
+a^{-\frac{2}{5}} = b
+\]
+
+To rewrite an exponential equation \(A^x = B\) as a logarithmic equation, we use the fact that
+
+\[
+A^x = B \quad \Longleftrightarrow \quad \log_A B = x
+\]
+
+Here, \(A = a\), \(x = -\frac{2}{5}\), and \(B = b\).  
+So,
+
+\[
+\log_a b = -\frac{2}{5}
+\]
+
+**Final Answer:** \(\boxed{\log_a b = -\dfrac{2}{5}}\)",True,The solution correctly converted the exponential equation to its logarithmic form and matches the expected answer.,Accurate,True
+C6-14,Accurate,Wrong answer,"We are given  
+\[
+g(x) = \ln(4x+20) - 17
+\]
+
+### 1. Domain
+The argument of the natural log must be positive:
+\[
+4x + 20 > 0 \\
+4x > -20 \\
+x > -5
+\]
+So the domain is \(\boxed{(-5,\infty)}\).
+
+### 2. Vertical Asymptote
+A logarithmic function has a vertical asymptote where its argument is 0:
+\[
+4x + 20 = 0 \Rightarrow x = -5
+\]
+Thus the vertical asymptote is \(\boxed{x = -5}\).
+
+### 3. End Behavior
+- As \(x \to -5^{+}\), \(4x+20 \to 0^{+}\), so \(\ln(4x+20) \to -\infty\), hence  
+  \[
+  g(x) \to -\infty.
+  \]
+- As \(x \to \infty\), \(4x+20 \to \infty\), so \(\ln(4x+20) \to \infty\), hence  
+  \[
+  g(x) \to \infty.
+  \]
+
+**Final Answer:**
+
+- Domain: \(\boxed{(-5,\infty)}\)  
+- Vertical Asymptote: \(\boxed{x = -5}\)  
+- End behavior: \(\boxed{g(x)\to -\infty \text{ as } x\to -5^+, \quad g(x)\to \infty \text{ as } x\to \infty}\).",True,"Domain, vertical asymptote, and end behavior all match the expected correct answer and are clearly stated.",Accurate,True
+C6-15,Accurate,Wrong answer,"We want to condense  
+\[
+3\log_7 v + 6\log_7 w - \frac{\log_7 u}{3}
+\]
+into a single logarithm.
+
+**Step 1: Use the power rule**  
+\(a\log_b x = \log_b(x^a)\) and \(\dfrac{1}{3}\log_7 u = \log_7(u^{1/3})\):
+
+\[
+3\log_7 v = \log_7(v^3), \quad
+6\log_7 w = \log_7(w^6), \quad
+\frac{\log_7 u}{3} = \log_7(u^{1/3})
+\]
+
+So the expression becomes
+\[
+\log_7(v^3) + \log_7(w^6) - \log_7(u^{1/3})
+\]
+
+**Step 2: Use product and quotient rules**  
+\(\log_b A + \log_b B = \log_b(AB)\) and  
+\(\log_b A - \log_b B = \log_b\left(\dfrac{A}{B}\right)\):
+
+First combine the sum:
+\[
+\log_7(v^3) + \log_7(w^6) = \log_7(v^3 w^6)
+\]
+
+Now subtract:
+\[
+\log_7(v^3 w^6) - \log_7(u^{1/3}) = 
+\log_7\left(\frac{v^3 w^6}{u^{1/3}}\right)
+\]
+
+**Final Answer:**
+
+\[
+\boxed{\log_7\left(\dfrac{v^3 w^6}{u^{1/3}}\right)}
+\]",True,The condensed logarithmic expression matches the expected form and is mathematically equivalent to the answer image.,Step-by-Step,True
+C6-16,Accurate,Wrong answer,"We need to expand  
+\[
+\ln\left(2b\sqrt{\frac{b+1}{b-1}}\right).
+\]
+
+**Step 1: Separate the product inside the log**
+
+\[
+\ln\left(2b\sqrt{\frac{b+1}{b-1}}\right)
+= \ln(2b) + \ln\left(\sqrt{\frac{b+1}{b-1}}\right).
+\]
+
+**Step 2: Expand \(\ln(2b)\)**
+
+\[
+\ln(2b) = \ln 2 + \ln b.
+\]
+
+**Step 3: Rewrite the square root as a power**
+
+\[
+\sqrt{\frac{b+1}{b-1}} = \left(\frac{b+1}{b-1}\right)^{1/2},
+\]
+so
+\[
+\ln\left(\sqrt{\frac{b+1}{b-1}}\right)
+= \ln\left(\left(\frac{b+1}{b-1}\right)^{1/2}\right)
+= \frac{1}{2}\ln\left(\frac{b+1}{b-1}\right).
+\]
+
+**Step 4: Expand the quotient inside the log**
+
+\[
+\ln\left(\frac{b+1}{b-1}\right)
+= \ln(b+1) - \ln(b-1).
+\]
+
+So
+\[
+\frac{1}{2}\ln\left(\frac{b+1}{b-1}\right)
+= \frac{1}{2}\ln(b+1) - \frac{1}{2}\ln(b-1).
+\]
+
+**Step 5: Combine all parts**
+
+\[
+\ln\left(2b\sqrt{\frac{b+1}{b-1}}\right)
+= \ln 2 + \ln b + \frac{1}{2}\ln(b+1) - \frac{1}{2}\ln(b-1).
+\]
+
+**Final answer:**
+
+\[
+\boxed{\ln 2 + \ln b + \frac{1}{2}\ln(b+1) - \frac{1}{2}\ln(b-1)}
+\]",True,Expanded form matches the expected answer and uses correct logarithm properties.,Step-by-Step,True
+C6-17,Accurate,Wrong answer,"We are given the equation  
+
+\[
+\frac{125}{\left(\dfrac{1}{625}\right)^{-x-3}} = 5^3
+\]
+
+and told to solve it by rewriting with a common base.
+
+---
+
+### Step 1: Rewrite numbers as powers of 5
+
+\[
+125 = 5^3,\qquad 625 = 5^4,\qquad \frac{1}{625} = 5^{-4}
+\]
+
+Substitute:
+
+\[
+\frac{5^3}{\left(5^{-4}\right)^{-x-3}} = 5^3
+\]
+
+---
+
+### Step 2: Simplify the denominator
+
+\[
+\left(5^{-4}\right)^{-x-3} = 5^{-4(-x-3)} = 5^{4(x+3)}
+\]
+
+So the equation becomes:
+
+\[
+\frac{5^3}{5^{4(x+3)}} = 5^3
+\]
+
+---
+
+### Step 3: Use exponent rules
+
+\[
+\frac{5^3}{5^{4(x+3)}} = 5^{3 - 4(x+3)}
+\]
+
+Thus:
+
+\[
+5^{3 - 4(x+3)} = 5^3
+\]
+
+Since the bases are the same (base 5), set exponents equal:
+
+\[
+3 - 4(x+3) = 3
+\]
+
+---
+
+### Step 4: Solve for \(x\)
+
+\[
+3 - 4x - 12 = 3
+\]
+\[
+-4x - 9 = 3
+\]
+\[
+-4x = 12
+\]
+\[
+x = -3
+\]
+
+---
+
+**Final Answer:** \(\boxed{x = -3}\)",True,"The solution correctly rewrites all terms with base 5, simplifies exponents properly, and solves to get x = -3, matching the expected answer.",Step-by-Step,True
+C6-18,Accurate,Wrong answer,"We need to solve:
+\[
+2e^{5x-2}-9=-56
+\]
+
+1. Isolate the exponential term:
+\[
+2e^{5x-2} = -56 + 9 = -47
+\]
+\[
+e^{5x-2} = -\frac{47}{2}
+\]
+
+2. But \(e^{5x-2} > 0\) for all real \(x\), while \(-\frac{47}{2} < 0\).  
+   A positive number cannot equal a negative number.
+
+Therefore, there is **no real solution**.
+
+**Final answer:** \(\boxed{\text{no solution}}\)",True,"The solver correctly determined that the exponential expression cannot be negative and concluded there is no solution, matching the expected answer.",Accurate,True
+C6-19,Accurate,Wrong answer,"We use **Newton’s Law of Cooling**:
+
+\[
+T(t) = T_s + (T_0 - T_s)e^{kt}
+\]
+
+where  
+\(T_s\) = surrounding (room) temperature,  
+\(T_0\) = initial temperature of soup,  
+\(T(t)\) = temperature after \(t\) minutes,  
+\(k\) = cooling constant.
+
+**Given**
+
+- \(T_s = 71^\circ F\)  
+- \(T_0 = 350^\circ F\)  
+- \(T(15) = 175^\circ F\)
+
+So:
+
+\[
+175 = 71 + (350 - 71)e^{15k}
+\]
+
+\[
+175 = 71 + 279e^{15k}
+\]
+
+\[
+104 = 279e^{15k}
+\]
+
+\[
+e^{15k} = \frac{104}{279}
+\]
+
+\[
+15k = \ln\left(\frac{104}{279}\right)
+\]
+
+\[
+k = \frac{1}{15}\ln\left(\frac{104}{279}\right)
+\]
+
+---
+
+Now find \(t\) when \(T(t)=85^\circ F\):
+
+\[
+85 = 71 + 279e^{kt}
+\]
+
+\[
+14 = 279e^{kt}
+\]
+
+\[
+e^{kt} = \frac{14}{279}
+\]
+
+\[
+kt = \ln\left(\frac{14}{279}\right)
+\]
+
+\[
+t = \frac{\ln\left(\frac{14}{279}\right)}{k}
+      = \frac{\ln\left(\frac{14}{279}\right)}
+             {\frac{1}{15}\ln\left(\frac{104}{279}\right)}
+      = 15\cdot
+        \frac{\ln\left(\frac{14}{279}\right)}
+             {\ln\left(\frac{104}{279}\right)}
+\]
+
+Compute numerically (using logs):
+
+- \(\ln(14/279) \approx -2.988\)  
+- \(\ln(104/279) \approx -0.982\)
+
+\[
+t \approx 15\cdot\frac{-2.988}{-0.982}
+   \approx 15\cdot 3.044
+   \approx 45.7
+\]
+
+**Final Answer:**  
+It will take **about 46 minutes** for the soup to cool to \(85^\circ\text{F}\).",True,"The solution correctly applied Newton’s Law of Cooling and computed the time to be about 46 minutes, which matches the expected result of about 45 minutes.",Step-by-Step,True
+C6-20,Accurate,Wrong answer,"We are given the model  
+
+\[
+N(t)=\frac{1200}{1+119e^{-0.225t}}
+\]
+
+which gives the number of people who have heard a rumor after \(t\) days.
+
+The **carrying capacity** is the maximum value of \(N(t)\), which here is the numerator: \(1200\) people.
+
+Half the carrying capacity is
+
+\[
+\frac{1200}{2}=600.
+\]
+
+We set \(N(t)=600\) and solve for \(t\):
+
+\[
+600=\frac{1200}{1+119e^{-0.225t}}
+\]
+
+Multiply both sides by the denominator:
+
+\[
+600\left(1+119e^{-0.225t}\right)=1200
+\]
+
+Divide both sides by 600:
+
+\[
+1+119e^{-0.225t}=2
+\]
+
+\[
+119e^{-0.225t}=1
+\]
+
+\[
+e^{-0.225t}=\frac{1}{119}
+\]
+
+Take natural logarithms:
+
+\[
+-0.225t=\ln\left(\frac{1}{119}\right)=-\ln(119)
+\]
+
+\[
+t=\frac{\ln(119)}{0.225}.
+\]
+
+Compute:
+
+\[
+\ln(119)\approx 4.7791
+\]
+
+\[
+t\approx \frac{4.7791}{0.225}\approx 21.24.
+\]
+
+Rounded to the nearest tenth:
+
+\[
+\boxed{21.2\text{ days}}
+\]",False,"The problem expects about 8.5 days, but the solution computed ~21.2 days, so the numerical answer is incorrect.",Wrong Answer,False
+C8-01,Accurate,Wrong Answer,"We are given the conic
+
+\[
+4x^2 + y^2 + 16x + 4y - 44 = 0
+\]
+
+Group \(x\)- and \(y\)-terms and complete the square.
+
+\[
+4x^2 + 16x + y^2 + 4y = 44
+\]
+
+Factor out the 4 from the \(x\)-terms:
+
+\[
+4(x^2 + 4x) + (y^2 + 4y) = 44
+\]
+
+Complete the squares:
+
+- For \(x^2 + 4x\): add and subtract \(4\) \((= (4/2)^2)\)
+- For \(y^2 + 4y\): add and subtract \(4\) \((= (4/2)^2)\)
+
+\[
+4(x^2 + 4x + 4 - 4) + (y^2 + 4y + 4 - 4) = 44
+\]
+
+\[
+4[(x+2)^2 - 4] + [(y+2)^2 - 4] = 44
+\]
+
+Distribute:
+
+\[
+4(x+2)^2 - 16 + (y+2)^2 - 4 = 44
+\]
+
+\[
+4(x+2)^2 + (y+2)^2 - 20 = 44
+\]
+
+\[
+4(x+2)^2 + (y+2)^2 = 64
+\]
+
+Divide by 64:
+
+\[
+\frac{(x+2)^2}{16} + \frac{(y+2)^2}{64} = 1
+\]
+
+So this is an **ellipse** with center at \((-2,-2)\).
+
+In standard form \(\frac{(x-h)^2}{b^2} + \frac{(y-k)^2}{a^2} = 1\) where \(a^2 = 64\), \(b^2 = 16\).  
+Since \(a^2 > b^2\), the major axis is vertical.
+
+- \(a = \sqrt{64} = 8\)
+- \(b = \sqrt{16} = 4\)
+
+**Vertices** (along the major/vertical axis):
+
+\[
+(h, k \pm a) = (-2, -2 \pm 8)
+\]
+
+So
+
+- Upper vertex: \((-2, 6)\)
+- Lower vertex: \((-2, -10)\)
+
+To find the foci, use \(c^2 = a^2 - b^2\):
+
+\[
+c^2 = 64 - 16 = 48 \quad\Rightarrow\quad c = \sqrt{48} = 4\sqrt{3}
+\]
+
+Foci lie along the major (vertical) axis:
+
+\[
+(h, k \pm c) = (-2, -2 \pm 4\sqrt{3})
+\]
+
+---
+
+**Final Answer**
+
+- Center: \(\boxed{(-2, -2)}\)  
+- Vertices: \(\boxed{(-2, 6)\ \text{and}\ (-2, -10)}\)  
+- Foci: \(\boxed{(-2, -2 + 4\sqrt{3})\ \text{and}\ (-2, -2 - 4\sqrt{3})}\)",False,"The math is mostly correct but the answer omits the co-vertices, which are listed in the expected solution.",Incomplete,True
+C8-02,Complete,Wrong Answer,"We are given the ellipse
+
+\[
+\frac{x^2}{36} + \frac{y^2}{9} = 1
+\]
+
+This is in the standard form
+
+\[
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+\]
+
+with center at the origin \((0,0)\).  
+Here \(a^2 = 36\) and \(b^2 = 9\).
+
+So:
+
+\[
+a = \sqrt{36} = 6,\qquad b = \sqrt{9} = 3
+\]
+
+Because \(a > b\) and the \(a^2\) term is under \(x^2\), the major axis is horizontal.
+
+To find the foci, use
+
+\[
+c^2 = a^2 - b^2 = 36 - 9 = 27 \quad\Rightarrow\quad c = \sqrt{27} = 3\sqrt{3}
+\]
+
+The foci lie on the major (horizontal) axis, so their coordinates are \((\pm c, 0)\).
+
+**Center:** \((0, 0)\)
+
+**Vertices (on the major axis):**  
+\((\pm a, 0) = (\pm 6, 0)\)
+
+**Co-vertices (on the minor axis, helpful for graphing):**  
+\((0, \pm b) = (0, \pm 3)\)
+
+**Foci:**  
+\((\pm c, 0) = (\pm 3\sqrt{3}, 0)\)
+
+**Final answer:**  
+Center \((0,0)\); vertices \((6,0)\) and \((-6,0)\); foci \((3\sqrt{3},0)\) and \((-3\sqrt{3},0)\).",True,"All requested elements (center, vertices, foci) are correct and match the expected answer, with appropriate explanation.",Complete,True
+C8-03,Step-by-Step,Wrong Answer,"We’re told:
+
+- Center at \((0,0)\)  
+- A focus at \((3,0)\)  
+- A vertex at \((-5,0)\)
+
+Since the center is at the origin and the points lie on the \(x\)-axis, the ellipse is horizontal.  
+The standard form is
+
+\[
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1,\quad a>b>0
+\]
+
+For a horizontal ellipse, vertices are at \((\pm a,0)\) and foci at \((\pm c,0)\) with
+
+\[
+c^2 = a^2 - b^2
+\]
+
+**Step 1: Find \(a\).**  
+A vertex is at \((-5,0)\), so \(a = 5\) and \(a^2 = 25\).
+
+**Step 2: Find \(c\).**  
+A focus is at \((3,0)\), so \(c = 3\) and \(c^2 = 9\).
+
+**Step 3: Find \(b^2\).**
+
+\[
+c^2 = a^2 - b^2 \Rightarrow 9 = 25 - b^2 \Rightarrow b^2 = 25 - 9 = 16
+\]
+
+**Step 4: Write the equation.**
+
+\[
+\frac{x^2}{25} + \frac{y^2}{16} = 1
+\]
+
+**Final answer:** \(\displaystyle \frac{x^2}{25} + \frac{y^2}{16} = 1.\)",True,The equation of the ellipse was derived correctly with appropriate steps and matches the expected answer.,Step-by-Step,True
+C8-04,Step-by-Step,Incomplete,"We’re told:
+
+> A whispering gallery is to be constructed such that the foci are located 35 feet from the center.  
+> If the length of the gallery is to be 100 feet, what should the height of the ceiling be?
+
+A whispering gallery cross‑section is an ellipse.  
+
+Let the gallery run horizontally along the major axis.
+
+- Distance from center to each focus: \(c = 35\) ft  
+- Total length of gallery: \(2a = 100\) ft  ⇒  \(a = 50\) ft  
+- Let the height (semi‑minor axis) be \(b\) ft.
+
+For an ellipse centered at the origin:
+
+\[
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1,\quad
+c^2 = a^2 - b^2
+\]
+
+So
+
+\[
+b^2 = a^2 - c^2 = 50^2 - 35^2
+\]
+
+Compute:
+
+\[
+50^2 = 2500,\quad 35^2 = 1225
+\]
+\[
+b^2 = 2500 - 1225 = 1275
+\]
+\[
+b = \sqrt{1275}
+\]
+
+Factor 1275:
+
+\[
+1275 = 25 \cdot 51 = 25\cdot 3 \cdot 17
+\]
+
+\[
+b = \sqrt{25\cdot 51} = 5\sqrt{51} \ \text{ft}
+\]
+
+Approximate:
+
+\[
+\sqrt{51} \approx 7.141 \Rightarrow b \approx 5 \times 7.141 \approx 35.7\ \text{ft}
+\]
+
+So the **height of the ceiling** (semi‑minor axis) should be:
+
+\[
+\boxed{5\sqrt{51}\ \text{ft} \approx 35.7\ \text{ft}}
+\]",True,The solution correctly uses ellipse relations to find the semi-minor axis as about 35.71 ft and clearly shows the steps.,Step-by-Step,True
+C8-05,Complete,Step-by-Step,"We want to write the conic in standard form.
+
+Given  
+\[
+3x^2 - y^2 - 12x - 6y - 9 = 0
+\]
+
+Group \(x\)-terms and \(y\)-terms and move the constant:
+
+\[
+3x^2 - 12x - y^2 - 6y = 9
+\]
+
+Factor out the coefficients of the squared terms:
+
+\[
+3(x^2 - 4x) - (y^2 + 6y) = 9
+\]
+
+Complete the square for each group.
+
+For \(x^2 - 4x\):  
+\[
+x^2 - 4x = (x - 2)^2 - 4
+\]
+
+For \(y^2 + 6y\):  
+\[
+y^2 + 6y = (y + 3)^2 - 9
+\]
+
+Substitute:
+
+\[
+3[(x - 2)^2 - 4] - [(y + 3)^2 - 9] = 9
+\]
+
+Distribute:
+
+\[
+3(x - 2)^2 - 12 - (y + 3)^2 + 9 = 9
+\]
+
+Combine constants:
+
+\[
+3(x - 2)^2 - (y + 3)^2 - 3 = 9
+\]
+
+\[
+3(x - 2)^2 - (y + 3)^2 = 12
+\]
+
+Divide by 12:
+
+\[
+\frac{3(x - 2)^2}{12} - \frac{(y + 3)^2}{12} = 1
+\]
+
+\[
+\frac{(x - 2)^2}{4} - \frac{(y + 3)^2}{12} = 1
+\]
+
+This is the standard form of a hyperbola centered at \((2,-3)\) with:
+
+- \(a^2 = 4 \Rightarrow a = 2\)
+- \(b^2 = 12 \Rightarrow b = 2\sqrt{3}\)
+
+**Final answer (standard form):**
+\[
+\boxed{\dfrac{(x - 2)^2}{4} - \dfrac{(y + 3)^2}{12} = 1}
+\]",True,"The solution correctly converts the given equation to standard hyperbola form, matching the expected answer.",Step-by-Step,True
+C8-06,Complete,Incomplete,"We are given the conic
+
+\[
+2y^2 - x^2 - 12y - 6 = 0
+\]
+
+1. **Rewrite in standard form**
+
+Group \(y\)-terms:
+\[
+2y^2 - 12y - x^2 - 6 = 0
+\]
+
+Factor 2 from the \(y\)-terms:
+\[
+2(y^2 - 6y) - x^2 - 6 = 0
+\]
+
+Complete the square in \(y\):
+
+\[
+y^2 - 6y = (y-3)^2 - 9
+\]
+
+Substitute:
+\[
+2[(y-3)^2 - 9] - x^2 - 6 = 0
+\]
+\[
+2(y-3)^2 - 18 - x^2 - 6 = 0
+\]
+\[
+2(y-3)^2 - x^2 - 24 = 0
+\]
+\[
+2(y-3)^2 - x^2 = 24
+\]
+
+Divide by 24:
+
+\[
+\frac{(y-3)^2}{12} - \frac{x^2}{24} = 1
+\]
+
+This is a hyperbola centered at \((0,3)\) opening up and down.
+
+So:
+\[
+a^2 = 12,\quad b^2 = 24,\quad a = 2\sqrt{3},\quad b = 2\sqrt{6}
+\]
+
+2. **Vertices**
+
+For a vertical hyperbola \(\dfrac{(y-k)^2}{a^2} - \dfrac{(x-h)^2}{b^2} = 1\),
+
+vertices are at \((h,\,k \pm a)\).
+
+Here \(h=0,\;k=3\):
+
+\[
+(0,3 \pm 2\sqrt{3})
+\]
+
+3. **Foci**
+
+For a hyperbola, \(c^2 = a^2 + b^2\):
+
+\[
+c^2 = 12 + 24 = 36 \Rightarrow c = 6
+\]
+
+Foci of a vertical hyperbola: \((h,\,k \pm c)\):
+
+\[
+(0, 3 \pm 6)
+\]
+
+So the foci are
+\[
+(0,9)\quad \text{and}\quad (0,-3)
+\]
+
+---
+
+**Final answers**
+
+- Standard form: \(\displaystyle \frac{(y-3)^2}{12} - \frac{x^2}{24} = 1\)
+- Center: \((0,3)\)
+- Vertices: \(\boxed{(0,\,3+2\sqrt{3}),\ (0,\,3-2\sqrt{3})}\)
+- Foci: \(\boxed{(0,9),\ (0,-3)}\)",True,"The solution correctly converts the equation to standard form and gives vertices and foci that match the expected graph, even though the graph image labels vertices numerically instead of in radical form.",Complete,True
+C8-07,Step-by-Step,Wrong Answer,"We are given:
+
+- Foci at \((3,7)\) and \((7,7)\)  
+- A vertex at \((6,7)\)
+
+### 1. Find the center and orientation
+The foci are horizontally aligned (same \(y\)-coordinate).  
+The center is the midpoint of the foci:
+\[
+\left(\frac{3+7}{2}, \frac{7+7}{2}\right) = (5,7).
+\]
+
+Since the transverse axis is horizontal, the hyperbola has the form
+\[
+\frac{(x-h)^2}{a^2} - \frac{(y-k)^2}{b^2} = 1,
+\]
+with center \((h,k) = (5,7)\).
+
+### 2. Use the vertex to find \(a\)
+Vertices lie on the transverse axis at \((h \pm a, k)\).
+
+One vertex is \((6,7)\), so
+\[
+(h+a, k) = (6,7) \Rightarrow 5 + a = 6 \Rightarrow a = 1,
+\]
+thus \(a^2 = 1\).
+
+### 3. Use the foci to find \(c\), then \(b^2\)
+Foci are \((h \pm c, k)\).  
+Take one focus, say \((7,7)\):
+\[
+(h+c, k) = (7,7) \Rightarrow 5 + c = 7 \Rightarrow c = 2,
+\]
+so \(c^2 = 4\).
+
+For a hyperbola, \(c^2 = a^2 + b^2\), so
+\[
+4 = 1 + b^2 \Rightarrow b^2 = 3.
+\]
+
+### 4. Write the equation
+\[
+\boxed{\frac{(x-5)^2}{1} - \frac{(y-7)^2}{3} = 1}
+\]
+
+This is the equation of the hyperbola.",True,"The solution correctly derives the hyperbola’s center, parameters, and final equation, matching the expected answer and showing clear steps.",Step-by-Step,True
+C8-08,Complete,Wrong Answer,"We are given  
+\[
+(x+2)^2 = \frac12 (y-1)
+\]
+
+A vertical parabola in standard (vertex) form is  
+\[
+(x-h)^2 = 4p(y-k)
+\]
+where \((h,k)\) is the vertex and \(p\) is the directed distance from the vertex to the focus (and to the directrix).
+
+Match the given equation to this form:
+
+\[
+(x+2)^2 = \frac12 (y-1)
+\]
+
+Here,
+- \(h = -2\)
+- \(k = 1\)
+- \(4p = \frac12\)
+
+Solve for \(p\):
+\[
+4p = \frac12 \quad\Rightarrow\quad p = \frac{1}{8}
+\]
+
+Since \(p>0\), the parabola opens **upward**.
+
+**Vertex**
+
+\[
+(h,k) = (-2,1)
+\]
+
+**Focus**
+
+For a vertical parabola, the focus is at \((h, k+p)\):
+
+\[
+(-2,\, 1 + \tfrac18) = \left(-2, \tfrac{9}{8}\right)
+\]
+
+**Directrix**
+
+The directrix is the horizontal line \(y = k - p\):
+
+\[
+y = 1 - \tfrac18 = \tfrac{7}{8}
+\]
+
+**Final Answer**
+
+- Standard form: \(\boxed{(x+2)^2 = \tfrac12 (y-1)}\)  
+- Vertex: \(\boxed{(-2,\,1)}\)  
+- Focus: \(\boxed{\left(-2,\,\tfrac{9}{8}\right)}\)  
+- Directrix: \(\boxed{y = \tfrac{7}{8}}\)",True,"The solution correctly identifies the vertex, focus, and directrix and keeps the equation in the same standard form as in the key.",Step-by-Step,True
+C8-09,Complete,Incomplete,"We are given the equation (from the image):
+
+\[
+(y - 1)^2 = \tfrac{1}{2}(x + 3)
+\]
+
+This is a parabola in the **sideways** form  
+
+\[
+(y-k)^2 = 4p(x-h)
+\]
+
+where \((h,k)\) is the vertex and \(p\) tells how far the focus and directrix are from the vertex.  
+
+Match terms:
+
+\[
+(y-1)^2 = \frac12 (x+3)
+\]
+
+So
+- \(h = -3\)  
+- \(k = 1\)  
+- \(4p = \frac12 \Rightarrow p = \frac{1}{8}\)
+
+Since \(p > 0\), the parabola opens to the **right**.
+
+**Vertex**
+
+\[
+V = (h,k) = (-3, 1)
+\]
+
+**Focus**
+
+For a right–opening parabola, the focus is \(p\) units to the right of the vertex:
+
+\[
+F = (h + p, k) = \left(-3 + \frac18,\ 1\right)
+= \left(-\frac{23}{8},\ 1\right)
+\]
+
+**Directrix**
+
+The directrix is a vertical line \(p\) units to the left of the vertex:
+
+\[
+x = h - p = -3 - \frac18 = -\frac{25}{8}
+\]
+
+**Axis of symmetry**
+
+Horizontal line through the vertex:
+
+\[
+y = 1
+\]
+
+**Intercepts**
+
+- **x-intercept**: set \(y = 0\):
+
+  \[
+  (0 - 1)^2 = \tfrac12(x+3)
+  \Rightarrow 1 = \tfrac12(x+3)
+  \Rightarrow 2 = x + 3
+  \Rightarrow x = -1
+  \]
+
+  So x-intercept: \((-1, 0)\).
+
+- **y-intercept**: set \(x = 0\):
+
+  \[
+  (y - 1)^2 = \tfrac12(0+3) = \tfrac32
+  \Rightarrow y - 1 = \pm \sqrt{\tfrac32}
+  \Rightarrow y = 1 \pm \sqrt{\tfrac32}
+  \]
+
+So the parabola passes through \(\left(0,\ 1 \pm \sqrt{\tfrac32}\right)\).
+
+---
+
+**Final Answer (key features to label on the graph)**
+
+- Vertex: \(\boxed{(-3,\ 1)}\)  
+- Opens: \(\boxed{\text{to the right}}\)  
+- Focus: \(\boxed{\left(-\dfrac{23}{8},\ 1\right)}\)  
+- Directrix: \(\boxed{x = -\dfrac{25}{8}}\)  
+- Axis of symmetry: \(\boxed{y = 1}\)  
+- x-intercept: \(\boxed{(-1,\ 0)}\)  
+- y-intercepts: \(\boxed{\left(0,\ 1 \pm \sqrt{\dfrac32}\right)}\)",True,"All key features (vertex, focus, directrix, orientation) match the expected graph and the additional details are correct.",Complete,True
+C8-10,Step-by-Step,Wrong Answer,"We need the equation of the parabola whose  
+
+- focus is at \((2,\tfrac{3}{2})\)  
+- directrix is the horizontal line \(y=\tfrac{1}{8}\).
+
+For a point \((x,y)\) on a parabola, its distance to the focus equals its distance to the directrix.
+
+Distance to focus:
+\[
+d_F = \sqrt{(x-2)^2\;+\;\left(y-\frac32\right)^2}
+\]
+
+Distance to directrix \(y=\tfrac18\):
+\[
+d_D = \left|y-\frac18\right|
+\]
+
+Set them equal and square both sides:
+\[
+(x-2)^2+\left(y-\frac32\right)^2 = \left(y-\frac18\right)^2
+\]
+
+Expand:
+\[
+(x-2)^2 + y^2 -3y + \frac94 = y^2 -\frac14y + \frac1{64}
+\]
+
+Cancel \(y^2\) and collect like terms:
+\[
+(x-2)^2 -3y + \frac94 = -\frac14y + \frac1{64}
+\]
+
+\[
+(x-2)^2 -3y + \frac94 + \frac14y - \frac1{64}=0
+\]
+
+Combine the \(y\)-terms and constants:
+\[
+(x-2)^2 -\frac{11}{4}y + \left(\frac94 - \frac1{64}\right)=0
+\]
+
+\[
+\frac94 - \frac1{64} = \frac{576-4}{256} = \frac{572}{256} = \frac{143}{64}
+\]
+
+So:
+\[
+(x-2)^2 - \frac{11}{4}y + \frac{143}{64}=0
+\]
+
+Solve for \(y\):
+\[
+-\frac{11}{4}y = -(x-2)^2 - \frac{143}{64}
+\]
+
+\[
+y = \frac{4}{11}(x-2)^2 + \frac{143}{176}
+\]
+
+---
+
+**Final answer:**
+
+\[
+\boxed{y = \frac{4}{11}(x-2)^2 + \frac{143}{176}}
+\]",False,"The expected equation is (x−2)² = (1/2)(y−1), but the solver derived y = (4/11)(x−2)² + 143/176, which is mathematically inconsistent with the given focus and directrix.",Wrong Answer,False
+C8-11,Accurate,Wrong Answer,"We’re given the conic:
+
+\[
+16x^2 + 24xy + 9y^2 + 24x - 60y - 60 = 0
+\]
+
+For a general second-degree equation
+
+\[
+Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0,
+\]
+
+the discriminant is:
+
+\[
+\Delta = B^2 - 4AC.
+\]
+
+- If \(\Delta < 0\): ellipse (or circle)
+- If \(\Delta = 0\): parabola
+- If \(\Delta > 0\): hyperbola
+
+Here,
+\[
+A = 16,\quad B = 24,\quad C = 9.
+\]
+
+Compute the discriminant:
+
+\[
+\Delta = B^2 - 4AC = 24^2 - 4(16)(9)
+       = 576 - 4 \cdot 144
+       = 576 - 576
+       = 0.
+\]
+
+Since \(\Delta = 0\), the conic section represented is a parabola.
+
+**Final answer:** The equation represents a **parabola**.",True,"The solution correctly computed B^2 - 4AC = 0 and concluded the conic is a parabola, matching the expected answer.",Accurate,True
+C8-12,Complete,Incomplete,"We are given the equation  
+
+\[
+x^{2} + xy + y^{2} + 8x - 26y + 9 = 0
+\]
+
+and asked to determine which conic section it represents.
+
+---
+
+### Step 1: Compare with general second-degree form
+
+A general second-degree equation is  
+
+\[
+Ax^{2} + Bxy + Cy^{2} + Dx + Ey + F = 0
+\]
+
+For our equation:
+
+\[
+A = 1,\quad B = 1,\quad C = 1,\quad D = 8,\quad E = -26,\quad F = 9.
+\]
+
+---
+
+### Step 2: Use the discriminant for conics
+
+The discriminant for conic sections is  
+
+\[
+\Delta = B^{2} - 4AC.
+\]
+
+Substitute:
+
+\[
+\Delta = 1^{2} - 4(1)(1) = 1 - 4 = -3.
+\]
+
+---
+
+### Step 3: Classify using the discriminant
+
+- If \(\Delta > 0\): hyperbola  
+- If \(\Delta = 0\): parabola  
+- If \(\Delta < 0\): ellipse (or circle, which is a special ellipse)
+
+Since \(\Delta = -3 < 0\), the graph is an **ellipse** (not a circle because \(A=C\) but \(B\neq 0\) gives a rotated ellipse).
+
+---
+
+**Final Answer:** The equation  
+\[
+x^{2} + xy + y^{2} + 8x - 26y + 9 = 0
+\]
+represents an **ellipse** (a rotated ellipse).",True,"They computed B^2 - 4AC correctly and concluded the equation represents an ellipse, matching the expected answer.",Step-by-Step,True
+C8-13,Complete,Clarification Needed,,False,No solution was actually provided to compare with the expected rotated ellipse; the response is effectively empty.,Incomplete,False
+C8-14,Accurate,Wrong Answer,,False,"There is no provided answer from the other AI to evaluate, so it cannot be compared with the expected solution.",Clarification Needed,False
+C8-15,Accurate,Wrong Answer,"We are given the hyperbola
+
+\[
+\frac{(y-1)^2}{49}-\frac{(x+1)^2}{4}=1
+\]
+
+This matches the standard form of a **vertical** hyperbola:
+
+\[
+\frac{(y-k)^2}{a^2}-\frac{(x-h)^2}{b^2}=1
+\]
+
+So:
+
+- Center: \((h,k)=(-1,1)\)
+- \(a^2 = 49 \Rightarrow a = 7\)
+- \(b^2 = 4 \Rightarrow b = 2\)
+
+For a hyperbola, \(c^2 = a^2 + b^2\):
+
+\[
+c^2 = 49 + 4 = 53 \Rightarrow c = \sqrt{53}
+\]
+
+### Vertices
+Vertices are \(a\) units above and below the center (since it opens up and down):
+
+\[
+(-1,\,1 \pm a) = (-1,\,1 \pm 7)
+\]
+
+So the vertices are:
+- \((-1, 8)\)
+- \((-1, -6)\)
+
+### Foci
+Foci are \(c\) units above and below the center:
+
+\[
+(-1,\,1 \pm c) = (-1,\,1 \pm \sqrt{53})
+\]
+
+So the foci are:
+- \((-1, 1 + \sqrt{53})\)
+- \((-1, 1 - \sqrt{53})\)
+
+### Asymptotes
+For this form, asymptotes are:
+
+\[
+y - k = \pm \frac{a}{b}(x - h)
+\]
+
+\[
+y - 1 = \pm \frac{7}{2}(x + 1)
+\]
+
+These are the lines the branches of the hyperbola approach.
+
+---
+
+**Final answer:**
+
+- Center: \(\boxed{(-1, 1)}\)  
+- Vertices: \(\boxed{(-1, 8),\ (-1, -6)}\)  
+- Foci: \(\boxed{(-1, 1 + \sqrt{53}),\ (-1, 1 - \sqrt{53})}\)  
+- Asymptotes: \(\boxed{y - 1 = \pm \frac{7}{2}(x + 1)}\)",True,"The solution correctly identifies the center, vertices, and foci, matching the expected graph; extra correct details about asymptotes are also provided.",Accurate,True
+C8-16,Complete,Incomplete,"The equation shown is  
+
+\[
+\frac{(y+1)^2}{16} - \frac{(x-4)^2}{36} = 1
+\]
+
+This is already in standard form for a hyperbola:
+
+\[
+\frac{(y-k)^2}{a^2} - \frac{(x-h)^2}{b^2} = 1
+\]
+
+So:
+
+- Center: \((h,k) = (4,-1)\)
+- \(a^2 = 16 \Rightarrow a = 4\)
+- \(b^2 = 36 \Rightarrow b = 6\)
+
+For a hyperbola of this form, the transverse axis is vertical.  
+
+**Vertices:** move \(a\) units up and down from the center:
+
+\[
+(4, -1 \pm 4) \Rightarrow (4,3) \text{ and } (4,-5)
+\]
+
+The distance to each focus is \(c\), where \(c^2 = a^2 + b^2\):
+
+\[
+c^2 = 16 + 36 = 52 \Rightarrow c = \sqrt{52} = 2\sqrt{13}
+\]
+
+**Foci:** move \(c\) units up and down from the center:
+
+\[
+(4, -1 \pm 2\sqrt{13})
+\]
+
+---
+
+**Final answer**
+
+- Equation (standard form): \(\displaystyle \frac{(y+1)^2}{16} - \frac{(x-4)^2}{36} = 1\)
+- Center: \((4,-1)\)
+- Vertices: \((4,3)\) and \((4,-5)\)
+- Foci: \((4,-1+2\sqrt{13})\) and \((4,-1-2\sqrt{13})\)",True,"The equation, center, vertices, and foci all match the expected answer and are clearly presented.",Complete,True
+C8-17,Step-by-Step,Wrong Answer,"The given equation from the image is  
+
+\[
+x^{2} + 10x - y + 23 = 0
+\]
+
+**1. Put in standard form**
+
+Solve for \(y\):
+
+\[
+-y = -x^{2} - 10x - 23
+\]
+\[
+y = x^{2} + 10x + 23
+\]
+
+Complete the square in \(x\):
+
+\[
+y = x^{2} + 10x + 25 - 2
+\]
+\[
+y = (x+5)^{2} - 2
+\]
+
+Rewrite in standard parabola form:
+
+\[
+y + 2 = (x+5)^2
+\]
+
+Compare with \((x-h)^2 = 4p(y-k)\):
+
+\[
+(x+5)^2 = 4p(y+2)
+\]
+
+So \(4p = 1 \Rightarrow p = \frac14\), and \(h=-5,\;k=-2\).
+
+**2. Vertex**
+
+Vertex is \((h,k) = (-5,-2)\).
+
+**3. Focus**
+
+For \((x-h)^2 = 4p(y-k)\), focus is \((h, k+p)\):
+
+\[
+(-5, -2 + \tfrac14) = \left(-5, -\tfrac{7}{4}\right)
+\]
+
+**4. Directrix**
+
+Directrix is \(y = k - p\):
+
+\[
+y = -2 - \tfrac14 = -\tfrac{9}{4}
+\]
+
+---
+
+**Final answer**
+
+- Standard form: \(\boxed{(x+5)^2 = y + 2}\)
+- Vertex: \(\boxed{(-5,-2)}\)
+- Focus: \(\boxed{\left(-5,-\tfrac{7}{4}\right)}\)
+- Directrix: \(\boxed{y = -\tfrac{9}{4}}\)",True,"The solution correctly converts the equation to standard form and finds the correct vertex, focus, and directrix, matching the expected answer.",Step-by-Step,True
+C8-18,Accurate,Clarification Needed,"I can’t clearly read the equation from the image because it is too blurred.  
+Please either:
+
+- Upload a clearer image, **or**  
+- Type the equation of the parabola (for example, something like `y^2 + 4y + 8x - 3 = 0`).
+
+Once I have the exact equation, I’ll show all the steps to find the vertex, focus, directrix, and graph.",False,"The assistant did not solve the problem or provide any mathematical answer, only asked for clarification.",Incomplete,False
+C8-19,Step-by-Step,Wrong Answer,"We are given the equation
+
+\[
+2y^2 + 12y + 6x + 15 = 0
+\]
+
+We want to write it in standard form for a sideways parabola and then identify vertex, focus, and directrix.
+
+---
+
+### 1. Rearrange and complete the square in \(y\)
+
+Group the \(y\)-terms and move the \(x\) and constant to the other side:
+
+\[
+2y^2 + 12y = -6x - 15
+\]
+
+Factor out 2 on the left:
+
+\[
+2(y^2 + 6y) = -6x - 15
+\]
+
+Complete the square inside the parentheses:
+
+\[
+y^2 + 6y = y^2 + 6y + 9 - 9 = (y+3)^2 - 9
+\]
+
+Substitute:
+
+\[
+2[(y+3)^2 - 9] = -6x - 15
+\]
+
+\[
+2(y+3)^2 - 18 = -6x - 15
+\]
+
+Add 18 to both sides:
+
+\[
+2(y+3)^2 = -6x + 3
+\]
+
+Factor the right side:
+
+\[
+-6x + 3 = -6\left(x - \frac{1}{2}\right)
+\]
+
+Thus:
+
+\[
+2(y+3)^2 = -6\left(x - \frac{1}{2}\right)
+\]
+
+Divide both sides by 2:
+
+\[
+(y+3)^2 = -3\left(x - \frac{1}{2}\right)
+\]
+
+---
+
+### 2. Compare with standard form
+
+Standard form of a horizontal parabola:
+
+\[
+(y-k)^2 = 4p(x-h)
+\]
+
+Here:
+
+\[
+(y+3)^2 = -3\left(x - \tfrac{1}{2}\right)
+\]
+
+So:
+
+- \(h = \dfrac{1}{2}\)
+- \(k = -3\)
+- \(4p = -3 \Rightarrow p = -\dfrac{3}{4}\)
+
+---
+
+### 3. Vertex, focus, and directrix
+
+- **Vertex**: \((h, k) = \left(\dfrac{1}{2}, -3\right)\)
+
+- For a horizontal parabola, focus is at \((h+p, k)\):
+
+\[
+h + p = \frac{1}{2} - \frac{3}{4} = -\frac{1}{4}
+\]
+So **focus**: \(\left(-\dfrac{1}{4}, -3\right)\)
+
+- Directrix is the vertical line \(x = h - p\):
+
+\[
+h - p = \frac{1}{2} - \left(-\frac{3}{4}\right) = \frac{5}{4}
+\]
+So **directrix**: \(x = \dfrac{5}{4}\)
+
+Because \(p < 0\), the parabola opens to the left.
+
+---
+
+**Final answer**
+
+- Standard form: \((y+3)^2 = -3\left(x - \dfrac{1}{2}\right)\)  
+- Vertex: \(\boxed{\left(\dfrac{1}{2}, -3\right)}\)  
+- Focus: \(\boxed{\left(-\dfrac{1}{4}, -3\right)}\)  
+- Directrix: \(\boxed{x = \dfrac{5}{4}}\)  
+- The parabola opens leftward.",True,"The solution correctly converts the equation to standard form, identifies vertex, focus, and directrix, and matches the expected graph, with clear step-by-step work.",Step-by-Step,True
+C8-20,Accurate,Wrong Answer,,False,No answer was provided to compare against the expected solution.,Incomplete,False

@@ -57,3 +57,18 @@ Thumbs.db
 
 
 .env
+bin/
+lib/
+share/
+pyvenv.cfg
+
+results.csv
+metrics.csv
+report.md
+report.html
+solver_markdown/
+charts/
+run.log
+
+pass_fail_chart.png
+style_distribution_chart.png
