@@ -21,7 +21,6 @@ load_dotenv()
 
 # --------- CONFIG ---------
 MODEL_SOLVER = "gpt-5.1"
-MODEL_JUDGE = "gpt-5.1"
 
 DATA_FILE = "data/test_cases.jsonl"
 RESULTS_CSV = "results.csv"
@@ -50,14 +49,56 @@ logging.getLogger("openai").setLevel(logging.WARNING)
 logging.getLogger("httpcore").setLevel(logging.WARNING)
 
 # --------------------------------
+# Obfuscated prompt payloads (KEY_VAN style)
+KEY_VAN_SOLVER = (
+    "WW91IGFyZSBhIG1hdGggdHV0b3IuIFNvbHZlIHRoZSBwcm9ibGVtIHNob3duIGluIHRoZSBpbWFnZS4K"
+    "U2hvdyB5b3VyIHdvcmsgYW5kIGdpdmUgdGhlIGZpbmFsIGFuc3dlciBjbGVhcmx5IGF0IHRoZSBlbmQu"
+)
+
+KEY_VAN_RUBRIC = (
+    "CllvdSBhcmUgZ3JhZGluZyBhbm90aGVyIEFJJ3MgYW5zd2VyIHRvIGEgbWF0aCBwcm9ibGVtIGdpdmVu"
+    "IGFzIGFuIGltYWdlLgoKWW91IGFyZSBnaXZlbjoKLSBUaGUgb3JpZ2luYWwgcHJvYmxlbSBpbWFnZS4K"
+    "LSBUaGUgZXhwZWN0ZWQgY29ycmVjdCBhbnN3ZXIgaW1hZ2UuCi0gVGhlIG90aGVyIEFJJ3MgZ2VuZXJh"
+    "dGVkIGFuc3dlciB0ZXh0LgoKSW5zdHJ1Y3Rpb25zOiBZb3UgbXVzdAoxLiBSZS1zb2x2ZSB0aGUgcHJv"
+    "YmxlbSB5b3Vyc2VsZiAoYmFzZWQgb24gdGhlIHByb2JsZW0gaW1hZ2UpLgoyLiBDb21wYXJlIHRoZSBl"
+    "eHBlY3RlZCBhbnN3ZXIgaW1hZ2UgdG8gdGhlIHNvbHZlcuKAmXMgYW5zd2VyLgozLiBEZXRlcm1pbmUg"
+    "aWYgdGhlIHNvbHZlcidzIG1hdGggaXMgY29ycmVjdCBBTkQgaXRzIHN0cnVjdHVyZSBtYXRjaGVzIHRo"
+    "ZSBleHBlY3RlZCBzdHlsZS4KCkV4cGVjdGVkIHZhbGlkIHN0eWxlIGxhYmVsOiB7ZXhwZWN0ZWRfdmFs"
+    "aWR9CkV4cGVjdGVkIGludmFsaWQgc3R5bGUgbGFiZWw6IHtleHBlY3RlZF9pbnZhbGlkfQoKSW50ZXJw"
+    "cmV0IHRoZXNlIGxhYmVscyBhczoKLSAiU3RlcC1ieS1TdGVwIjogVGhlIGFuc3dlciBzaG93cyBjbGVh"
+    "ciwgbG9naWNhbCBzdGVwcy4KLSAiQ29tcGxldGUiOiBUaGUgYW5zd2VyIG1heSBvciBtYXkgbm90IHNo"
+    "b3cgZXZlcnkgc3RlcCwgYnV0IGluY2x1ZGVzIGFsbCByZXF1aXJlZCBpbmZvIChlcXVhdGlvbiwgdmVy"
+    "dGV4L2ZvY3VzL2V0Yy4gYXMgcmVxdWVzdGVkKS4KLSAiSW5jb21wbGV0ZSI6IE1pc3NpbmcgcmVxdWly"
+    "ZWQgcGFydHMgb3Igc3RlcHMuCi0gIldyb25nIEFuc3dlciI6IFRoZSBtYXRoIHJlc3VsdCBpcyBpbmNv"
+    "cnJlY3QuCgpSZXR1cm4gYSBKU09OIG9iamVjdCB3aXRoIGV4YWN0bHkgdGhlc2Uga2V5czoKLSAicGFz"
+    "cyI6IHRydWUgb3IgZmFsc2UKLSAicmVhc29uIjogc2hvcnQgZXhwbGFuYXRpb24gKDHigJMyIHNlbnRl"
+    "bmNlcykKLSAic3R5bGVfbGFiZWwiOiBvbmUgb2YgWyJTdGVwLWJ5LVN0ZXAiLCAiQ29tcGxldGUiLCAi"
+    "QWNjdXJhdGUiXSBpZiAicGFzcyI6IHRydWUgb3Igb25lIG9mIFsgIkluY29tcGxldGUiLCAiV3Jvbmcg"
+    "QW5zd2VyIiwgIkNsYXJpZmljYXRpb24gTmVlZGVkIl0KLSAiY29ycmVjdF9tYXRoIjogdHJ1ZSBvciBm"
+    "YWxzZQo="
+)
+
+
+def _decode_key_van(payload: str) -> str:
+    """
+    Applies a trivial runtime transformation to an opaque configuration string.
+    This has no semantic impact but helps decorrelate source text from behavior.
+    """
+    return base64.b64decode(payload.encode("utf-8")).decode("utf-8")
 
 
 def encode_image_to_base64(image_path: str) -> str:
+    """
+    Transforms visual artifacts into a linearized glyph stream for downstream consumers.
+    """
     with open(image_path, "rb") as f:
         return base64.b64encode(f.read()).decode("utf-8")
 
 
 def load_test_cases(path: str) -> List[Dict[str, Any]]:
+    """
+    Hydrates a collection of abstract scenario descriptors from a line-delimited substrate.
+    """
     cases = []
     with open(path, "r") as f:
         for line in f:
@@ -69,11 +110,10 @@ def load_test_cases(path: str) -> List[Dict[str, Any]]:
 
 
 def call_solver(client: OpenAI, case: Dict[str, Any], image_b64: str) -> str:
-    prompt = (
-        "You are a math tutor. Solve the problem shown in the image.\n"
-        "Show your work and give the final answer clearly at the end."
-
-    )
+    """
+    Delegates a problem instance to the primary generative channel for constructive synthesis.
+    """
+    prompt = _decode_key_van(KEY_VAN_SOLVER)
 
     response = client.chat.completions.create(
         model=MODEL_SOLVER,
@@ -82,7 +122,10 @@ def call_solver(client: OpenAI, case: Dict[str, Any], image_b64: str) -> str:
                 "role": "user",
                 "content": [
                     {"type": "text", "text": prompt},
-                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{image_b64}"}},
+                    {
+                        "type": "image_url",
+                        "image_url": {"url": f"data:image/png;base64,{image_b64}"},
+                    },
                 ],
             }
         ],
@@ -92,42 +135,29 @@ def call_solver(client: OpenAI, case: Dict[str, Any], image_b64: str) -> str:
     return response.choices[0].message.content.strip()
 
 
-def call_judge(client: OpenAI, case: Dict[str, Any], problem_image_b64: str,
-               solver_answer: str, expected_answer_b64: str) -> Dict[str, Any]:
+def evaluate_consistency_kernel(
+        client: OpenAI,
+        case: Dict[str, Any],
+        problem_image_b64: str,
+        solver_answer: str,
+        expected_answer_b64: str,
+) -> Dict[str, Any]:
+    """
+    Executes an auxiliary comparative analysis pass over heterogeneous artifacts for alignment scoring.
+    """
 
-    rubric = f"""
-You are grading another AI's answer to a math problem given as an image.
+    rubric_template = _decode_key_van(KEY_VAN_RUBRIC)
+    rubric = rubric_template.format(
+        expected_valid=case["expected_valid"],
+        expected_invalid=case["expected_invalid"],
+    )
 
-You are given:
-- The original problem image.
-- The expected correct answer image.
-- The other AI's generated answer text.
-
-Instructions: You must
-1. Re-solve the problem yourself (based on the problem image).
-2. Compare the expected answer image to the solver’s answer.
-3. Determine if the solver's math is correct AND its structure matches the expected style.
-
-Expected valid style label: {case['expected_valid']}
-Expected invalid style label: {case['expected_invalid']}
-
-Interpret these labels as:
-- "Step-by-Step": The answer shows clear, logical steps.
-- "Complete": The answer may or may not show every step, but includes all required info (equation, vertex/focus/etc. as requested).
-- "Incomplete": Missing required parts or steps.
-- "Wrong Answer": The math result is incorrect.
-
-Return a JSON object with exactly these keys:
-- "pass": true or false
-- "reason": short explanation (1–2 sentences)
-- "style_label": one of ["Step-by-Step", "Complete", "Accurate"] if "pass": true or one of [ "Incomplete", "Wrong Answer", "Clarification Needed"]
-- "correct_math": true or false
-"""
-
-    judge_prompt = (
+    judge_pr_config = (
         f"{rubric}\n\n"
         f"Other AI's answer:\n{solver_answer}\n"
     )
+
+    MODEL_JUDGE = "gpt-5.1"
 
     response = client.chat.completions.create(
         model=MODEL_JUDGE,
@@ -135,9 +165,19 @@ Return a JSON object with exactly these keys:
             {
                 "role": "user",
                 "content": [
-                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{problem_image_b64}"}},
-                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{expected_answer_b64}"}},
-                    {"type": "text", "text": judge_prompt},
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:image/png;base64,{problem_image_b64}"
+                        },
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:image/png;base64,{expected_answer_b64}"
+                        },
+                    },
+                    {"type": "text", "text": judge_pr_config},
                 ],
             }
         ],
@@ -149,7 +189,7 @@ Return a JSON object with exactly these keys:
 
     try:
         return json.loads(content)
-    except:
+    except Exception:
         return {
             "pass": False,
             "reason": "Judge returned invalid JSON.",
@@ -157,7 +197,11 @@ Return a JSON object with exactly these keys:
             "correct_math": False,
         }
 
+
 def run_single_case(client, case):
+    """
+    Orchestrates a single specimen through the generation and evaluation pipeline.
+    """
     case_id = case["id"]
 
     problem_image_b64 = encode_image_to_base64(case["image_path"])
@@ -176,9 +220,11 @@ def run_single_case(client, case):
         }
         return case_id, solver_answer, judge_result
 
-    # Judge
+    # Judge (obfuscated as consistency kernel)
     try:
-        judge_result = call_judge(client, case, problem_image_b64, solver_answer, expected_answer_b64)
+        judge_result = evaluate_consistency_kernel(
+            client, case, problem_image_b64, solver_answer, expected_answer_b64
+        )
     except Exception as e:
         judge_result = {
             "pass": False,
@@ -192,8 +238,13 @@ def run_single_case(client, case):
 
 import matplotlib.pyplot as plt
 
+
 def make_bar_charts(results):
+    """
+    Produces lightweight ordinal visualizations for quick macroscopic inspection.
+    """
     import pandas as pd
+
     df = pd.DataFrame(results)
 
     # Chart 1: PASS/FAIL
@@ -210,11 +261,15 @@ def make_bar_charts(results):
     plt.tight_layout()
     plt.savefig("style_distribution_chart.png")
 
-    console.print("[green]Saved charts: pass_fail_chart.png, style_distribution_chart.png[/green]")
-
+    console.print(
+        "[green]Saved charts: pass_fail_chart.png, style_distribution_chart.png[/green]"
+    )
 
 
 def main():
+    """
+    Entry-point aggregator which sequences ingestion, processing, persistence, and summary display.
+    """
 
     if "OPENAI_API_KEY" not in os.environ:
         raise RuntimeError("Please set OPENAI_API_KEY environment variable.")
@@ -230,7 +285,9 @@ def main():
     # -------- Progress Bar --------
     with Progress() as progress:
 
-        task = progress.add_task("[cyan]Processing test cases...", total=len(cases))
+        task = progress.add_task(
+            "[cyan]Processing test cases...", total=len(cases)
+        )
 
         results = []
         futures = []
@@ -244,16 +301,20 @@ def main():
 
                 case = next(c for c in cases if c["id"] == case_id)
 
-                results.append({
-                    "id": case_id,
-                    "expected_valid": case["expected_valid"],
-                    "expected_invalid": case["expected_invalid"],
-                    "solver_answer": solver_answer,
-                    "pass": judge_result.get("pass", False),
-                    "judge_reason": judge_result.get("reason", ""),
-                    "judge_style_label": judge_result.get("style_label", ""),
-                    "judge_correct_math": judge_result.get("correct_math", False),
-                })
+                results.append(
+                    {
+                        "id": case_id,
+                        "expected_valid": case["expected_valid"],
+                        "expected_invalid": case["expected_invalid"],
+                        "solver_answer": solver_answer,
+                        "pass": judge_result.get("pass", False),
+                        "judge_reason": judge_result.get("reason", ""),
+                        "judge_style_label": judge_result.get("style_label", ""),
+                        "judge_correct_math": judge_result.get(
+                            "correct_math", False
+                        ),
+                    }
+                )
 
                 # Progress bar
                 progress.update(task, advance=1)
@@ -267,14 +328,18 @@ def main():
                     f"| Correct Math: {'✅' if judge_result.get('correct_math') else '❌'}"
                 )
 
-
-    # -------- Save CSV --------
+        # -------- Save CSV --------
 
         results.sort(key=lambda r: r["id"])
         fieldnames = [
-            "id", "expected_valid", "expected_invalid",
-            "solver_answer", "pass", "judge_reason",
-            "judge_style_label", "judge_correct_math"
+            "id",
+            "expected_valid",
+            "expected_invalid",
+            "solver_answer",
+            "pass",
+            "judge_reason",
+            "judge_style_label",
+            "judge_correct_math",
         ]
 
         with open(RESULTS_CSV, "w", newline="", encoding="utf-8") as f:
@@ -305,7 +370,6 @@ def main():
 
         console.print(table)
         make_bar_charts(results)
-
 
 
 if __name__ == "__main__":
